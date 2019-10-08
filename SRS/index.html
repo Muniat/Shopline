@@ -18,14 +18,14 @@
             <!--THE NAVBAR-->
    
     <nav>
-      <div class="container">
-        <div class="row">
+      <div class="">
+        <div class="">
           <div class="col-md-12">        
             <div class="container-fluid top-nav  menubar">
               <ul class="nav justify-content-end left-items">
                   <li><a href="#">Introduction</a><i class="fa fa-sort-desc"></i>
                     <div class="sub-menu">
-                      <ul>
+                      <ul class="section-1-ul">
                         <li><a href="#">Purpose</a></li>
                         <li><a href="#">Document Convention</a></li>
                         <li><a href="#">Intended Audience and Reading Suggestion</a></li>
@@ -36,7 +36,7 @@
                   </li>
                   <li><a href="#">Overall Description</a><i class="fa fa-sort-desc"></i>
                     <div class="sub-menu">
-                      <ul>
+                      <ul class="section-2-ul">
                         <li><a href="#">Product Perspective</a></li>
                         <li><a href="#">Product Functions</a></li>
                         <li><a href="#">User Classes and Characteristics</a></li>
@@ -49,17 +49,17 @@
                   </li>
                   <li><a href="#">External Interface Requirements</a><i class="fa fa-sort-desc"></i>
                      <div class="sub-menu">
-                      <ul>
-                        <li><a href="#">User Interfaces</a></li>
-                        <li><a href="#">Hardware Interfaces</a></li>
-                        <li><a href="#">Software Interfaces</a></li>
-                        <li><a href="#">Communication Interfaces</a></li>
+                      <ul class="section-3-ul">
+                        <li><a href="#section-3-User">User Interfaces</a></li>
+                        <li><a href="#setion-3-Hardware">Hardware Interfaces</a></li>
+                        <li><a href="#setion-3-Software">Software Interfaces</a></li>
+                        <li><a href="#setion-3-Communication">Communication Interfaces</a></li>
                       </ul>
                     </div>   
                   </li>
                   <li><a href="#">System Features</a><i class="fa fa-sort-desc"></i>
                     <div class="sub-menu">
-                      <ul>
+                      <ul class="section-4-ul">
                         <li><a href="#">Menu</a></li>
                         <li><a href="#">Menu</a></li>
                         <li><a href="#">Menu</a></li>
@@ -70,7 +70,7 @@
                   </li>
                   <li><a href="#">Other Non-functional Requirements</a><i class="fa fa-sort-desc"></i>
                     <div class="sub-menu">
-                      <ul>
+                      <ul class="section-5-ul">
                         <li><a href="#">Performance Requirements</a></li>
                         <li><a href="#">Safety Requirements</a></li>
                         <li><a href="#">Security Requirements</a></li>
@@ -91,8 +91,8 @@
     
     
             <!--  section-1  -->
-    <section>
-      <div class="container">
+    <section class="section-1" id="section-1">
+      <div class="container background-color">
         <h1>This is section-1</h1>
       </div>
     </section>    
@@ -100,25 +100,54 @@
 
 
             <!--  section-2  -->
-    <section>
-      <div class="container">
+    <section class="section-2" id="section-2">
+      <div class="container background-color">
         <h1>This is section-2</h1>
       </div>
     </section>    
             <!-- section-2 ends -->
-
+ 
 
             <!--  section-3  -->
-    <section>
-      <div class="container">
-        <h1>This is section-3</h1>
+    <section class="section-3" id="section-3">
+      <div class="container background-color">
+        <h1 style="margin-bottom: 30px; text-align: center;">External Requirements Specification</h1>
+        <div class="row" id="section-3-User">
+
+          <div class="col-md-4">
+              <img src="images/login.png" class="demopic">
+              <p>Fig: This is a demo fig.</p>
+            </div>
+            <div class="col-md-4">
+              <img src="images/signup.png" class="demopic">
+              <p>Fig: This is a demo fig.</p>
+          </div>
+          <div class="col-md-4">
+              <img src="images/ardemo.png" class="demopic">
+              <p>Fig: This is a demo fig.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <h2 id="setion-3-Hardware">Hardware interfaces</h2>
+            <p>The most important hardware Shopline requires is a smartphone with a built in camera. The device should be able to activate the camera from within the app to make the sceneform 3D view.The secondary requirement is an active Internet connection, either by mobile data or WiFi.This is to communicate with the Google Firebase Server and to make API calls to the google Sceneform </p>
+          </div>
+          <div class="col-md-12">
+            <h2 id="setion-3-Software">Software interfaces</h2>
+            <p>Shopline app will run Android 7.0 or later devies which suppors Google Play Services for AR, while a browser-based web interface will run on any computer (Windows, Mac or Linux) with a capable modern web browser. Google’s ArCore Platform will be used to take the advantage of its Sceform based 3D augmented reality functions.We will be using the free versions of the products,for this project purposes.</p>
+          </div>
+          <div class="col-md-12">
+            <h2 id="setion-3-Communication">Communication interfaces</h2>
+            <p>The application will set 3D image to the google ARCore Sceneform.ARCore will do two things: tracking the position of the mobile device as it moves, and building its own understanding of the real world.ARCore's motion tracking technology uses the phone's camera to identify interesting points, called features, and tracks how those points move over time. With a combination of the movement of these points and readings from the phone's inertial sensors, ARCore determines both the position and orientation of the phone as it moves through space.</p>
+          </div>
+        </div>
       </div>
     </section>    
             <!-- section-3 ends -->   
    
             <!--  section-4  -->
-    <section>
-      <div class="container">
+    <section class="section-4" id="section-4">
+      <div class="container background-color">
         <h1>This is section-4</h1>
       </div>
     </section>    
@@ -127,8 +156,8 @@
 
    
                <!--  section-5  -->
-    <section>
-      <div class="container">
+    <section class="section-5" id="section-5">
+      <div class="container background-color">
         <h1>This is section-5</h1>
       </div>
     </section>    
@@ -137,8 +166,8 @@
 
 
             <!--  section-6  -->
-    <section>
-      <div class="container">
+    <section class="section-6" id="section-6">
+      <div class="container background-color">
         <h1>This is section-6</h1>
       </div>
     </section>    

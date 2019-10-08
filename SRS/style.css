@@ -293,3 +293,35 @@ div.boat img{
 .menubar ul li:hover .sub-menu ul li:last-child{
     border-bottom: none;
 }
+
+.section-1{
+    margin-bottom: 300px;
+}
+
+.section-2{
+    margin-bottom: 300px;
+}
+
+.section-3{
+    margin-bottom: 300px;
+}
+
+.section-4{
+    margin-bottom: 300px;
+}
+
+.section-5{
+    margin-bottom: 300px;
+}
+
+.section-6{
+    margin-bottom: 300px;
+}
+.background-color{
+    background-color: #F8F9FA;
+}
+
+.demopic{
+    width: 280px;
+    height: 400px;
+}
