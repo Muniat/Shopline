@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     TextView textView;
     EditText emailEditText,passwordEditText;
-    Button signUpButton;
+    Button signUpButton,continueButton;
     //signUp button on click function
 
     public void onSignUpButtonClick(View view){
@@ -46,6 +46,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //continue button OnClick Func
+    public void onContinueButtonClick(View view){
+        Intent intent = new Intent(MainActivity.this,HomeActivity.class);
+        startActivity(intent);
+    }
+
 
 
 
@@ -65,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         emailEditText = (EditText)findViewById(R.id.emailEditText);
         passwordEditText = (EditText)findViewById(R.id.passwordEditText);
         textView = (TextView) findViewById(R.id.signUpTextView);
-
+        continueButton= (Button) findViewById(R.id.continueButton);
         mAuth = FirebaseAuth.getInstance();
 
 
