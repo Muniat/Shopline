@@ -14,15 +14,24 @@
 .top-nav ul li{
     color: #dce0e8;
 }
+
 .top-nav ul li a{
     color: #dce0e8;
+    text-decoration: none;
+}
+.top-nav ul li:hover{
+    color: #590e41;
+    display: block;
+}
+.top-nav ul li a:hover{
+    color: #590e41;
 }
 .left-items{
     float: left;
 }
 .left-items li{
     margin: auto 0;
-    padding: 10px 10px;
+    padding: 20px 20px;
     font-family: 'latobold';
     text-transform: capitalize;
 }
@@ -267,7 +276,7 @@ div.boat img{
 .menubar ul li:hover .sub-menu{
     display: block;
     position: absolute;
-    margin-top: 15px;
+    margin-top: 10px;
     background: rgb(80,60,120);
     text-decoration: none;
     margin-left: -20px;
