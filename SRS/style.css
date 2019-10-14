@@ -1,287 +1,59 @@
-
+*{
+    margin: 0 auto;
+}
 
     /***** top navbar******/
-
+.nav{
+    float: left;
+}
 .top-nav{
-    width: 100%;
+    width: 20%;
+    height: 100%;
     background: rgb(86,61,124);
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 .top-nav:after{
     content: "";
     display: block;
     clear: both;
 }
+
 .top-nav ul li{
     color: #dce0e8;
+    padding: 20px;
+    margin: auto 0;
+    padding: 10px 10px;
+    text-transform: capitalize;
+
 }
 
 .top-nav ul li a{
     color: #dce0e8;
     text-decoration: none;
+    text-align: left;
+    margin-left: 0px;
 }
-.top-nav ul li:hover{
-    color: #590e41;
-    display: block;
-}
-.top-nav ul li a:hover{
-    color: #590e41;
-}
-.left-items{
-    float: left;
-}
-.left-items li{
-    margin: auto 0;
-    padding: 20px 20px;
-    font-family: 'latobold';
-    text-transform: capitalize;
-}
-.placing{
-    display: inherit;
-}
-.left-items h1{
-    box-sizing: border-box;
-    border:solid 1px #dce0e8;
-    font-size: 28px;
-    border-radius: 15%;
-    padding: 1.5px 10px;
-}
-.right-items{
-    float: right;
-}
-.right-items li{
-    margin: auto 0;
-    padding: 10px 10px;
-    font-family: 'latobold';
-    text-transform: capitalize;
-}
-.right-items li:first-child{
-    margin-right: 0;
-    padding-right: 0;
-    margin-right: -6px;
-}
-.right-items input[type="button"]{
-    color: #edc525;
-    border: solid 1px #edc525;
-    background: transparent;
-    padding: 6px 16px;
-    
-}
-
-
-         /*******section-1********/
-.boot{
-    color: rgb(104,52,180);
-    font-size: 55px;
-    padding-top: 65px;
-    font-family: sans-serif;
-    font-weight: bold;
-    padding-bottom: 15px;
-   
-}
-.responsive-bootstrap-pic{
-    display: none;
-}
-section-1-left p{
-    color:  rgb(33,37,41);
-}
-.first-button{
-    float: left;
-    color: rgb(104,52,180);
-    border: solid 1px rgb(104,52,180);
-    padding: 10px 60px;
-    margin-right: 20px;
-    box-sizing: border-box;
-    border-radius: 5%;
-    background: transparent;
-    font-size: 20px;
-    font-weight: bold;
-}
-.second-button{
-    color:  rgb(92,92,92);
-    border: solid 1px rgb(92,92,92);
-    padding: 10px 60px;
-     box-sizing: border-box;
-    border-radius: 6%;
-    background: transparent;
-    font-size: 20px;
-    font-weight: bold;
-}
-.buttons-left{
-    padding: 12px 0;
-}
-.version{
-    color: #bdc3c7;
-    padding: 0 0 40px 0;
-}
-div.boat{
-   float: left;
-   width: 40%;
-}
-div.boat img{
-    width: 90%;
-}
-.boat-pic-section{
-   width: 70%;
-    padding-bottom: 120px;
-}
-.packet{
-    background: #ecf0f1;
-    padding: 15px;
-    color: #bdc3c7;
-}
-.boat-para{
-    font-size: 12px;
-    
-}
-
-.right-pic img{
-    height: 60%;
-    width: 80%;
-    padding-top: 70px;
-}
-
-
-
-
-
-             /********** section-2(first part)***************/
-.section-6{
-    overflow: hidden;
-    background: rgb(248,249,250);
-}
-.holder{
-   padding-left: 60px;
-    padding-right: 50px;
-}
-
-.fa-download{
-    padding: 30px 0 15px 0;
-    font-size: 22px;
-    color: rgb(0,123,255);
-}
-.doller{
-    color: blue;
-}
-.line{
-    background: rgb(199,199,199);
-    height: 1px;
-    width: 20%;
-    margin: 30px 0;
-}
-.installation-docs input{
-    color:rgb(0,123,255);
-    border: solid 1px rgb(0,123,255);
-    background: transparent;
-    padding: 5px 5px;
-    border-radius: 7%;
-}
-.left-part{
-    border-right: solid 3px white;
-    border-bottom: solid 3px white;
-}
-
-
-            /******** Section-2(middle part)**********/
-.fa-cloud-download{
-    padding: 30px 0 15px 0;
-    font-size: 22px;
-    color: rgb(0,123,255);
-}
-.css-link{
-    width: 80%;
-    overflow: auto;
-    height: 10%;
-    margin-bottom: 7%;
-}
-.js-link{
-    height: 15%;
-    width: 80%;
-    overflow: auto;
-    margin-bottom: 7%;
-}
-.red{
-    color: red;
-}
-.docs input{
-    color:rgb(0,123,255);
-    border: solid 1px rgb(0,123,255);
-    background: transparent;
-    padding: 5px 5px;
-    border-radius: 7%;
-    
-}
-.middle-part{
-    border-right: solid 3px white;
-    border-bottom: solid 3px white;
-}
-
-
-
-          /*********section-2(right area)*************/
-.fa-flash{
-     padding: 30px 0 15px 0;
-    font-size: 22px;
-    color: rgb(0,123,255);
-}
-.theme-pic img{
-    height: 50%;
-    width: 100%;
-}
-.Brows-theme-button input{
-    color:rgb(0,123,255);
-    border: solid 1px rgb(0,123,255);
-    background: transparent;
-    padding: 5px 5px;
-    border-radius: 7%;
-}
-.right-part{
-    border-bottom: solid 3px white;
-}
-
-
-
-               /*********footer-area********/
-
-.footer-area{
-    background: rgb(248,249,250);
-}
-.bottom-ul ul{
-    list-style: none;
-    padding-left: 0;
-    padding-top: 25px;
-    padding-left: 10px;
-}
-.bottom-ul ul li{
-    display: inline;
-    padding: 10px 10px;
-}
-.bottom-ul ul li a{
-    text-decoration: none;
-    font-family: 'tahoma';
-    font-size: 12px;
-    color: black;
-    font-size: 16px;
-}
-.footer-area p{
-    color: #bdc3c7;
-    padding-left: 20px;
-}
-.black{
-    color: black;
+.logo{
+    width: 20px;
+    height: 20px;
 }
 
 .sub-menu{
     display: none;
 }
+
 .menubar ul li:hover .sub-menu{
     display: block;
     position: absolute;
-    margin-top: 10px;
-    background: rgb(80,60,120);
+    margin-top: 15px;
+    background: rgb(255,255,255);
     text-decoration: none;
     margin-left: -20px;
     text-align: left;
 }
+
 
 .menubar ul li:hover .sub-menu ul{
     display: block;
@@ -298,9 +70,19 @@ div.boat img{
     text-align: left;
     margin-left: -25px;
 }
+.menubar ul li:hover .sub-menu ul li a{
+    color: #000;
+}
 
-.menubar ul li:hover .sub-menu ul li:last-child{
-    border-bottom: none;
+
+
+/*****top-nav ends here *********/
+.whole-wrapper{
+    display: flex;
+    position: relative;
+}
+div.wrapper{
+    margin-left: 21%;
 }
 
 .section-1{
