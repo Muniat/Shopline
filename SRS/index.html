@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,26 +16,27 @@
          
          
             <!--THE NAVBAR-->
- <div class="whole-wrapper">
    
-    <nav>       
-      <div class="top-nav menubar">
-        <h2 style="text-align: center; margin-bottom:30px;">Shopline</h2>
-          <ul class="nav left-items">
-            <li><a href="#">Introduction</a><i class="fa fa-sort-desc"></i>
-              <div class="sub-menu">
-                <ul class="section-1-ul">
-                  <li><a href="#">Purpose</a></li>
-                  <li><a href="#">Document Convention</a></li>
-                  <li><a href="#">Intended Audience and Reading Suggestion</a></li>
-                  <li><a href="#">Product Scope</a></li>
-                  <li><a href="#">Refferences</a></li>
-                </ul>
-              </div>
-            </li>
+    <nav>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">        
+            <div class="container-fluid top-nav  menubar">
+              <ul class="nav justify-content-end left-items">
+                  <li><a href="#">Introduction</a><i class="fa fa-sort-desc"></i>
+                    <div class="sub-menu">
+                      <ul>
+                        <li><a href="#">Purpose</a></li>
+                        <li><a href="#">Document Convention</a></li>
+                        <li><a href="#">Intended Audience and Reading Suggestion</a></li>
+                        <li><a href="#">Product Scope</a></li>
+                        <li><a href="#">Refferences</a></li>
+                      </ul>
+                    </div>
+                  </li>
                   <li><a href="#">Overall Description</a><i class="fa fa-sort-desc"></i>
                     <div class="sub-menu">
-                      <ul class="section-2-ul">
+                      <ul>
                         <li><a href="#">Product Perspective</a></li>
                         <li><a href="#">Product Functions</a></li>
                         <li><a href="#">User Classes and Characteristics</a></li>
@@ -48,17 +49,17 @@
                   </li>
                   <li><a href="#">External Interface Requirements</a><i class="fa fa-sort-desc"></i>
                      <div class="sub-menu">
-                      <ul class="section-3-ul">
-                        <li><a href="#section-3-User">User Interfaces</a></li>
-                        <li><a href="#setion-3-Hardware">Hardware Interfaces</a></li>
-                        <li><a href="#setion-3-Software">Software Interfaces</a></li>
-                        <li><a href="#setion-3-Communication">Communication Interfaces</a></li>
+                      <ul>
+                        <li><a href="#">User Interfaces</a></li>
+                        <li><a href="#">Hardware Interfaces</a></li>
+                        <li><a href="#">Software Interfaces</a></li>
+                        <li><a href="#">Communication Interfaces</a></li>
                       </ul>
                     </div>   
                   </li>
                   <li><a href="#">System Features</a><i class="fa fa-sort-desc"></i>
                     <div class="sub-menu">
-                      <ul class="section-4-ul">
+                      <ul>
                         <li><a href="#">Menu</a></li>
                         <li><a href="#">Menu</a></li>
                         <li><a href="#">Menu</a></li>
@@ -69,95 +70,96 @@
                   </li>
                   <li><a href="#">Other Non-functional Requirements</a><i class="fa fa-sort-desc"></i>
                     <div class="sub-menu">
-                        <ul class="section-5-ul">
-                          <li><a href="#">Performance Requirements</a></li>
-                          <li><a href="#">Safety Requirements</a></li>
-                          <li><a href="#">Security Requirements</a></li>
-                          <li><a href="#">Software Quality and Attributes</a></li>
-                          <li><a href="#">Business Rules</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li><a href="#">Appendix</a></li>
-                  </ul>
-                  <input type="Button" name="printButton" value="Print" class="btn">
+                      <ul>
+                        <li><a href="#">Performance Requirements</a></li>
+                        <li><a href="#">Safety Requirements</a></li>
+                        <li><a href="#">Security Requirements</a></li>
+                        <li><a href="#">Software Quality and Attributes</a></li>
+                        <li><a href="#">Business Rules</a></li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li><a href="#">Appendix</a></li>
+                </ul>
+                </div>
+            </div>
           </div>
+      </div>
+
     </nav>
-
-
-
     
-    <div class="wrapper">
+    
     
             <!--  section-1  -->
-    <section class="section-1" id="section-1">
-      <div class="background-color">
-        <h1 style="margin-bottom: 30px; text-align: center;">Introduction</h1>
-          <div class="row">
-          	<div class="col-md-12">
-          		<h2 id="setion-3-Purpose ">Purpose </h2>
-          		  <p>The purpose of this document is to build an online shopping system that will use augmented reality to show the buyers a 3D view of their products.</p>
-            </div>
-
-
-
-
-         
-         </div>
+    <section>
+      <div class="container">
+        <h1>This is section-1</h1>
       </div>
     </section>    
             <!-- section-1 ends -->
 
 
+
             <!--  section-2  -->
-    <section class="section-2" id="section-2">
-      <div class="background-color">
-        <h1>This is section-2</h1>
-      </div>
-    </section>    
+<h2 id="overallDescription">2. Overall Description</h2>
+      <p>This section will give an overview of the whole system. The system will be explained in its context to show how the system interacts with other systems and introduce the basic functionality of it. It will also describe what type of stakeholders that will use the system and what functionality is available for each type. At last, the constraints and assumptions for the system will be presented.</p>
+
+    <h3 id="perspective">2.1 Product Perspective</h2>
+      <p>This system will consist of two parts: one android application and one web portal. The mobile application will be used by the buyers who will be able to buy the products and view the products in AR. The web portal will be used by both the buyers and the sellers. The buyers can buy and the sellers can upload their product descriptions.<br>
+        The android application needs and version 7.0 or above. Android phones with version 7.0 or above comes with necessary hardware required for augmented reality support. The mobile app will be using the camera of the smartphone to implement the AR features. <br>
+        The mobile application and the web application will both have a database to store product data and user data. The web portal will have read, write and modify access of the database but the mobile app will only have read access. All database communication will happen through internet.
+        </p>
+    
+    <h3 id="functions">2.2 Product Functions</h2>
+      <p>With the mobile application the user will be able to buy furniture. The special feature of this app will be to see the product before buying in Augmented Reality. The users will also be able to search for a specific product with name or find it from the category menu. <br>
+
+        The web portal will have two parts, one for the administrator and another one is for the buyers. The buyers will be able to buy furniture from here also. But the website won’t be supporting any AR feature. As a result, the web portal will be accessible from any device as it won’t have any hardware constrain. The admins of the portal will be able to add new products with details, receive orders and also get analytical data on sales.<br>
+        </p>
+
+    <h3 id="characteristics">2.3 User Classes and Characteristics</h2>
+      <p>There are two types of users of the platform. The buyers and the administrators.<br>
+
+        The buyers will be able to use the mobile app and the web app. They can use all the features the mobile app provides.<br>
+        
+        The administrator will take product data from the sellers and will upload them on the web portal. They will not have access to any management features from the mobile application.
+        </p>
+
+    <h3 id="environment">2.4 Operating Environment</h2>
+      <p>For Android:<br><br>
+
+        Operating System: Android 7.0<br>
+        Disk Space: 100 MB<br>
+        RAM: 1 GB<br>
+        </p>
+
+    <h3 id="constraints">2.5 Design and Implementation Constraints</h2>
+      <p>As this an online application, internet connection is a constraint. Internet connection is crucial for the application to fetch data from the database over the internet.<br>
+        Both the web portal and the mobile application will be constrained by the capacity of the database. Since the database is shared between both application it may be forced to queue incoming requests and therefor increase the time it takes to fetch data.<br>
+        Android version is a mobile software constraint as the SDK used requires android version 7.0 and above. Also, the need of a camera, gyro, accelerometer is hardware constraint for the android application as without these the AR feature will not work.
+        </p>
+
+    <h3 id="userDoc">2.6 User Documentation</h2>
+      <p>The platform is just entering development stage. Once the development is completed and a prototype a released user documentation will be provided.</p>
+
+    <h3 id="assumptions">2.7 Assumptions and Dependencies</h2>
+      <p>One assumption for the android application is the application will be used mostly on high-end or latest phones as for a few years as the hardware requirement can only be met on those phones.<br>
+        Another assumption is phones with good camera will be providing the best performance as plane detection depends on the picture quality of the camera.<br>
+        Proper browser should be used for the web app and a stable internet connection is required.
+        </p>
             <!-- section-2 ends -->
- 
+
 
             <!--  section-3  -->
-    <section class="section-3" id="section-3">
-      <div class="background-color">
-        <h1 style="margin-bottom: 30px; text-align: center;">External Requirements Specification</h1>
-        <div class="row" id="section-3-User">
-
-          <div class="col-md-4">
-              <img src="images/login.png" class="demopic">
-              <p>Fig: This is a demo fig.</p>
-            </div>
-            <div class="col-md-4">
-              <img src="images/signup.png" class="demopic">
-              <p>Fig: This is a demo fig.</p>
-          </div>
-          <div class="col-md-4">
-              <img src="images/ardemo.png" class="demopic">
-              <p>Fig: This is a demo fig.</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <h2 id="setion-3-Hardware">Hardware interfaces</h2>
-            <p>The most important hardware Shopline requires is a smartphone with a built in camera. The device should be able to activate the camera from within the app to make the sceneform 3D view.The secondary requirement is an active Internet connection, either by mobile data or WiFi.This is to communicate with the Google Firebase Server and to make API calls to the google Sceneform </p>
-          </div>
-          <div class="col-md-12">
-            <h2 id="setion-3-Software">Software interfaces</h2>
-            <p>Shopline app will run Android 7.0 or later devies which suppors Google Play Services for AR, while a browser-based web interface will run on any computer (Windows, Mac or Linux) with a capable modern web browser. Google’s ArCore Platform will be used to take the advantage of its Sceform based 3D augmented reality functions.We will be using the free versions of the products,for this project purposes.</p>
-          </div>
-          <div class="col-md-12">
-            <h2 id="setion-3-Communication">Communication interfaces</h2>
-            <p>The application will set 3D image to the google ARCore Sceneform.ARCore will do two things: tracking the position of the mobile device as it moves, and building its own understanding of the real world.ARCore's motion tracking technology uses the phone's camera to identify interesting points, called features, and tracks how those points move over time. With a combination of the movement of these points and readings from the phone's inertial sensors, ARCore determines both the position and orientation of the phone as it moves through space.</p>
-          </div>
-        </div>
+    <section>
+      <div class="container">
+        <h1>This is section-3</h1>
       </div>
     </section>    
             <!-- section-3 ends -->   
    
             <!--  section-4  -->
-    <section class="section-4" id="section-4">
-      <div class="background-color">
+    <section>
+      <div class="container">
         <h1>This is section-4</h1>
       </div>
     </section>    
@@ -166,8 +168,8 @@
 
    
                <!--  section-5  -->
-    <section class="section-5" id="section-5">
-      <div class="background-color">
+    <section>
+      <div class="container">
         <h1>This is section-5</h1>
       </div>
     </section>    
@@ -176,15 +178,15 @@
 
 
             <!--  section-6  -->
-    <section class="section-6" id="section-6">
-      <div class="background-color">
+    <section>
+      <div class="container">
         <h1>This is section-6</h1>
       </div>
     </section>    
             <!-- section-6 ends -->     
             
-</div>
-</div>
+
+
 
     
     <!-- javascript files here -->
