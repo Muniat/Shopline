@@ -22,10 +22,11 @@
 
 .top-nav ul li{
     color: #dce0e8;
-    padding: 20px;
+    padding: 50px;
     margin: auto 0;
     padding: 10px 10px;
     text-transform: capitalize;
+    width: 100%;
 
 }
 
@@ -35,19 +36,18 @@
     text-align: left;
     margin-left: 0px;
 }
-.logo{
-    width: 20px;
-    height: 20px;
-}
 
 .sub-menu{
     display: none;
 }
-
+.menubar ul li:hover{
+    background-color: rgb(54,0,94);
+    color: #000;
+}
 .menubar ul li:hover .sub-menu{
     display: block;
     position: absolute;
-    margin-top: 15px;
+    margin-top: 10px;
     background: rgb(255,255,255);
     text-decoration: none;
     margin-left: -20px;
@@ -57,18 +57,23 @@
 
 .menubar ul li:hover .sub-menu ul{
     display: block;
-    margin: 10px;
     list-style-type: none;
+    width: 200px;
 }
 
 .menubar ul li:hover .sub-menu ul li{
-    width: 200px;
     padding: 10px;
     border-bottom: solid 1px #fff;
     background: transparent;
     border-radius: 0;
     text-align: left;
     margin-left: -25px;
+    width: 100%;
+    
+}
+
+.menubar ul li:hover .sub-menu ul li:hover{
+    background-color: rgb(121,122,125);
 }
 .menubar ul li:hover .sub-menu ul li a{
     color: #000;
@@ -115,4 +120,11 @@ div.wrapper{
 .demopic{
     width: 280px;
     height: 400px;
+}
+
+
+input[type="button"]{
+background-color: rgb(235,236,237);
+margin-left: 2%;
+margin-bottom: -90%;
 }
