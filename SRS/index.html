@@ -101,51 +101,74 @@
 
 
             <!--  section-2  -->
-<h2 id="overallDescription">2. Overall Description</h2>
-      <p>This section will give an overview of the whole system. The system will be explained in its context to show how the system interacts with other systems and introduce the basic functionality of it. It will also describe what type of stakeholders that will use the system and what functionality is available for each type. At last, the constraints and assumptions for the system will be presented.</p>
+    <section class="section-2" id="section-2">
 
-    <h3 id="perspective">2.1 Product Perspective</h2>
-      <p>This system will consist of two parts: one android application and one web portal. The mobile application will be used by the buyers who will be able to buy the products and view the products in AR. The web portal will be used by both the buyers and the sellers. The buyers can buy and the sellers can upload their product descriptions.<br>
-        The android application needs and version 7.0 or above. Android phones with version 7.0 or above comes with necessary hardware required for augmented reality support. The mobile app will be using the camera of the smartphone to implement the AR features. <br>
-        The mobile application and the web application will both have a database to store product data and user data. The web portal will have read, write and modify access of the database but the mobile app will only have read access. All database communication will happen through internet.
-        </p>
-    
-    <h3 id="functions">2.2 Product Functions</h2>
-      <p>With the mobile application the user will be able to buy furniture. The special feature of this app will be to see the product before buying in Augmented Reality. The users will also be able to search for a specific product with name or find it from the category menu. <br>
-
-        The web portal will have two parts, one for the administrator and another one is for the buyers. The buyers will be able to buy furniture from here also. But the website won’t be supporting any AR feature. As a result, the web portal will be accessible from any device as it won’t have any hardware constrain. The admins of the portal will be able to add new products with details, receive orders and also get analytical data on sales.<br>
-        </p>
-
-    <h3 id="characteristics">2.3 User Classes and Characteristics</h2>
-      <p>There are two types of users of the platform. The buyers and the administrators.<br>
-
-        The buyers will be able to use the mobile app and the web app. They can use all the features the mobile app provides.<br>
+      <div class="container background-color">
+        <h1 style="margin-bottom: 30px; text-align: center;">Overall Description</h1>
+        <div class="row">
+        <p>This section will give an overview of the whole system. The system will be explained in its context to show how the system interacts with other systems and introduce the basic functionality of it. It will also describe what type of stakeholders that will use the system and what functionality is available for each type. At last, the constraints and assumptions for the system will be presented.</p>
         
-        The administrator will take product data from the sellers and will upload them on the web portal. They will not have access to any management features from the mobile application.
-        </p>
+          <div class="col-md-12">
+      
+            <h2 id="perspective">2.1 Product Perspective</h2>
+            <p>This system will consist of two parts: one android application and one web portal. The mobile application will be used by the buyers who will be able to buy the products and view the products in AR. The web portal will be used by both the buyers and the sellers. The buyers can buy and the sellers can upload their product descriptions.<br>
+            The android application needs and version 7.0 or above. Android phones with version 7.0 or above comes with necessary hardware required for augmented reality support. The mobile app will be using the camera of the smartphone to implement the AR features. <br>
+            The mobile application and the web application will both have a database to store product data and user data. The web portal will have read, write and modify access of the database but the mobile app will only have read access. All database communication will happen through internet.
+            </p>
+          </div>
 
-    <h3 id="environment">2.4 Operating Environment</h2>
-      <p>For Android:<br><br>
+          <div class="col-md-12">
+    
+            <h2 id="functions">2.2 Product Functions</h2>
+            <p>With the mobile application the user will be able to buy furniture. The special feature of this app will be to see the product before buying in Augmented Reality. The users will also be able to search for a specific product with name or find it from the category menu. <br>
 
-        Operating System: Android 7.0<br>
-        Disk Space: 100 MB<br>
-        RAM: 1 GB<br>
-        </p>
+            The web portal will have two parts, one for the administrator and another one is for the buyers. The buyers will be able to buy furniture from here also. But the website won’t be supporting any AR feature. As a result, the web portal will be accessible from any device as it won’t have any hardware constrain. The admins of the portal will be able to add new products with details, receive orders and also get analytical data on sales.<br>
+            </p>
+          </div>
 
-    <h3 id="constraints">2.5 Design and Implementation Constraints</h2>
-      <p>As this an online application, internet connection is a constraint. Internet connection is crucial for the application to fetch data from the database over the internet.<br>
-        Both the web portal and the mobile application will be constrained by the capacity of the database. Since the database is shared between both application it may be forced to queue incoming requests and therefor increase the time it takes to fetch data.<br>
-        Android version is a mobile software constraint as the SDK used requires android version 7.0 and above. Also, the need of a camera, gyro, accelerometer is hardware constraint for the android application as without these the AR feature will not work.
-        </p>
 
-    <h3 id="userDoc">2.6 User Documentation</h2>
-      <p>The platform is just entering development stage. Once the development is completed and a prototype a released user documentation will be provided.</p>
+          <div class="col-md-12">
+            <h2 id="characteristics">2.3 User Classes and Characteristics</h2>
+            <p>There are two types of users of the platform. The buyers and the administrators.<br>
 
-    <h3 id="assumptions">2.7 Assumptions and Dependencies</h2>
-      <p>One assumption for the android application is the application will be used mostly on high-end or latest phones as for a few years as the hardware requirement can only be met on those phones.<br>
-        Another assumption is phones with good camera will be providing the best performance as plane detection depends on the picture quality of the camera.<br>
-        Proper browser should be used for the web app and a stable internet connection is required.
-        </p>
+            The buyers will be able to use the mobile app and the web app. They can use all the features the mobile app provides.<br>
+        
+            The administrator will take product data from the sellers and will upload them on the web portal. They will not have access to any management features from the mobile application.
+            </p>
+
+            <h2 id="environment">2.4 Operating Environment</h2>
+            <p>For Android:<br><br>
+
+            Operating System: Android 7.0<br>
+            Disk Space: 100 MB<br>
+            RAM: 1 GB<br>
+           </p>
+          </div>
+
+          <div class="col-md-12">
+           <h2 id="constraints">2.5 Design and Implementation Constraints</h2>
+           <p>As this an online application, internet connection is a constraint. Internet connection is crucial for the 
+           application to fetch data from the database over the internet.<br>
+           Both the web portal and the mobile application will be constrained by the capacity of the database. Since the database is shared between both application it may be forced to queue incoming requests and therefor increase the time it takes to fetch data.<br>
+           Android version is a mobile software constraint as the SDK used requires android version 7.0 and above. Also, the need of a camera, gyro, accelerometer is hardware constraint for the android application as without these the AR feature will not work.
+           </p>
+          </div>
+          <div class="col-md-12">
+           <h2 id="userDoc">2.6 User Documentation</h2>
+           <p>The platform is just entering development stage. Once the development is completed and a prototype a released user documentation will be provided.</p>
+          </div>
+
+          <div class="col-md-12">
+           <h2 id="assumptions">2.7 Assumptions and Dependencies</h2>
+           <p>One assumption for the android application is the application will be used mostly on high-end or latest phones as for a few years as the hardware requirement can only be met on those phones.<br>
+           Another assumption is phones with good camera will be providing the best performance as plane detection depends on the picture quality of the camera.<br>
+           Proper browser should be used for the web app and a stable internet connection is required.
+           </p>
+          </div>
+        </div>
+
+      </div>
+    </section>    
             <!-- section-2 ends -->
 
 
@@ -168,21 +191,60 @@
 
    
                <!--  section-5  -->
-    <section>
-      <div class="container">
-        <h1>This is section-5</h1>
+    <section class="section-5" id="section-5">
+      <div class="container background-color">
+        <h1 style="margin-bottom: 30px; text-align: center;">Other Non-functional Requirements</h1>
+        <div class="row">
+          <div class="col-md-12">
+            <h2 id="setion-5-Performance">Performance Requirements</h2>
+            <p> The system will be able to accommodate a large number of items and users. Also, in every action-response of the system, the delay will not be longer than a few seconds.  </p>
+          </div>
+          <div class="col-md-12">
+            <h2 id="setion-5-Safety">Safety Requirements</h2>
+            <p>All the data users' need to store, for the future, is always safe with our cloud storage. Even if the user device is broken,through his/her account the data will always remain protected.</p>
+          </div>
+          <div class="col-md-12">
+            <h2 id="setion-5-Security">Security Requirements</h2>
+            <p>The system will use a secure database. Users can go through basic information but will not be able to modify any information except their personal ones. Also, each user of the system shall login using some form of unique identification (e.g., username and password). All login attempts shall be done so in a secure manner (e.g., encrypted passwords)</p>
+          </div>
+          <div class="col-md-12">
+            <h2 id="setion-5-Quality">Software Quality and Attributes</h2>
+            <p>1. Availability: The system shall be available at all times, that is, the user can access it using a web browser or mobile app, only restricted by the down time of the server on which the system runs. Also in case of a hardware failure, backups of the database can be retrieved from the server and saved by the administrator. Then the service will be restarted.</p>
+
+            <p>2. Portability: The end-user part is fully portable and any system using any web browser should be able to use the features of our system. The web part of the system can be used on Windows or Mac etc and the mobile app version can run on Android.</p>
+
+            <p>3. Usability: The system is easy to handle and navigates without much delay, and so, the system program reacts accordingly and transverses quickly between its states.</p>
+
+            <p>4. GUI: The system shall provide a uniform look and feel between all the web pages, along with digital image for each of the products.</p>
+
+          </div>
+          <div class="col-md-12">
+            <h2 id="setion-5-Business">Business Rules</h2>
+            <p>The system requires the user to have an account (could be accessed via facebook or google account as well) in order to shop. The user has to be logged in as well. The system will have the option for the users to pay upon delivery of the item.</p>
+          </div>
+        </div>
+        
       </div>
-    </section>    
+    </section>     
             <!-- section-5 ends -->
 
 
 
             <!--  section-6  -->
-    <section>
-      <div class="container">
-        <h1>This is section-6</h1>
+    <section class="section-6" id="section-6">
+      <div class="container background-color">
+        <h1 style="margin-bottom: 30px; text-align: center;">Appendix</h1>
+        <div class="row">
+          <div class="col-md-12">
+            <h2 id="setion-6-Glossary">Glossary</h2>
+            <p>1. AR - Augmented Reality. It is the integration of digital information with the user's environment in real time.  </p>
+            <p>2. API - Application Programming Interface. It is a set of routines, protocols, and tools for building software applications. </p>
+            <p>3. GUI - Graphical User Interface. It is a system of interactive components such as icons and other graphical objects that help a user interact with computer software. </p>
+            <p>4. SDK - Software Development Kit. It is a collection of software development tools in one installable package. </p>
+          </div>
+        </div>
       </div>
-    </section>    
+    </section>       
             <!-- section-6 ends -->     
             
 
