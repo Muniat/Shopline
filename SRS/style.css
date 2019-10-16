@@ -96,6 +96,7 @@
 }
 div.wrapper{
     margin-left: 21%;
+    width: 77%;
 }
 
 .background-color{
@@ -110,13 +111,10 @@ input[type="button"]{
 background-color: rgb(235,236,237);
 width: 50%;
 font-size: 20px;
-margin-bottom: -120%;
 }
 
 /*********main body*******/
-.wrapper{
-    margin-left: 21%;
-}
+
 .head{
     color: rgb(86,61,124);
 }

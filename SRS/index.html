@@ -61,11 +61,9 @@
                   <li><a href="#">System Features</a><i class="fa fa-sort-desc"></i>
                     <div class="sub-menu">
                       <ul>
-                        <li><a href="#">Menu</a></li>
-                        <li><a href="#">Menu</a></li>
-                        <li><a href="#">Menu</a></li>
-                        <li><a href="#">Menu</a></li>
-                        <li><a href="#">Menu</a></li>
+                        <li><a href="#">Advanced User Registration</a></li>
+                        <li><a href="#aug">Augmented Reality Shopping Experience</a></li>
+                        <li><a href="#">Product Cart</a></li>
                       </ul>
                     </div>
                   </li>
@@ -211,7 +209,7 @@
     <section class="section-3" id="section-3">
       <div class="background-color">
         <h1 style="margin-bottom: 30px; text-align: center;" class="head">External Requirements Specification</h1>
-        <div class="picture-part">
+        <div class="container picture-part">
           <div class="row" id="section-3-User">
 
           <div class="col-md-4">
@@ -253,23 +251,41 @@
         <div class="">
           <div class="">
             <h1 style="margin-bottom: 30px; text-align: center;" class="head">System Features</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
-            <h2>Feature-1</h2>
+            <p>The system features stated below are the core building blocks of the Shopline 
+            application. However this are not the only features that the application will have.
+            Some small but important features are omitted in this section due to their
+            trivial nature.</p>
+            <h2>4.1 Advanced User Registration.</h2>
              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
 
-            <h2>Feature-2</h2>
-             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
-
-            <h2>Feature-3</h2>
+            <h2 id="aug">4.2 Augmented Reality Shopping Experience.</h2>
+            <h4>4.2.1 Description and Priority.</h4>
+             <p>3D view of the product will be shown to the user using the live camera
+             of the phone.Google ARCore will be used to implement this augmented reality.
+             ARCore is a collection of different API's.</p>
+             <p>Priority : MEDIUM</p>
+             <p><i class="fa fa-angle-double-right"></i>Benefit: 09</p>
+             <p><i class="fa fa-angle-double-right"></i>Cost: 07</p>
+             <p><i class="fa fa-angle-double-right"></i>Risk: 08</p>
+             <h4>4.2.2 Response Sequence</h4>
+             <p><i class="fa fa-angle-double-right"></i>Use Case Name: Augmented Reality Product View.</p>
+             <p><i class="fa fa-angle-double-right"></i>Actor: Consumer</p>
+             <p><i class="fa fa-angle-double-right"></i>Type: Primary</p>
+             <p><i class="fa fa-angle-double-right"></i>Overview: Allows user to have augmented shopping
+             experiece by 3D view of a product in live camera preview.</p>
+             <p>Typical Course of Actions: </p>
+             <img src="images/Arcore(TCoE).png">
+             <p>Table 2.0: Typical Course of Events.</p>
+             <p>Alternate Course of Actions.</p>
+             <p>**Refers to table 2.0</p>
+             <img src="images/alternateCoA.png">
+             <p>Table 2.1:Alternate Course of Actions.</p>
+             <p>Functional Requirement</p>
+             <img src="images/requirementAug.png">
+             <p>Table 2.2: Functional requirement</p>
+            <h2>4.3 Simple Product Cart</h2>
              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
