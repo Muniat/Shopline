@@ -27,34 +27,34 @@
                   <li><a href="#">Introduction</a><i class="fa fa-sort-desc"></i>
                     <div class="sub-menu">
                       <ul>
-                        <li><a href="#">Purpose</a></li>
-                        <li><a href="#">Document Convention</a></li>
-                        <li><a href="#">Intended Audience and Reading Suggestion</a></li>
-                        <li><a href="#">Product Scope</a></li>
-                        <li><a href="#">Refferences</a></li>
+                        <li><a href="#purpose">Purpose</a></li>
+                        <li><a href="#docCon">Document Convention</a></li>
+                        <li><a href="#inAu">Intended Audience and Reading Suggestion</a></li>
+                        <li><a href="#prCs">Product Scope</a></li>
+                        <li><a href="#reff">Refferences</a></li>
                       </ul>
                     </div>
                   </li>
                   <li><a href="#">Overall Description</a><i class="fa fa-sort-desc"></i>
                     <div class="sub-menu">
                       <ul>
-                        <li><a href="#">Product Perspective</a></li>
-                        <li><a href="#">Product Functions</a></li>
-                        <li><a href="#">User Classes and Characteristics</a></li>
-                        <li><a href="#">Operating Environment</a></li>
-                        <li><a href="#">Design And Implementation Constraints</a></li>
-                        <li><a href="#">User Doccumentation</a></li>
-                        <li><a href="#">Assumptions and Dependencies</a></li>
+                        <li><a href="#proPer">Product Perspective</a></li>
+                        <li><a href="#proFunc">Product Functions</a></li>
+                        <li><a href="#usClass">User Classes and Characteristics</a></li>
+                        <li><a href="#opInv">Operating Environment</a></li>
+                        <li><a href="#desiImp">Design And Implementation Constraints</a></li>
+                        <li><a href="#usDoc">User Doccumentation</a></li>
+                        <li><a href="#assDep">Assumptions and Dependencies</a></li>
                       </ul>
                     </div>
                   </li>
                   <li><a href="#">External Interface Requirements</a><i class="fa fa-sort-desc"></i>
                      <div class="sub-menu">
                       <ul>
-                        <li><a href="#">User Interfaces</a></li>
-                        <li><a href="#">Hardware Interfaces</a></li>
-                        <li><a href="#">Software Interfaces</a></li>
-                        <li><a href="#">Communication Interfaces</a></li>
+                        <li><a href="#userInterface">User Interfaces</a></li>
+                        <li><a href="#hardwareInterface">Hardware Interfaces</a></li>
+                        <li><a href="#softwareInterface">Software Interfaces</a></li>
+                        <li><a href="#communicationInterface">Communication Interfaces</a></li>
                       </ul>
                     </div>   
                   </li>
@@ -70,11 +70,11 @@
                   <li><a href="#">Other Non-functional Requirements</a><i class="fa fa-sort-desc"></i>
                     <div class="sub-menu">
                       <ul>
-                        <li><a href="#">Performance Requirements</a></li>
-                        <li><a href="#">Safety Requirements</a></li>
-                        <li><a href="#">Security Requirements</a></li>
-                        <li><a href="#">Software Quality and Attributes</a></li>
-                        <li><a href="#">Business Rules</a></li>
+                        <li><a href="#performanceReq">Performance Requirements</a></li>
+                        <li><a href="#safetyReq">Safety Requirements</a></li>
+                        <li><a href="#SecurityReq">Security Requirements</a></li>
+                        <li><a href="#softQual">Software Quality and Attributes</a></li>
+                        <li><a href="#bussRules">Business Rules</a></li>
                       </ul>
                     </div>
                   </li>
@@ -99,27 +99,27 @@
         <h1 class="head" style="margin-bottom: 30px; text-align: center;">Introduction</h1>
             <div class="row">
           	  <div class="col-md-12">
-          		<h2 id="section-1">Purpose</h2>
+          		<h2 id="purpose">Purpose</h2>
           		  <p>The purpose of this document is to build an online shopping system that will use augmented reality to show the buyers a 3D view of their products.</p>
               </div>
 
               <div class="col-md-12">
-          		<h2 id="section-1">Document Conventions</h2>
+          		<h2 id="docCon">Document Conventions</h2>
           		  <p>1. AR - Augmented Reality</p>
               </div>
 
                <div class="col-md-12">
-          		<h2 id="section-1">Intended Audience and Reading Suggestions</h2>
+          		<h2 id="inAu">Intended Audience and Reading Suggestions</h2>
           		  <p>This project is a prototype for the online augmented reality shopping system. The intended readers of this document are the developers of system and course instructor. The entire SRS is divided into six(6) sections. The first section is the Introduction. Overall project description is provided in section two. Section three provides the External Interface Requirements including user, software, hardware and communication interface. Readers will know about the System Features in section four. Other Nonfunctional Requirements are described in section five and section six is used for further more requirements. Readers are suggested to go through the SRS from section one to section six sequentially.</p>
               </div>
 
               <div class="col-md-12">
-          		<h2 id="section-1">Product Scope</h2>
+          		<h2 id="prCs">Product Scope</h2>
           		  <p>The purpose of this product is to give the customers an idea about the products they are buying. By using AR they can not only see pictures but also check if that product meet their needs. Nowadays people do not trust online shopping system because they don't get what they want. Our goal is to provide a facility that will enable them to see what customers are buying and gain back their trust. With the biggest companies in the world investing billions on Augmented Reality and AR integrations in e-commerce platforms to enhance shopping, it won't be long before the Augmented Reality retail shopping industry has over 130 Billion streaming annually. Analysts predict by 2020 AR shopping will be almost a 150 Billion dollar industry.</p>
               </div>
 
               <div class="col-md-12">
-          		<h2 id="section-1">References</h2>
+          		<h2 id="reff">References</h2>
           		  <p>1. SRS Template - IEEE<br>2. ARCore API <a href="https://developers.google.com/ar ">ARCore</a></p>
 
           		    
@@ -143,7 +143,7 @@
         
           <div class="col-md-12">
       
-            <h2 id="perspective">2.1 Product Perspective</h2>
+            <h2 id="proPer">2.1 Product Perspective</h2>
             <p>This system will consist of two parts: one android application and one web portal. The mobile application will be used by the buyers who will be able to buy the products and view the products in AR. The web portal will be used by both the buyers and the sellers. The buyers can buy and the sellers can upload their product descriptions.<br>
             The android application needs and version 7.0 or above. Android phones with version 7.0 or above comes with necessary hardware required for augmented reality support. The mobile app will be using the camera of the smartphone to implement the AR features. <br>
             The mobile application and the web application will both have a database to store product data and user data. The web portal will have read, write and modify access of the database but the mobile app will only have read access. All database communication will happen through internet.
@@ -152,7 +152,7 @@
 
           <div class="col-md-12">
     
-            <h2 id="functions">2.2 Product Functions</h2>
+            <h2 id="proFunc">2.2 Product Functions</h2>
             <p>With the mobile application the user will be able to buy furniture. The special feature of this app will be to see the product before buying in Augmented Reality. The users will also be able to search for a specific product with name or find it from the category menu. <br>
 
             The web portal will have two parts, one for the administrator and another one is for the buyers. The buyers will be able to buy furniture from here also. But the website won’t be supporting any AR feature. As a result, the web portal will be accessible from any device as it won’t have any hardware constrain. The admins of the portal will be able to add new products with details, receive orders and also get analytical data on sales.<br>
@@ -161,7 +161,7 @@
 
 
           <div class="col-md-12">
-            <h2 id="characteristics">2.3 User Classes and Characteristics</h2>
+            <h2 id="usClass">2.3 User Classes and Characteristics</h2>
             <p>There are two types of users of the platform. The buyers and the administrators.<br>
 
             The buyers will be able to use the mobile app and the web app. They can use all the features the mobile app provides.<br>
@@ -169,7 +169,7 @@
             The administrator will take product data from the sellers and will upload them on the web portal. They will not have access to any management features from the mobile application.
             </p>
 
-            <h2 id="environment">2.4 Operating Environment</h2>
+            <h2 id="opInv">2.4 Operating Environment</h2>
             <p>For Android:<br><br>
 
             Operating System: Android 7.0<br>
@@ -179,7 +179,7 @@
           </div>
 
           <div class="col-md-12">
-           <h2 id="constraints">2.5 Design and Implementation Constraints</h2>
+           <h2 id="desiImp">2.5 Design and Implementation Constraints</h2>
            <p>As this an online application, internet connection is a constraint. Internet connection is crucial for the 
            application to fetch data from the database over the internet.<br>
            Both the web portal and the mobile application will be constrained by the capacity of the database. Since the database is shared between both application it may be forced to queue incoming requests and therefor increase the time it takes to fetch data.<br>
@@ -187,12 +187,12 @@
            </p>
           </div>
           <div class="col-md-12">
-           <h2 id="userDoc">2.6 User Documentation</h2>
+           <h2 id="usDoc">2.6 User Documentation</h2>
            <p>The platform is just entering development stage. Once the development is completed and a prototype a released user documentation will be provided.</p>
           </div>
 
           <div class="col-md-12">
-           <h2 id="assumptions">2.7 Assumptions and Dependencies</h2>
+           <h2 id="assDep">2.7 Assumptions and Dependencies</h2>
            <p>One assumption for the android application is the application will be used mostly on high-end or latest phones as for a few years as the hardware requirement can only be met on those phones.<br>
            Another assumption is phones with good camera will be providing the best performance as plane detection depends on the picture quality of the camera.<br>
            Proper browser should be used for the web app and a stable internet connection is required.
@@ -229,15 +229,15 @@
         
         <div class="written-part">
           <div class="">
-            <h2 id="setion-3-Hardware">Hardware interfaces</h2>
+            <h2 id="hardwareInterface">Hardware interfaces</h2>
             <p>The most important hardware Shopline requires is a smartphone with a built in camera. The device should be able to activate the camera from within the app to make the sceneform 3D view.The secondary requirement is an active Internet connection, either by mobile data or WiFi.This is to communicate with the Google Firebase Server and to make API calls to the google Sceneform </p>
           </div>
           <div class="">
-            <h2 id="setion-3-Software">Software interfaces</h2>
+            <h2 id="softwareInterface">Software interfaces</h2>
             <p>Shopline app will run Android 7.0 or later devies which suppors Google Play Services for AR, while a browser-based web interface will run on any computer (Windows, Mac or Linux) with a capable modern web browser. Google’s ArCore Platform will be used to take the advantage of its Sceform based 3D augmented reality functions.We will be using the free versions of the products,for this project purposes.</p>
           </div>
           <div class="">
-            <h2 id="setion-3-Communication">Communication interfaces</h2>
+            <h2 id="communicationInterface">Communication interfaces</h2>
             <p>The application will set 3D image to the google ARCore Sceneform.ARCore will do two things: tracking the position of the mobile device as it moves, and building its own understanding of the real world.ARCore's motion tracking technology uses the phone's camera to identify interesting points, called features, and tracks how those points move over time. With a combination of the movement of these points and readings from the phone's inertial sensors, ARCore determines both the position and orientation of the phone as it moves through space.</p>
           </div>
         </div>
@@ -304,19 +304,19 @@
         <h1 style="margin-bottom: 30px; text-align: center;" class="head">Other Non-functional Requirements</h1>
         <div class="row">
           <div class="col-md-12">
-            <h2 id="setion-5-Performance">Performance Requirements</h2>
+            <h2 id="performanceReq">Performance Requirements</h2>
             <p> The system will be able to accommodate a large number of items and users. Also, in every action-response of the system, the delay will not be longer than a few seconds.  </p>
           </div>
           <div class="col-md-12">
-            <h2 id="setion-5-Safety">Safety Requirements</h2>
+            <h2 id="safetyReq">Safety Requirements</h2>
             <p>All the data users' need to store, for the future, is always safe with our cloud storage. Even if the user device is broken,through his/her account the data will always remain protected.</p>
           </div>
           <div class="col-md-12">
-            <h2 id="setion-5-Security">Security Requirements</h2>
+            <h2 id="SecurityReq">Security Requirements</h2>
             <p>The system will use a secure database. Users can go through basic information but will not be able to modify any information except their personal ones. Also, each user of the system shall login using some form of unique identification (e.g., username and password). All login attempts shall be done so in a secure manner (e.g., encrypted passwords)</p>
           </div>
           <div class="col-md-12">
-            <h2 id="setion-5-Quality">Software Quality and Attributes</h2>
+            <h2 id="softQual">Software Quality and Attributes</h2>
             <p>1. Availability: The system shall be available at all times, that is, the user can access it using a web browser or mobile app, only restricted by the down time of the server on which the system runs. Also in case of a hardware failure, backups of the database can be retrieved from the server and saved by the administrator. Then the service will be restarted.</p>
 
             <p>2. Portability: The end-user part is fully portable and any system using any web browser should be able to use the features of our system. The web part of the system can be used on Windows or Mac etc and the mobile app version can run on Android.</p>
@@ -327,7 +327,7 @@
 
           </div>
           <div class="col-md-12">
-            <h2 id="setion-5-Business">Business Rules</h2>
+            <h2 id="bussRules">Business Rules</h2>
             <p>The system requires the user to have an account (could be accessed via facebook or google account as well) in order to shop. The user has to be logged in as well. The system will have the option for the users to pay upon delivery of the item.</p>
           </div>
         </div>
