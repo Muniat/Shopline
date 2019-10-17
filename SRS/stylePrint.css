@@ -1,0 +1,19 @@
+.top-nav{
+    display: none;
+}
+
+.background-color{
+    background-color: #F8F9FA;
+}
+
+.demopic{
+    width: 280px;
+    height: 400px;
+}
+
+/*********main body*******/
+
+.head{
+    color: rgb(86,61,124);
+}
+
