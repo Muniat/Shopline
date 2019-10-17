@@ -1,4 +1,4 @@
-﻿OCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,7 +7,8 @@
      <!-- css files -->     
      <link type="text/css" rel="stylesheet" href="fonts/font-awesome.min.css">
     <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
-    <link type="text/css" rel="stylesheet" href="style.css">
+    <link type="text/css" rel="stylesheet" href="style.css" media="screen">
+    <link type="text/css" rel="stylesheet" href="stylePrint.css" media="print">
     <link type="text/css" rel="stylesheet" href="css/responsive.css">
 
 </head>
@@ -81,7 +82,7 @@
                   <li><a href="#">Appendix</a></li>
                 </ul>
                 <div class="button-wrap" style="text-align: center;">
-                  <input class="btn" type="button" name="printButton" value="Print">
+                  <button class="btn btn-primary" onclick="window.print()">Print Page</button>
                 </div>
                 
                 </div>
@@ -316,7 +317,6 @@
              <p>Functional Requirement</p>
              <img src="images/requirementAug.png">
              <p>Table 3.2: Functional requirement</p>
-
           </div>
         </div>
       </div>
