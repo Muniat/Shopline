@@ -103,14 +103,15 @@ div.wrapper{
     background-color: #F8F9FA;
 }
 
-.demopic{
-    width: 280px;
-    height: 400px;
+.picture-part{
+    background-color: #C4C4C4;
 }
-input[type="button"]{
-background-color: rgb(235,236,237);
-width: 50%;
-font-size: 20px;
+.section-3 img{
+    margin-left: 25%;
+    margin-top: 5%;
+}
+div.picture-part p{
+    margin-left: 25%;
 }
 
 /*********main body*******/
