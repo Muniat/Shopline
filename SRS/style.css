@@ -46,6 +46,9 @@
     background-color: rgb(54,0,94);
     color: #000;
 }
+.menubar ul li:last-child:hover{
+    background-color: rgb(86,61,124);
+}
 .menubar ul li:hover .sub-menu{
     display: block;
     position: absolute;
@@ -89,7 +92,9 @@
 }
 
 
-
+a:link{
+    text-decoration: none;
+}
 
 /*****top-nav ends here *********/
 .whole-wrapper{
@@ -145,20 +150,6 @@ div.picture-part p{
     color: rgb(86,61,124);
 }
 
-
-.anchor{
-    position: relative;
-
+.button-wrap{
+    margin-top: 50%;
 }
-
- .anchor:before{
-    content: "";
-    width: 40%;
-    display: block;
-    height: 1.5px;
-    position: absolute;
-    background: #000;
-    right:10%;
-    top:50%;
-
- }
