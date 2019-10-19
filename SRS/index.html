@@ -8,8 +8,9 @@
      <link type="text/css" rel="stylesheet" href="fonts/font-awesome.min.css">
     <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="style.css" media="screen">
-    <link type="text/css" rel="stylesheet" href="stylePrint.css" media="print">
     <link type="text/css" rel="stylesheet" href="css/responsive.css">
+    <link type="text/css" rel="stylesheet" href="stylePrint.css" media="print">
+    
 
 </head>
 
@@ -99,55 +100,55 @@
     <ul class="toc_list">
       <li><a href="#section-1">1. Introduction</a>
        <ul>
-         <li><a href="#purpose">1.1 Purpose................................................................................................................</a></li>
-         <li><a href="#docCon">1.2 Document Conventions.................................................................................</a></li>
-         <li><a href="#inAu">1.3 Intended Audience and Reading Suggestions.....................................</a></li>
-         <li><a href="#prCs">1.4 Product Scope...................................................................................................</a></li>
-         <li><a href="#reff">1.5 References...........................................................................................................</a></li>
+         <li><a href="#purpose">1.1 Purpose.............................................................................................................</a></li>
+         <li><a href="#docCon">1.2 Document Conventions.............................................................................</a></li>
+         <li><a href="#inAu">1.3 Intended Audience and Reading Suggestions...................................</a></li>
+         <li><a href="#prCs">1.4 Product Scope.................................................................................................</a></li>
+         <li><a href="#reff">1.5 References........................................................................................................</a></li>
        </ul>
       </li>
       <li><a href="#section-2">2. Overall Description</a>
        <ul>
-         <li><a href="#proPer">2.1 Product Perspective.........................................................................................</a></li>
-         <li><a href="#proFunc">2.2 Product Functions............................................................................................</a></li>
-         <li><a href="#usClass">2.3 User Classes and Characteristics................................................................</a></li>
-         <li><a href="#opInv">2.4 Operating Environement...............................................................................</a></li>
-         <li><a href="#desiImp">2.5 Design and Implementation Constraints................................................</a></li>
-         <li><a href="#usDoc">2.6 User Documentations.....................................................................................</a></li>
-         <li><a href="#assDep">2.7 Assumptions and Dependencies................................................................</a></li>
+         <li><a href="#proPer">2.1 Product Perspective.....................................................................................</a></li>
+         <li><a href="#proFunc">2.2 Product Functions........................................................................................</a></li>
+         <li><a href="#usClass">2.3 User Classes and Characteristics..............................................................</a></li>
+         <li><a href="#opInv">2.4 Operating Environement.............................................................................</a></li>
+         <li><a href="#desiImp">2.5 Design and Implementation Constraints..............................................</a></li>
+         <li><a href="#usDoc">2.6 User Documentations..................................................................................</a></li>
+         <li><a href="#assDep">2.7 Assumptions and Dependencies.............................................................</a></li>
        </ul>
       </li>
 
       <li><a href="#section-3">3. External Requirements Specification</a>
         <ul>
-         <li><a href="#userInterface">3.1 User Interface....................................................................................................</a></li>
-         <li><a href="#hardwareInterface">3.2 Hardware Interface..........................................................................................</a></li>
-         <li><a href="#softwareInterface">3.3 Software Interface............................................................................................</a></li>
-         <li><a href="#communicationInterface">3.4 Communication Interface.............................................................................</a></li>
+         <li><a href="#userInterface">3.1 User Interface.................................................................................................</a></li>
+         <li><a href="#hardwareInterface">3.2 Hardware Interface......................................................................................</a></li>
+         <li><a href="#softwareInterface">3.3 Software Interface.........................................................................................</a></li>
+         <li><a href="#communicationInterface">3.4 Communication Interface..........................................................................</a></li>
        </ul>
       </li>
 
       <li><a href="#section-4">4. System Features</a>
         <ul>
-         <li><a href="#reg">4.1 Advanced User Registration</a></li>
-         <li><a href="#aug">4.2 Augmented Reality Shopping Experience</a></li>
-         <li><a href="#proCart">4.3 Product Cart</a></li>
+         <li><a href="#reg">4.1 Advanced User Registration......................................................................</a></li>
+         <li><a href="#aug">4.2 Augmented Reality Shopping Experience............................................</a></li>
+         <li><a href="#proCart">4.3 Product Cart......................................................................................................</a></li>
        </ul>
       </li>
 
       <li><a href="#section-5">5. Other Non-Functional Requirements</a>
         <ul>
-         <li><a href="#performanceReq">5.1 Performance Requirements</a></li>
-         <li><a href="#safetyReq">5.2 Safety Requirements</a></li>
-         <li><a href="#SecurityReq">5.3 Security Requirements</a></li>
-         <li><a href="#softQual">5.4 Software Quality and Attributes</a></li>
-         <li><a href="#bussRules">5.5 Bussines Rules</a></li>
+         <li><a href="#performanceReq">5.1 Performance .Requirements.....................................................................</a></li>
+         <li><a href="#safetyReq">5.2 Safety Requirements....................................................................................</a></li>
+         <li><a href="#SecurityReq">5.3 Security Requirements.................................................................................</a></li>
+         <li><a href="#softQual">5.4 Software Quality and Attributes..............................................................</a></li>
+         <li><a href="#bussRules">5.5 Bussines Rules.................................................................................................</a></li>
        </ul>
       </li>
 
       <li><a href="#section-6">6. Appendix</a>
         <ul>
-         <li><a href="#Glossary">6.1 Glossary</a></li>
+         <li><a href="#Glossary">6.1 Glossary..............................................................................................................</a></li>
        </ul>
       </li>
 
@@ -199,7 +200,7 @@
     <section class="section-2" id="section-2">
       <div class="container">
       <div class="background-color row">
-        <h1 style="margin-bottom: 30px; text-align: center;" class="head">2.Overall Description</h1>
+        <h1 style="margin-bottom: 30px; text-align: center;" class="head" id="head">2.Overall Description</h1>
         <div class="row">
         <p class="col-md-12">This section will give an overview of the whole system. The system will be explained in its context to show how the system interacts with other systems and introduce the basic functionality of it. It will also describe what type of stakeholders that will use the system and what functionality is available for each type. At last, the constraints and assumptions for the system will be presented.</p>
         
@@ -219,7 +220,7 @@
 
             The web portal will have two parts, one for the administrator and another one is for the buyers. The buyers will be able to buy furniture from here also. But the website won’t be supporting any AR feature. As a result, the web portal will be accessible from any device as it won’t have any hardware constrain. The admins of the portal will be able to add new products with details, receive orders and also get analytical data on sales.<br>
             </p>
-            <img src="images/use-case.png" style="display: block;
+            <img src="images/use-case.png" class="use-case-pic" style="display: block;
              margin-left: auto; margin-right: auto; width: 50%; align-items: center;">
             <p style="text-align: center;">Figure: Top level use cases for Shopline.</p>
           </div>
@@ -245,7 +246,7 @@
 
           <div class="col-md-12">
            <h2 id="desiImp">2.5 Design and Implementation Constraints</h2>
-           <p>As this an online application, internet connection is a constraint. Internet connection is crucial for the 
+           <p class="desiImp">As this an online application, internet connection is a constraint. Internet connection is crucial for the 
            application to fetch data from the database over the internet.<br>
            Both the web portal and the mobile application will be constrained by the capacity of the database. Since the database is shared between both application it may be forced to queue incoming requests and therefor increase the time it takes to fetch data.<br>
            Android version is a mobile software constraint as the SDK used requires android version 7.0 and above. Also, the need of a camera, gyro, accelerometer is hardware constraint for the android application as without these the AR feature will not work.
@@ -281,21 +282,21 @@
         <div class="container picture-part">
           <div class="row" id="section-3-User">
 
-          <div class="col-md-6">
+          <div class="col-md-6" id="pic-1">
               <img src="images/login.png">
               <p>Figure: Login mockup interface</p>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6" id="pic-2">
               <img src="images/signup.png">
               <p>Figure: Signup mockup interface</p>
           </div>
         </div>
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-6" id="pic-3">
               <img src="images/ardemo.png">
               <p>Figure: AugmentedView mockup interface</p>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-6" id="pic-4">
             <img src="images/cart.PNG">
               <p>Figure: Cart mockup interface</p>
           </div>
@@ -309,7 +310,7 @@
           </div>
           <div class="">
             <h2 id="softwareInterface">3.3 Software interfaces</h2>
-            <p>Shopline app will run Android 7.0 or later devies which suppors Google Play Services for AR, while a browser-based web interface will run on any computer (Windows, Mac or Linux) with a capable modern web browser. Google’s ArCore Platform will be used to take the advantage of its Sceform based 3D augmented reality functions.We will be using the free versions of the products,for this project purposes.</p>
+            <p class="softwareInterface">Shopline app will run Android 7.0 or later devies which suppors Google Play Services for AR, while a browser-based web interface will run on any computer (Windows, Mac or Linux) with a capable modern web browser. Google’s ArCore Platform will be used to take the advantage of its Sceform based 3D augmented reality functions.We will be using the free versions of the products,for this project purposes.</p>
           </div>
           <div class="">
             <h2 id="communicationInterface">3.4 Communication interfaces</h2>
@@ -354,7 +355,7 @@
              <p>Functional Requirement</p>
              <img src="images/login(requirements).png" style="display: block;
              box-sizing: border-box; align-items: center;">
-             <p style="text-align: center;">Table 1.2: Functional requirement</p>
+             <p style="text-align: center;" class="push-2">Table 1.2: Functional requirement</p>
 
             
 
@@ -376,7 +377,7 @@
              <p>Typical Course of Actions: </p>
              <img src="images/Arcore(TCoE).png" style="display: block;
              box-sizing: border-box; align-items: center;">
-             <p style="text-align: center;">Table 2.0: Typical Course of Events.</p>
+             <p style="text-align: center;" class="push-2">Table 2.0: Typical Course of Events.</p>
              <p>Alternate Course of Actions.</p>
              <p>**Refers to table 2.0</p>
              <img src="images/alternateCoA.png" style="display: block;
@@ -478,17 +479,6 @@
             <p>3. GUI - Graphical User Interface. It is a system of interactive components such as icons and other graphical objects that help a user interact with computer software. </p>
             <p>4. SDK - Software Development Kit. It is a collection of software development tools in one installable package. </p>
           </div>
-
-<<<<<<< HEAD
-          <div class="col-md-12">
-             <h2 id="UseCase">6.2 Analysis Models</h2>
-             <img src="images/use-case.png" style="display: block;
-             box-sizing: border-box; align-items: center; width: 80%;">
-             <p style="text-align: center;">Figure: Top level use cases for Shopline.</p>
-          </div>
-
-=======
->>>>>>> f9691693e3ea7fe4190b8289443312d2b2ae8b27
         </div>
       </div>
     </section>       

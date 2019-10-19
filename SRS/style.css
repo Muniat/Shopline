@@ -1,5 +1,7 @@
 *{
     margin: 0 auto;
+    font-family: helvatica;
+    font-size: 18px;
 }
 
     /***** top navbar******/
@@ -101,11 +103,11 @@ div.wrapper{
 #toc_container {
     background: #f9f9f9 none repeat scroll 0 0;
     border: 1px solid #aaa;
-    display: table;
+    display: none;
     font-size: 95%;
     margin-bottom: 1em;
     padding: 20px;
-    width: 60%;
+    width: 80%;
 }
 
 .toc_title {
@@ -116,8 +118,12 @@ div.wrapper{
 
 #toc_container li, #toc_container ul, #toc_container ul li{
     list-style: outside none none !important;
-}
 
+}
+#toc_container li a{
+    text-decoration: none;
+    color: #000;
+}
 .background-color{
     background-color: #F8F9FA;
 }
@@ -139,3 +145,20 @@ div.picture-part p{
     color: rgb(86,61,124);
 }
 
+
+.anchor{
+    position: relative;
+
+}
+
+ .anchor:before{
+    content: "";
+    width: 40%;
+    display: block;
+    height: 1.5px;
+    position: absolute;
+    background: #000;
+    right:10%;
+    top:50%;
+
+ }

@@ -2,11 +2,69 @@
     display: none;  
 }
 
+#toc_container {
+    background: #f9f9f9 none repeat scroll 0 0;
+    display: table;
+    font-size: 95%;
+    margin-bottom: 1em;
+    padding: 20px;
+    width: 100%;
+    margin: 20% 10% 20% 10%;
+}
 
+.toc_title {
+    font-weight: 600;
+    margin-left: 25%;
+    font-size: 20px;
+}
 
+#toc_container li, #toc_container ul, #toc_container ul li{
+    list-style: outside none none !important;
+}
+#toc_container li a{
+    text-decoration: none;
+    color: #000;
+}
 
+.background-color{
+    background-color: #F8F9FA;
+}
+.section-1{
+    margin-bottom: 35%;
+}
+#proFunc{
+    margin-top: 10%;
+}
+.head{
+    text-align: center;
+    margin-bottom: 30px; 
 
-
+}
+.desiImp{
+    margin-bottom: 10%;
+}
+#pic-1{
+    width: 50%;
+    display: inline-block;
+}
+#pic-2{
+    display: inline-block;
+    width: 50%;
+}
+#pic-3{
+    width: 50%;
+    display: inline-block;
+}
+#pic-4{
+    display: inline-block;
+    width: 50%;
+}
+.softwareInterface{
+    margin-bottom: 40%;
+}
+.push-2{
+    margin-bottom: 40%;
+}
 /*****top-nav ends here *********/
 div.wrapper{
    
