@@ -44,11 +44,12 @@
 }
 .menubar ul li:hover{
     background-color: rgb(54,0,94);
-    color: #000;
+    
 }
 .menubar ul li:last-child:hover{
     background-color: rgb(86,61,124);
 }
+
 .menubar ul li:hover .sub-menu{
     display: block;
     position: absolute;
@@ -58,8 +59,6 @@
     margin-left: 1px;
     text-align: left;
 }
-
-
 .menubar ul li:hover .sub-menu ul{
     display: block;
     list-style-type: none;
@@ -91,16 +90,12 @@
     background-color: rgb(121,122,125);
 }
 
-
 a:link{
     text-decoration: none;
 }
 
 /*****top-nav ends here *********/
-.whole-wrapper{
-    display: flex;
-    position: relative;
-}
+
 div.wrapper{
     margin-left: 21%;
     width: 77%;
