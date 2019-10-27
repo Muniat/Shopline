@@ -136,18 +136,7 @@
               - Test <br>
               - Extend<br> 
               - Separate Business and View Logic <br>
-
-
               </p>
-
-
-
-            
-
-
- 
-
-       
         </div>
         <!--------Architecture Design part ends -------------------->
 
@@ -185,7 +174,140 @@
 
         <!--------class Design part starts -------------------->
         <div id="classDesign" class="container">
-          <h1>Class Design Goes here</h1>
+          <h1>4 Class Design</h1>
+          <table class="table table-bordered">
+            <!-----user class table -------->
+              <tbody>
+                <tr>
+                  <td class="td-width">Identifications</td>
+                  <td>User</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Type</td>
+                  <td>Abstact Class</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Purpose</td>
+                  <td>This class holds the information of the user.</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Functions</td>
+                  <td>This is a user type data structure.</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Subordinates</td>
+                  <td>The concrete implementaion of the user actions.</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Dependencies</td>
+                  <td>Depends on user registration.</td>
+                </tr>
+              </tbody>
+            </table>
+
+
+            <!-----Authentication class table -------->
+            <table class="table table-bordered">
+              <tbody>
+                <tr>
+                  <td class="td-width">Identifications</td>
+                  <td>Authentication</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Type</td>
+                  <td>Sub Class of the User class</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Purpose</td>
+                  <td>This class allows the user to singIn or signUp on Shopline.</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Functions</td>
+                  <td>Checks the federated identity provider or user authentication to enable the user to order products.</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Subordinates</td>
+                  <td>The implementaions in this class will enable the user to continue further.</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Dependencies</td>
+                  <td>Depends on the validity of the given mail or FIP(federated Identity provider)</td>
+                </tr>
+              </tbody>
+            </table>
+
+
+
+             <!-----ShoplineLogin class table -------->
+            <table class="table table-bordered">
+              <tbody>
+                <tr>
+                  <td class="td-width">Identifications</td>
+                  <td>Shopline Login System.</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Type</td>
+                  <td>Sub Class of the Authentication Class.</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Purpose</td>
+                  <td>This class allows the user to singIn or signUp on Shopline using any valid email.</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Functions</td>
+                  <td>Checks the validity of the user input mail and also checks for a standard password.</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Subordinates</td>
+                  <td>The implementaions in this class will enable the user to create account on the Application.</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Dependencies</td>
+                  <td>Depends on the validity of the given mail.</td>
+                </tr>
+              </tbody>
+            </table>
+
+
+
+
+             <!-----Google Login class table -------->
+            <table class="table table-bordered">
+              <tbody>
+                <tr>
+                  <td class="td-width">Identifications</td>
+                  <td>Google Federated Login</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Type</td>
+                  <td>Sub Class of the Authentication class</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Purpose</td>
+                  <td>This class allows the user to singIn or signUp on Shopline using Google Federated Login.</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Functions</td>
+                  <td>Checks the federated identity provider to enable the user to Create Account in Shopline</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Subordinates</td>
+                  <td>The implementaions in this class will enable the user to continue further.</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Dependencies</td>
+                  <td>Depends on the validity of the given FIP(federated Identity provider) information.</td>
+                </tr>
+              </tbody>
+            </table>
+
+
+
+
+            
+
+
+
         </div>
         <!--------class Design part ends -------------------->
 
@@ -197,7 +319,7 @@
 
         <!--------Database Persistance part starts -------------------->
         <div id="databasePersistance" class="container">
-          <h1>Database Persistence</h1>
+          <h1>5 Database Persistence</h1>
           <h2>5.1 Introduction</h2>
           <p>In the context of storing data in a computer system, persistence means that the data survives after the process with which it was created has ended. In other words, for a data store to be considered persistent, it must write to non-volatile storage. Given the importance of the data store in most modern applications, making a poorly informed choice could mean substantial downtime or loss of data.</p>
           <p>There are four main design approaches that a data store can take to make a database persistence:
