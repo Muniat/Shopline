@@ -59,7 +59,7 @@
                       </ul>
                     </div>
                   </li>
-                  <li><a href="#">Database Persistance</a><i class="fa fa-sort-desc"></i>
+                  <li><a href="#">Database Persistence</a><i class="fa fa-sort-desc"></i>
                     <div class="sub-menu">
                       <ul>
                         <li><a href="#performanceReq">Introduction</a></li>
@@ -165,8 +165,37 @@
 
         <!--------Database Persistance part starts -------------------->
         <div id="databasePersistance" class="container">
-          <h1>Database persistance Goes here</h1>
+          <h1>Database Persistence</h1>
+          <h2>5.1 Introduction</h2>
+          <p>In the context of storing data in a computer system, persistence means that the data survives after the process with which it was created has ended. In other words, for a data store to be considered persistent, it must write to non-volatile storage. Given the importance of the data store in most modern applications, making a poorly informed choice could mean substantial downtime or loss of data.</p>
+          <p>There are four main design approaches that a data store can take to make a database persistence:
+          <br>1. Pure in-memory, no persistence at all, such as memcached or Scalaris.</br>
+          <br>2. In-memory with periodic snapshots, such as Oracle Coherence or Redis. </br>
+          <br>3. Disk-based with update-in-place writes, such as MySQL ISAM or MongoDB. </br>
+          <br>4. Commitlog-based, such as all traditional OLTP databases (Oracle,SQL Server, etc.)</br></p>
+          <p>In Shopline, most of our data is relational.Our database will consist of 2 main tables - the 'User' table and the 'Transaction' table. The user is extended by a 'GoogleCredentials' table if the registered User also has an authenticated Google account. The user has a unique ID and is connected to the Transactions table by the userID. Each user has multiple transactions and thus may have multiple relations. But every transaction is unique with its own transID. This transID is the foreign key for 2 other tables which are considered a subclass of transactions - 'Expenses' and 'Incomes'. An expense can be extended by making it a 'Receipt' which will hold it's OCR image and other details. SQL would've been an ideal choice, but we decided to go with Firebase. Because, it is supported by Google and is very well documented.Firebase hosting offers certain great tools and features to build and manage the static site.It will help us to save and also sync valuable details across numbers of customers.</p>
+
+          <h2>5.2 Django Framework</h2>
+          <p>Django open-source web framework, written in Python, which follows the model-view-template (MVT) architectural pattern.</p>
+
+          <p>Django's primary goal is to ease the creation of complex, database-driven websites. Django emphasizes reusability and "pluggability" of components, less code, low coupling, rapid development, and the principle of don't repeat yourself. Python is used throughout, even for settings files and data models. Django also provides an optional administrative create, read, update and delete interface that is generated dynamically through introspection and configured via admin models.</p>
+
+          <p>Despite having its own nomenclature, such as naming the callable objects generating the HTTP responses "views",the core Django framework can be seen as an MVC architecture. It consists of an object-relational mapper (ORM) that mediates between data models (defined as Python classes) and a relational database ("Model"), a system for processing HTTP requests with a web templating system ("View"), and a regular-expression-based URL dispatcher ("Controller").</p>
+
+          <p>Also included in the core framework are:
+
+          <br>1. A lightweight and standalone web server for development and testing. </br>
+          <br>2. A form serialization and validation system that can translate between HTML forms and values suitable for storage in the database. </br>
+          <br>3.A template system that utilizes the concept of inheritance borrowed from object-oriented programming.</br>
+          <br>4. A caching framework that can use any of several cache methods. </br>
+          <br>5. Support for middleware classes that can intervene at various stages of request processing and carry out custom functions. </br>
+          <br>6. An internal dispatcher system that allows components of an application to communicate events to each other via pre-defined signals. </br>
+          <br>7. An internationalization system, including translations of Django's own components into a variety of languages. </br>
+          <br>8. A serialization system that can produce and read XML and/or JSON representations of Django model instances. </br>
+          <br>9. A system for extending the capabilities of the template engine
+          An interface to Python's built-in unit test framework. </br></p>
         </div>
+
         <!--------Database persistance part ends -------------------->
 
 
