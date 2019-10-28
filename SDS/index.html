@@ -136,7 +136,7 @@
 
                      </p>
 
-              <center><p><img src="images/MVCdesign.PNG" alt="MVCdesign"> </p><br>
+              <center><p><img src="images/MVCdesign.PNG"  alt="MVCdesign"> </p><br>
             </center>
             <h3>Details about MVVM</h3>
             <p>MVVM stands for Model, View, ViewModel.</p>
@@ -178,7 +178,26 @@ without referencing the View. This makes the unit test cases easy to write.</p>
         <!--------Component Design part starts -------------------->
         <div id="componentDesign" class="container">
           <h1>3 Component Design</h1>
-          <h2>3.1 Database Design</h2>
+          <h2>3.1 Database Design</h2><br>
+
+          <p>We are using ER model or Entity-Relationship model to desing our database.</p><br>
+          <h3>Diagram of the Database</h3><br>
+          <p><center><img src="images/DBDesign2.PNG" width="500" height="500" alt="DBDesign2"></p><br></center> 
+
+          <h3>Database Discription</h3><br>
+          <p><b>Customers</b>: The attributes of this class is : User_id(int) as the primary key,Name(varchar),Password(varchar),Email(varchar). The purpose of this table is to store information of the customers to give them access to the system.</p><br>
+
+          <p><b>Products</b>: The attributes of this class is : Product_id(int) as the primary key,Product_name(varchar),Product_price(int). The purpose of this table is to store information of different types of product information like its name and price to display them in the system.</p><br>
+
+          <p><b>Order</b>: The attributes of this class is : Order_id(int) as the primary key,User_id(int) as foreign key,Product_id(int) as foreign key,Quantity(int),Total_price(int). A product can be order multiple times and a customer can have multiple orders.</p><br>
+
+        
+
+
+
+
+
+
           <h2>3.2 Data Transfer</h2>
           <h2>3.3 API Interface</h2>
           <p>Shopline app will be using the google ARCore which is a collection of API's. Among them the sceneform API is our targeted API to project the 3D model through the camera. First the android menifest files must have "camera permission", "android gLE enabled" "hardware ar camera enabled" and "google ar core". In the dependencies file, the dependency must be included.After the application is fully enabled to use ARCore we can project any 3D model as sceneform object.</p>
