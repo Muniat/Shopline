@@ -376,6 +376,119 @@ without referencing the View. This makes the unit test cases easy to write.</p>
           <br>4. Commitlog-based, such as all traditional OLTP databases (Oracle,SQL Server, etc.)</br></p>
           <p>In Shopline, most of our data is relational.Our database will consist of 2 main tables - the 'User' table and the 'Transaction' table. The user is extended by a 'GoogleCredentials' table if the registered User also has an authenticated Google account. The user has a unique ID and is connected to the Transactions table by the userID. Each user has multiple transactions and thus may have multiple relations. But every transaction is unique with its own transID. This transID is the foreign key for 2 other tables which are considered a subclass of transactions - 'Expenses' and 'Incomes'. An expense can be extended by making it a 'Receipt' which will hold it's OCR image and other details. SQL would've been an ideal choice, but we decided to go with Firebase. Because, it is supported by Google and is very well documented.Firebase hosting offers certain great tools and features to build and manage the static site.It will help us to save and also sync valuable details across numbers of customers.</p>
 
+          <p>The ER diagram is as follows: </p>
+          <p>The purpose of the following table is to keep the records of each user of Shopline. </p>
+          <table class="table table-bordered">
+              <tbody>
+                
+                <tr>
+                  <th></th>
+                  <th>Users</th>
+                </tr>
+                <tr>
+                  <td class="td-width">Attribute</td>
+                  <td class="td-width">Type</td>
+                  <td class="td-width">Purpose</td>
+                </tr>
+                <tr>
+                  <td>ID</td>
+                  <td>Int(10) unsigned </td>
+                  <td>Primary Key</td>
+                </tr>
+                <tr>
+                  <td>Name</td>
+                  <td>Varchar(200)</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>E-mail</td>
+                  <td>Varchar(200)</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Password</td>
+                  <td>Varchar(200)</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+
+          <p>The purpose of the following table is to keep the records of the products available in Shopline. </p>
+
+          <table class="table table-bordered">
+              <tbody>
+                
+                <tr>
+                  <th></th>
+                  <th>Products</th>
+                </tr>
+                <tr>
+                  <td class="td-width">Attribute</td>
+                  <td class="td-width">Type</td>
+                  <td class="td-width">Purpose</td>
+                </tr>
+                <tr>
+                  <td>ID</td>
+                  <td>Int(10) unsigned </td>
+                  <td>Primary Key</td>
+                </tr>
+                <tr>
+                  <td>Product_name</td>
+                  <td>Varchar(200)</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Product_price</td>
+                  <td>Int(15) unsigned</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+
+        
+
+            <p>The purpose of the following table is to keep records of orders made by each user in Shopline.</p>
+            <table class="table table-bordered">
+              <tbody>
+                
+                <tr>
+                  <th></th>
+                  <th>Order</th>
+                </tr>
+                <tr>
+                  <td class="td-width">Attribute</td>
+                  <td class="td-width">Type</td>
+                  <td class="td-width">Purpose</td>
+                </tr>
+                <tr>
+                  <td>Order_ID</td>
+                  <td>Int(10) unsigned </td>
+                  <td>Primary Key</td>
+                </tr>
+                <tr>
+                  <td>User_ID</td> 
+                  <td>Int(10) unsigned</td>                 
+                  <td>Foreign Key</td>
+                </tr>
+                <tr>
+                  <td>Product_ID</td>
+                  <td>Int(10) unsigned</td>
+                  <td>Foreign Key</td>
+                </tr>
+                <tr>
+                  <td>Quantity</td>
+                  <td>Int(10) unsigned</td>
+                  <td></td>
+                </tr>
+                  <td>Total_price</td>
+                  <td>Int(15)</td>
+                  <td></td>
+                </tr>
+                
+              </tbody>
+            </table>
+
+
           <h2>5.2 Django Framework</h2>
           <p>Django open-source web framework, written in Python, which follows the model-view-template (MVT) architectural pattern.</p>
 
