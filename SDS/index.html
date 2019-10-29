@@ -34,56 +34,55 @@
                       </ul>
                     </div>
                   </li>
-                  <li><a href="#">Architecture Design</a><i class="fa fa-sort-desc"></i>
+                  <li><a href="#ArchiDesign">Architecture Design</a><i class="fa fa-sort-desc"></i>
                     <div class="sub-menu">
                       <ul>
-                        <li><a href="#proPer">Software Architecture</a></li>
+                        <li><a href="#ArchiDesign">Software Architecture</a></li>
                       </ul>
                     </div>
                   </li>
                   <li><a href="#">Component Design</a><i class="fa fa-sort-desc"></i>
                      <div class="sub-menu">
                       <ul>
-                        <li><a href="#userInterface">Database Design</a></li>
-                        <li><a href="#softwareInterface">API Interfaces</a></li>
-                        <li><a href="#communicationInterface">User Interfaces Design</a></li>
+                        <li><a href="#dataDesign">Database Design</a></li>
+                        <li><a href="#apiInterface">API Interfaces</a></li>
+                        <li><a href="#userInterface">User Interfaces Design</a></li>
                       </ul>
                     </div>   
                   </li>
                   <li><a href="#">Class Design</a><i class="fa fa-sort-desc"></i>
                     <div class="sub-menu">
                       <ul>
-                        <li><a href="#">High Level Class Design</a></li>
-                        <li><a href="#aug">Details Of Classes</a></li>
+                        <li><a href="#high">High Level Class Design</a></li>
+                        <li><a href="#classDetails">Details Of Classes</a></li>
                       </ul>
                     </div>
                   </li>
                   <li><a href="#">Database Persistence</a><i class="fa fa-sort-desc"></i>
                     <div class="sub-menu">
                       <ul>
-                        <li><a href="#performanceReq">Introduction</a></li>
-                        <li><a href="#safetyReq">Django Framework</a></li>
+                        <li><a href="#intro">Introduction</a></li>
+                        <li><a href="#dj">Django Framework</a></li>
                       </ul>
                     </div>
                   </li>
                   <li><a href="#">Development Design</a><i class="fa fa-sort-desc"></i>
                     <div class="sub-menu">
                       <ul>
-                        <li><a href="#performanceReq">Strategy Pattern</a></li>
-                        <li><a href="#safetyReq">Development Lifecycle Model</a></li>
+                        <li><a href="#strat">Strategy Pattern</a></li>
+                        <li><a href="#lifecycle">Development Lifecycle Model</a></li>
                       </ul>
                     </div>
                   </li>
                   <li><a href="#">API and Endpoints</a><i class="fa fa-sort-desc"></i>
                     <div class="sub-menu">
                       <ul>
-                        <li><a href="#performanceReq">bla bla bla</a></li>
-                        <li><a href="#safetyReq">bla bla bla</a></li>
-                        <li><a href="#safetyReq">bla bla bla</a></li>
+                        <li><a href="#google">Google Account Services</a></li>
+                        <li><a href="#ARCore">ArCore</a></li>
+                        <li><a href="#endpoint">Endpoints</a></li>
                       </ul>
                     </div>
                   </li>
-                  <li style="text-align: center; margin-top: 70%;"><button class="btn btn-primary" onclick="window.print()">Print Page</button></li>
                 </ul>
                 
                 
@@ -98,9 +97,9 @@
       <div class="wrapper">
 
 
-
+        <h1 style="text-align: center; background-color:(86,61,124);">Software Development Specification.</h1>
         <!--------Introduction part starts -------------------->
-        <div id="introduction" class="container">
+        <div id="introduction" class="container" style="background-color: #f7f7f5;">
           <h1 style="text-align: center;">1. Introduction</h1>
             <h2 id="purpose">1.1 Purpose</h2>
                 <p>This is the era of modern smartphones.Now a days smartphones have so many features.This has added an extra dimention in software development too.Online shopping platforms are so popular now a days.The purpose of this project is to add a live camera 3D preview of the products that the customers buy from the online e-commerce sites.Our android version of the project will have this feature. User will just press a button and the camera will show a live preview to the user. Which will make online shopping far more intresting and will hopefully attract more consumers.
@@ -125,8 +124,8 @@
 
 
         <!--------Architecture Design part starts -------------------->
-        <div id="architectureDesign" class="container">
-          <h1 style="text-align: center;">2 Architecture Design</h1>
+        <div id="architectureDesign" class="container" style="background-color: #f7f7f5;">
+          <h1 style="text-align: center;" id="ArchiDesign">2 Architecture Design</h1>
           <p>Shopline application will mostly use the MVVM architecture for the android application and MVC for the web application.MVVM stands for Model, View, ViewModel. And MVC stands for Model, View and Controller</p>
           <h2>2.1 The android application architecture:</h2>
           <p>Model holds the data of the application. It cannot directly talk to the View. Generally, it’s recommended to expose the data to the ViewModel through Observables.It represents the UI of the application devoid of any Application Logic. It observes the ViewModel.It represents the UI of the application devoid of any Application Logic. It observes the ViewModel.</p>
@@ -137,6 +136,7 @@
             <li>Developers can write unit test cases for both ViewModel and Model layer without referencing the View. This makes the unit test cases easy to write.</li>
           </ul>
           <img src="images/MVCdesign.PNG">
+          <p style="font-size: 16px; text-align: center;"> Figure : MvvM architecture.</p>
           <h2>2.2 The Web Application Architecture.</h2>
           <p>The web version of the shopline application will follow The model-view-controller (MVC) architecture.
           MVC separates application into three components - Model, View  and Controller. We are using this for our web page application.Model represents shape of the data and business logic.It maintains the data of the application. Model objects retrieve and store model state in a database.View is a user interface. View display data using model to the user and also enables them to modify the data.Controller handles the user request. Typically, user interact with View, which in-turn raises appropriate URL request, this request will be handled by a controller. The controller renders the appropriate view with the model data as a response.</p>
@@ -147,6 +147,7 @@
             <li>Extend </li>
           </ul>
           <img src="images/MVC.png">
+          <p style="font-size: 16px; text-align: center;"> Figure : MVC architecture.</p>
         </div>
         <!--------Architecture Design part ends -------------------->
 
@@ -158,13 +159,14 @@
 
 
         <!--------Component Design part starts -------------------->
-        <div id="componentDesign" class="container">
+        <div id="componentDesign" class="container" style="background-color: #f7f7f5;">
           <h1 style="text-align: center;">3. Component Design</h1>
-          <h2>3.1 Database Design</h2><br>
+          <h2 id="dataDesign">3.1 Database Design</h2><br>
 
           <p>Shopline will be using a NOSQL database, Google firebase, which is a cloud based database platform.</p><br>
           <h3>Diagram of the Database</h3><br>
           <img src="images/database.png" style="height: 100%; width: 80%;">
+          <p style="font-size: 16px; text-align: center;"> Figure : Database Design</p>
 
           <h3>Database Discription</h3><br>
           <p><b>ShoplineUser</b>: The attributes of this class is : shopline_id(int) as the primary key,Name(varchar),Password(varchar),Email(varchar). The purpose of this table is to store information of the customers to give them access to the system.</p>
@@ -173,15 +175,15 @@
           <p><b>Products</b>: The attributes of this class is : Product_id(int) as the primary key,Product_name(varchar),Product_price(int). The purpose of this table is to store information of different types of product information like its name and price to display them in the system.</p>
 
           <p><b>Order</b>: The attributes of this class is : Order_id(int) as the primary key,User_id(int) as foreign key,Product_id(int) as foreign key,Quantity(int),Total_price(int). A product can be order multiple times and a customer can have multiple orders.</p>
-          <h2>3.2 API Interface</h2>
+          <h2 id="apiInterface">3.2 API Interface</h2>
           <p>Shopline app will be using the google ARCore which is a collection of API's. Among them the sceneform API is our targeted API to project the 3D model through the camera. First the android menifest files must have "camera permission", "android gLE enabled" "hardware ar camera enabled" and "google ar core". In the dependencies file, the dependency must be included.After the application is fully enabled to use ARCore we can project any 3D model as sceneform object.</p>
           <p>We will extend the ARSceneview directly. Then the system will proceed by making an Vision check and then will call setUpSession() to create a session manually.</p>
           <p>After the check's passed a session gets created and then by using the rendarable we will finally have a 3D model projection through the camera,on the detected surface. A Renderable is a 3D model that can be placed anywhere in the scene and consists of Meshes, Materials and Textures. model.builder() gets called while rendering the 3D file.(OBJ, FBX, glTF). </p>
-          <h2>3.3 User Interfaces Design</h2>
+          <h2 id="userInterface">3.3 User Interfaces Design</h2>
           <p>The user interface for the client side shall be the android app and a web-based app. The main UI of the Shopline application will be designed by tabbedActivity. The tabbedActivity will consist of four main interfaces. "Home", "Cart" and "Accounts". The welcome login and signUp page will be designed by following the google material design.</p>
-          <img src="images/login.png" class="interfacePics">
-          <img src="images/signup.png" class="interfacePics">
-          <img src="images/cart.png" class="interfacePics">
+          <img src="images/login.png" class="interfacePics" style="margin-bottom: 40px; margin-right: 40px;">
+          <img src="images/signup.png" class="interfacePics" style="margin-bottom: 40px;">
+          <img src="images/cart.png" class="interfacePics" style="margin-right: 40px;">
           <img src="images/ardemo.png" class="interfacePics">
           
         </div>
@@ -194,15 +196,17 @@
 
 
         <!--------class Design part starts -------------------->
-        <div id="classDesign" class="container">
+        <div id="classDesign" class="container" style="background-color: #f7f7f5;">
           <h1 style="text-align: center;">4. Class Design</h1>
           <p>This section focuses on the high level class diagram which demonstrates the relation between the classes. A detailed description of each class is given for a clear grasp of their function in the product.</p>
-          <h2>4.1 High level class design</h2>
+          <h2 id="high">4.1 High level class design</h2>
           <p>The following figure is the high level class diagram of Shopline:</p>
-          <img src="images/class.png" style="height: 100%; width: 80%;">
-          <h2>4.2 Details of classes</h2>
+          <img src="images/class.png" style="height: 80%; width: 80%;">
+           <p style="font-size: 16px; text-align: center;"> Figure : High Level Class Diagram.</p>
+          <h2 id="classDetails">4.2 Details of classes</h2>
           <p>The following tables explain the type, purpose, function(s), subordinate(s) and dependencies of each of the classes of the Shopline application:</p>
           <table class="table table-bordered">
+
             <!-----user class table -------->
               <tbody>
                 <tr>
@@ -215,7 +219,7 @@
                 </tr>
                 <tr>
                   <td class="td-width">Purpose</td>
-                  <td>This class holds the information of the user.</td>
+                  <td>This class holds the concrete information of the user.</td>
                 </tr>
                 <tr>
                   <td class="td-width">Functions</td>
@@ -231,14 +235,15 @@
                 </tr>
               </tbody>
             </table>
+            <p style="text-align: center;"> table 4.2.1 : User class description.</p>
 
 
-            <!-----Authentication class table -------->
+            <!-----google user class table -------->
             <table class="table table-bordered">
               <tbody>
                 <tr>
                   <td class="td-width">Identifications</td>
-                  <td>Authentication</td>
+                  <td>Google User</td>
                 </tr>
                 <tr>
                   <td class="td-width">Type</td>
@@ -246,7 +251,7 @@
                 </tr>
                 <tr>
                   <td class="td-width">Purpose</td>
-                  <td>This class allows the user to singIn or signUp on Shopline.</td>
+                  <td>This class allows the user to singIn or signUp on Shopline using fedarated identity provider.</td>
                 </tr>
                 <tr>
                   <td class="td-width">Functions</td>
@@ -262,10 +267,11 @@
                 </tr>
               </tbody>
             </table>
+            <p style="text-align: center;"> table 4.2.2 :  GoogleUSer class description.</p>
 
 
 
-             <!-----ShoplineLogin class table -------->
+             <!-----Shopline user class table -------->
             <table class="table table-bordered">
               <tbody>
                 <tr>
@@ -294,47 +300,239 @@
                 </tr>
               </tbody>
             </table>
+            <p style="text-align: center;"> table 4.2.3 : ShoplineUser class description.</p>
 
-
-
-
-             <!-----Google Login class table -------->
+              <!-----order class table -------->
             <table class="table table-bordered">
               <tbody>
                 <tr>
                   <td class="td-width">Identifications</td>
-                  <td>Google Federated Login</td>
+                  <td>Order</td>
                 </tr>
                 <tr>
                   <td class="td-width">Type</td>
-                  <td>Sub Class of the Authentication class</td>
+                  <td>Abstruct Class</td>
                 </tr>
                 <tr>
                   <td class="td-width">Purpose</td>
-                  <td>This class allows the user to singIn or signUp on Shopline using Google Federated Login.</td>
+                  <td>This class holds the information of curtomers orders.</td>
                 </tr>
                 <tr>
                   <td class="td-width">Functions</td>
-                  <td>Checks the federated identity provider to enable the user to Create Account in Shopline</td>
+                  <td>Holding the user order information.</td>
                 </tr>
                 <tr>
                   <td class="td-width">Subordinates</td>
-                  <td>The implementaions in this class will enable the user to continue further.</td>
+                  <td>The implementaions in this class will enable the user to order a product and proceed for checkout.</td>
                 </tr>
                 <tr>
                   <td class="td-width">Dependencies</td>
-                  <td>Depends on the validity of the given FIP(federated Identity provider) information.</td>
+                  <td>Depends on the user accounts existance.</td>
                 </tr>
               </tbody>
             </table>
+            <p style="text-align: center;"> table 4.2.4 : Order class description.</p>
 
 
 
 
-            
+              <!-----orderDetails class table -------->
+            <table class="table table-bordered">
+              <tbody>
+                <tr>
+                  <td class="td-width">Identifications</td>
+                  <td>Order Details</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Type</td>
+                  <td>Sub Class of the order class</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Purpose</td>
+                  <td>This class holds the information about the order.</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Functions</td>
+                  <td>Makes entry of the orders. into the database.</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Subordinates</td>
+                  <td>The implementaions in this class will make a order information entry into the datavbase.</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Dependencies</td>
+                  <td>N/A</td>
+                </tr>
+              </tbody>
+            </table>
+            <p style="text-align: center;"> table 4.2.5 : orderDetails class description.</p>
 
 
 
+
+              <!-----payment class table -------->
+            <table class="table table-bordered">
+              <tbody>
+                <tr>
+                  <td class="td-width">Identifications</td>
+                  <td>Payment</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Type</td>
+                  <td>Sub Class of the order class</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Purpose</td>
+                  <td>This class holds the information of payment.</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Functions</td>
+                  <td>Checks the payment status.</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Subordinates</td>
+                  <td>Checks the payment status and enables the user to proceed for checkout.</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Dependencies</td>
+                  <td>N/A.</td>
+                </tr>
+              </tbody>
+            </table>
+            <p style="text-align: center;"> table 4.2.6 : Payment class description.</p>
+
+
+
+
+              <!-----product class table -------->
+            <table class="table table-bordered">
+              <tbody>
+                <tr>
+                  <td class="td-width">Identifications</td>
+                  <td>Product</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Type</td>
+                  <td>Class</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Purpose</td>
+                  <td>This class holds all the product info.</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Functions</td>
+                  <td>Creats a new product entry into shopline.</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Subordinates</td>
+                  <td>The implementaions in this class will allow us to make an product entry into shopline.</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Dependencies</td>
+                  <td>Must be an admin to enter a new product.</td>
+                </tr>
+              </tbody>
+            </table>
+            <p style="text-align: center;"> table 4.2.7 : Product class description.</p>
+
+
+
+              <!-----view class table -------->
+            <table class="table table-bordered">
+              <tbody>
+                <tr>
+                  <td class="td-width">Identifications</td>
+                  <td>View</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Type</td>
+                  <td>Abstruct Class</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Purpose</td>
+                  <td>This class will decide upor the product view.</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Functions</td>
+                  <td>Will enable the user to have many types of view of the products.</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Subordinates</td>
+                  <td>The implementation on this class will enable the users to view their product either in picture mode or in 3D mode.</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Dependencies</td>
+                  <td>Depends on the specification of the user device.</td>
+                </tr>
+              </tbody>
+            </table>
+            <p style="text-align: center;"> table 4.2.8 : View class description.</p>
+
+
+
+              <!-----augmented class table -------->
+            <table class="table table-bordered">
+              <tbody>
+                <tr>
+                  <td class="td-width">Identifications</td>
+                  <td>Augmented</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Type</td>
+                  <td>Sub Class of the View class</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Purpose</td>
+                  <td>This class allows the user view the product in augmented mode.</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Functions</td>
+                  <td>Checks the user device specification.</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Subordinates</td>
+                  <td>The implementaions in this class will enable the user to have a augmented view of their products.</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Dependencies</td>
+                  <td>Depends on the user device specification.</td>
+                </tr>
+              </tbody>
+            </table>
+            <p style="text-align: center;"> table 4.2.9 : Augmented class description.</p>
+
+
+
+              <!-----pictureView class table -------->
+            <table class="table table-bordered">
+              <tbody>
+                <tr>
+                  <td class="td-width">Identifications</td>
+                  <td>Picture View</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Type</td>
+                  <td>Sub Class of the View class</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Purpose</td>
+                  <td>This class allows the user to have a picture view of their product.</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Functions</td>
+                  <td>Shows the picture of the product.</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Subordinates</td>
+                  <td>The implementaions in this class will enable the user to see their product picture</td>
+                </tr>
+                <tr>
+                  <td class="td-width">Dependencies</td>
+                  <td>N/A.</td>
+                </tr>
+              </tbody>
+            </table>
+            <p style="text-align: center;"> table 4.2.10 : pictureView class description.</p>
         </div>
         <!--------class Design part ends -------------------->
 
@@ -345,15 +543,17 @@
 
 
         <!--------Database Persistance part starts -------------------->
-        <div id="databasePersistance" class="container">
+        <div id="databasePersistance" class="container" style="background-color: #f7f7f5;">
           <h1 style="text-align: center;">5. Database Persistence</h1>
-          <h2>5.1 Introduction</h2>
+          <h2 id="intro">5.1 Introduction</h2>
           <p>In the context of storing data in a computer system, persistence means that the data survives after the process with which it was created has ended. In other words, for a data store to be considered persistent, it must write to non-volatile storage. Given the importance of the data store in most modern applications, making a poorly informed choice could mean substantial downtime or loss of data.</p>
+          <ul>
+            <li> Pure in-memory, no persistence at all, such as memcached or Scalaris.</li>
+            <li> In-memory with periodic snapshots, such as Oracle Coherence or Redis. </li>
+            <li>Disk-based with update-in-place writes, such as MySQL ISAM or MongoDB. </li>
+            <li>  Commitlog-based, such as all traditional OLTP databases (Oracle,SQL Server, etc.)</li>
+          </ul>
           <p>There are four main design approaches that a data store can take to make a database persistence:
-          <br>1. Pure in-memory, no persistence at all, such as memcached or Scalaris.</br>
-          <br>2. In-memory with periodic snapshots, such as Oracle Coherence or Redis. </br>
-          <br>3. Disk-based with update-in-place writes, such as MySQL ISAM or MongoDB. </br>
-          <br>4. Commitlog-based, such as all traditional OLTP databases (Oracle,SQL Server, etc.)</br></p>
           <p>In Shopline, most of our data is relational.Our database will consist of 2 main tables - the 'User' table and the 'Transaction' table. The user is extended by a 'GoogleCredentials' table if the registered User also has an authenticated Google account. The user has a unique ID and is connected to the Transactions table by the userID. Each user has multiple transactions and thus may have multiple relations. But every transaction is unique with its own transID. This transID is the foreign key for 2 other tables which are considered a subclass of transactions - 'Expenses' and 'Incomes'. An expense can be extended by making it a 'Receipt' which will hold it's OCR image and other details. SQL would've been an ideal choice, but we decided to go with Firebase. Because, it is supported by Google and is very well documented.Firebase hosting offers certain great tools and features to build and manage the static site.It will help us to save and also sync valuable details across numbers of customers.</p>
 
           <p>The ER diagram is as follows: </p>
@@ -364,11 +564,12 @@
                 <tr>
                   <th></th>
                   <th>Users</th>
+                  <th></th>
                 </tr>
                 <tr>
-                  <td class="td-width">Attribute</td>
-                  <td class="td-width">Type</td>
-                  <td class="td-width">Purpose</td>
+                  <td>Attribute</td>
+                  <td>Type</td>
+                  <td>Purpose</td>
                 </tr>
                 <tr>
                   <td>ID</td>
@@ -401,11 +602,12 @@
                 <tr>
                   <th></th>
                   <th>Products</th>
+                  <th></th>
                 </tr>
                 <tr>
-                  <td class="td-width">Attribute</td>
-                  <td class="td-width">Type</td>
-                  <td class="td-width">Purpose</td>
+                  <td>Attribute</td>
+                  <td>Type</td>
+                  <td>Purpose</td>
                 </tr>
                 <tr>
                   <td>ID</td>
@@ -434,6 +636,7 @@
                 <tr>
                   <th></th>
                   <th>Order</th>
+                  <th></th>
                 </tr>
                 <tr>
                   <td class="td-width">Attribute</td>
@@ -469,7 +672,7 @@
             </table>
 
 
-          <h2>5.2 Django Framework</h2>
+          <h2 id="dj">5.2 Django Framework</h2>
           <p>Django open-source web framework, written in Python, which follows the model-view-template (MVT) architectural pattern.</p>
 
           <p>Django's primary goal is to ease the creation of complex, database-driven websites. Django emphasizes reusability and "pluggability" of components, less code, low coupling, rapid development, and the principle of don't repeat yourself. Python is used throughout, even for settings files and data models. Django also provides an optional administrative create, read, update and delete interface that is generated dynamically through introspection and configured via admin models.</p>
@@ -500,11 +703,11 @@
 
 
         <!--------Development Design part starts -------------------->
-        <div id="developmentDesign" class="container">
+        <div id="developmentDesign" class="container" style="background-color: #f7f7f5;">
           <h1 style="text-align: center;">6. Development Design</h1>
-          <h2>6.1 Strategy Pattern</h2>
+          <h2 id="strat">6.1 Strategy Pattern</h2>
           <p>Shopline application will mostly be using the strategy pattern. It will try to help develop the application in such a way to optimize scalability. It will help the application stay open for extension and closed for modification. The strategy pattern is a behavioral software design pattern that enables selecting an algorithm at runtime. Instead of implementing a single algorithm directly, code receives run-time instructions as to which in a family of algorithms to use.</p>
-          <h2>6.2  Development Lifecycle Model</h2>
+          <h2 id="lifecycle">6.2  Development Lifecycle Model</h2>
           <p>From the many existing software development lifecycle methodologies, shopline shall be developed using the 'Agile Method'. The agile method has proven to be highly successful for developments spanning a short amount of time. The approach produces ongoing release cycles, each featuring small, incremental changes from the previous release. At each iteration, the product is tested. The Agile model helps teams identify and address small issues on projects before they evolve into more significant problems, and engage business stakeholders and get their feedback throughout the development process. As shopline is being developed with a small team in a short amount of time, the Agile method seems to be the perfect fit.</p>
         </div>
         <!--------Development Design part ends -------------------->
@@ -516,12 +719,12 @@
 
 
         <!--------API and Endpoint part starts -------------------->
-        <div id="APIandEndpoint" class="container">
+        <div id="APIandEndpoint" class="container" style="background-color: #f7f7f5;">
           <div class="">
             <h1 style="text-align: center;">7. API and Endpoints</h1><br>
-            <h2>7.1 Google Account Serivces</h2><br>
+            <h2 id="google">7.1 Google Account Serivces</h2><br>
             <p>Shopline will provide users with multiple options to login and register. A user will have the option to register manually or using Google account services which will provide the application the user’s Google account information. Google account services can later be extended in allowing the user to login using their Google accounts, in this case the user must be logged in or login to their Gmail accounts to allow the app to authenticate the user.</p>
-            <h2>7.2 Google ARCore</h2><br>
+            <h2 id="ARCore">7.2 Google ARCore</h2><br>
             <p>Google ARCore is a collection of APIs enables developers to project any 3D model into a surface. It quickly detects the surface and then projects the model into the detected surface and can also estimate the average lighting in the area around it.ARCore's understanding of the real world lets developers place objects, annotations, or other information in a way that integrates seamlessly with the real world.</p>
             <p>Shopline app will use the sceneform API of the google ARCore to enable the user to view an augmented view of the product before buying it.</p>
             <p> In order to use the Google ARCore Sceneform API certain technical prerequisites in terms of the developer must be met:</p>
@@ -531,7 +734,7 @@
               <li>A device that originally shipped with the Google Play Store</li>
               <li>Internet access, in order to install or update Google Play Services for AR</li>
             </ul>
-            <h2>7.3 Endpoints</h2><br>
+            <h2 id="endpoint">7.3 Endpoints</h2><br>
             <p>Since the application is heavily depended on the features of android mobile devices a common endpoint of the system will be user’s mobile devices.</p>
             <p>In addition to that users will also be able to view certain details of their accounts using a web application thus making a laptop or a desktop another possible endpoint of the program.</p>
           </div>
