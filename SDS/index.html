@@ -45,7 +45,6 @@
                      <div class="sub-menu">
                       <ul>
                         <li><a href="#userInterface">Database Design</a></li>
-                        <li><a href="#hardwareInterface">Data Transfer</a></li>
                         <li><a href="#softwareInterface">API Interfaces</a></li>
                         <li><a href="#communicationInterface">User Interfaces Design</a></li>
                       </ul>
@@ -102,7 +101,7 @@
 
         <!--------Introduction part starts -------------------->
         <div id="introduction" class="container">
-          <h1>1. Introduction</h1>
+          <h1 style="text-align: center;">1. Introduction</h1>
             <h2 id="purpose">1.1 Purpose</h2>
                 <p>This is the era of modern smartphones.Now a days smartphones have so many features.This has added an extra dimention in software development too.Online shopping platforms are so popular now a days.The purpose of this project is to add a live camera 3D preview of the products that the customers buy from the online e-commerce sites.Our android version of the project will have this feature. User will just press a button and the camera will show a live preview to the user. Which will make online shopping far more intresting and will hopefully attract more consumers.
                 </p>
@@ -127,9 +126,9 @@
 
         <!--------Architecture Design part starts -------------------->
         <div id="architectureDesign" class="container">
-          <h1>2 Architecture Design</h1>
+          <h1 style="text-align: center;">2 Architecture Design</h1>
           <p>Shopline application will mostly use the MVVM architecture for the android application and MVC for the web application.MVVM stands for Model, View, ViewModel. And MVC stands for Model, View and Controller</p>
-          <h2>The android application architecture:</h2>
+          <h2>2.1 The android application architecture:</h2>
           <p>Model holds the data of the application. It cannot directly talk to the View. Generally, it’s recommended to expose the data to the ViewModel through Observables.It represents the UI of the application devoid of any Application Logic. It observes the ViewModel.It represents the UI of the application devoid of any Application Logic. It observes the ViewModel.</p>
           <h3>Advantages of using MVVM</h3>
           <ul>
@@ -138,7 +137,7 @@
             <li>Developers can write unit test cases for both ViewModel and Model layer without referencing the View. This makes the unit test cases easy to write.</li>
           </ul>
           <img src="images/MVCdesign.PNG">
-          <h2>The Web Application Architecture.</h2>
+          <h2>2.2 The Web Application Architecture.</h2>
           <p>The web version of the shopline application will follow The model-view-controller (MVC) architecture.
           MVC separates application into three components - Model, View  and Controller. We are using this for our web page application.Model represents shape of the data and business logic.It maintains the data of the application. Model objects retrieve and store model state in a database.View is a user interface. View display data using model to the user and also enables them to modify the data.Controller handles the user request. Typically, user interact with View, which in-turn raises appropriate URL request, this request will be handled by a controller. The controller renders the appropriate view with the model data as a response.</p>
           <h3>Advantages of usirng MVC</h3>
@@ -160,38 +159,30 @@
 
         <!--------Component Design part starts -------------------->
         <div id="componentDesign" class="container">
-          <h1>3. Component Design</h1>
+          <h1 style="text-align: center;">3. Component Design</h1>
           <h2>3.1 Database Design</h2><br>
 
-          <p>We are using ER model or Entity-Relationship model to desing our database.</p><br>
+          <p>Shopline will be using a NOSQL database, Google firebase, which is a cloud based database platform.</p><br>
           <h3>Diagram of the Database</h3><br>
           <img src="images/database.png" style="height: 100%; width: 80%;">
 
           <h3>Database Discription</h3><br>
-          <p><b>Customers</b>: The attributes of this class is : User_id(int) as the primary key,Name(varchar),Password(varchar),Email(varchar). The purpose of this table is to store information of the customers to give them access to the system.</p><br>
+          <p><b>ShoplineUser</b>: The attributes of this class is : shopline_id(int) as the primary key,Name(varchar),Password(varchar),Email(varchar). The purpose of this table is to store information of the customers to give them access to the system.</p>
+          <p><b>GoogleUser</b>: The attributes of this class is : google_id(int) as the primary key,Name(varchar),Email(varchar). The purpose of this table is to store information of the customers to give them access to the system.</p>
 
-          <p><b>Products</b>: The attributes of this class is : Product_id(int) as the primary key,Product_name(varchar),Product_price(int). The purpose of this table is to store information of different types of product information like its name and price to display them in the system.</p><br>
+          <p><b>Products</b>: The attributes of this class is : Product_id(int) as the primary key,Product_name(varchar),Product_price(int). The purpose of this table is to store information of different types of product information like its name and price to display them in the system.</p>
 
-          <p><b>Order</b>: The attributes of this class is : Order_id(int) as the primary key,User_id(int) as foreign key,Product_id(int) as foreign key,Quantity(int),Total_price(int). A product can be order multiple times and a customer can have multiple orders.</p><br>
-
-        
-
-
-
-
-
-
-          <h2>3.2 Data Transfer</h2>
-          <h2>3.3 API Interface</h2>
+          <p><b>Order</b>: The attributes of this class is : Order_id(int) as the primary key,User_id(int) as foreign key,Product_id(int) as foreign key,Quantity(int),Total_price(int). A product can be order multiple times and a customer can have multiple orders.</p>
+          <h2>3.2 API Interface</h2>
           <p>Shopline app will be using the google ARCore which is a collection of API's. Among them the sceneform API is our targeted API to project the 3D model through the camera. First the android menifest files must have "camera permission", "android gLE enabled" "hardware ar camera enabled" and "google ar core". In the dependencies file, the dependency must be included.After the application is fully enabled to use ARCore we can project any 3D model as sceneform object.</p>
           <p>We will extend the ARSceneview directly. Then the system will proceed by making an Vision check and then will call setUpSession() to create a session manually.</p>
           <p>After the check's passed a session gets created and then by using the rendarable we will finally have a 3D model projection through the camera,on the detected surface. A Renderable is a 3D model that can be placed anywhere in the scene and consists of Meshes, Materials and Textures. model.builder() gets called while rendering the 3D file.(OBJ, FBX, glTF). </p>
-          <h2>3.4 User Interfaces Design</h2>
+          <h2>3.3 User Interfaces Design</h2>
           <p>The user interface for the client side shall be the android app and a web-based app. The main UI of the Shopline application will be designed by tabbedActivity. The tabbedActivity will consist of four main interfaces. "Home", "Cart" and "Accounts". The welcome login and signUp page will be designed by following the google material design.</p>
-          <img src="images/login.png">
-          <img src="images/signup.png">
-          <img src="images/cart.png">
-          <img src="images/ardemo.png">
+          <img src="images/login.png" class="interfacePics">
+          <img src="images/signup.png" class="interfacePics">
+          <img src="images/cart.png" class="interfacePics">
+          <img src="images/ardemo.png" class="interfacePics">
           
         </div>
         <!--------Component Design part ends -------------------->
@@ -204,7 +195,7 @@
 
         <!--------class Design part starts -------------------->
         <div id="classDesign" class="container">
-          <h1>4. Class Design</h1>
+          <h1 style="text-align: center;">4. Class Design</h1>
           <p>This section focuses on the high level class diagram which demonstrates the relation between the classes. A detailed description of each class is given for a clear grasp of their function in the product.</p>
           <h2>4.1 High level class design</h2>
           <p>The following figure is the high level class diagram of Shopline:</p>
@@ -355,7 +346,7 @@
 
         <!--------Database Persistance part starts -------------------->
         <div id="databasePersistance" class="container">
-          <h1>5. Database Persistence</h1>
+          <h1 style="text-align: center;">5. Database Persistence</h1>
           <h2>5.1 Introduction</h2>
           <p>In the context of storing data in a computer system, persistence means that the data survives after the process with which it was created has ended. In other words, for a data store to be considered persistent, it must write to non-volatile storage. Given the importance of the data store in most modern applications, making a poorly informed choice could mean substantial downtime or loss of data.</p>
           <p>There are four main design approaches that a data store can take to make a database persistence:
@@ -486,17 +477,18 @@
           <p>Despite having its own nomenclature, such as naming the callable objects generating the HTTP responses "views",the core Django framework can be seen as an MVC architecture. It consists of an object-relational mapper (ORM) that mediates between data models (defined as Python classes) and a relational database ("Model"), a system for processing HTTP requests with a web templating system ("View"), and a regular-expression-based URL dispatcher ("Controller").</p>
 
           <p>Also included in the core framework are:
-
-          <br>1. A lightweight and standalone web server for development and testing. </br>
-          <br>2. A form serialization and validation system that can translate between HTML forms and values suitable for storage in the database. </br>
-          <br>3.A template system that utilizes the concept of inheritance borrowed from object-oriented programming.</br>
-          <br>4. A caching framework that can use any of several cache methods. </br>
-          <br>5. Support for middleware classes that can intervene at various stages of request processing and carry out custom functions. </br>
-          <br>6. An internal dispatcher system that allows components of an application to communicate events to each other via pre-defined signals. </br>
-          <br>7. An internationalization system, including translations of Django's own components into a variety of languages. </br>
-          <br>8. A serialization system that can produce and read XML and/or JSON representations of Django model instances. </br>
-          <br>9. A system for extending the capabilities of the template engine
-          An interface to Python's built-in unit test framework. </br></p>
+            <ul>
+              <li>A lightweight and standalone web server for development and testing. </li>
+              <li>A form serialization and validation system that can translate between HTML forms and values suitable for storage in the database. </li>
+              <li>A template system that utilizes the concept of inheritance borrowed from object-oriented programming. </li>
+              <li> A caching framework that can use any of several cache methods.</li>
+              <li>Support for middleware classes that can intervene at various stages of request processing and carry out custom functions.  </li>
+              <li> An internal dispatcher system that allows components of an application to communicate events to each other via pre-defined signals. </li>
+              <li>An internationalization system, including translations of Django's own components into a variety of languages. </li>
+              <li>A serialization system that can produce and read XML and/or JSON representations of Django model instances. </li>
+              <li> A system for extending the capabilities of the template engine
+          An interface to Python's built-in unit test framework. </li>
+            </ul>
         </div>
 
         <!--------Database persistance part ends -------------------->
@@ -509,7 +501,7 @@
 
         <!--------Development Design part starts -------------------->
         <div id="developmentDesign" class="container">
-          <h1>6. Development Design</h1>
+          <h1 style="text-align: center;">6. Development Design</h1>
           <h2>6.1 Strategy Pattern</h2>
           <p>Shopline application will mostly be using the strategy pattern. It will try to help develop the application in such a way to optimize scalability. It will help the application stay open for extension and closed for modification. The strategy pattern is a behavioral software design pattern that enables selecting an algorithm at runtime. Instead of implementing a single algorithm directly, code receives run-time instructions as to which in a family of algorithms to use.</p>
           <h2>6.2  Development Lifecycle Model</h2>
@@ -526,7 +518,7 @@
         <!--------API and Endpoint part starts -------------------->
         <div id="APIandEndpoint" class="container">
           <div class="">
-            <h1>7. API and Endpoints</h1><br>
+            <h1 style="text-align: center;">7. API and Endpoints</h1><br>
             <h2>7.1 Google Account Serivces</h2><br>
             <p>Shopline will provide users with multiple options to login and register. A user will have the option to register manually or using Google account services which will provide the application the user’s Google account information. Google account services can later be extended in allowing the user to login using their Google accounts, in this case the user must be logged in or login to their Gmail accounts to allow the app to authenticate the user.</p>
             <h2>7.2 Google ARCore</h2><br>
@@ -537,7 +529,6 @@
               <li>The latest version of Android Studio</li>
               <li>Android 7.0 or later</li>
               <li>A device that originally shipped with the Google Play Store</li>
-              <li></li>
               <li>Internet access, in order to install or update Google Play Services for AR</li>
             </ul>
             <h2>7.3 Endpoints</h2><br>
