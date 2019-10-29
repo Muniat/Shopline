@@ -102,7 +102,39 @@
 
         <!--------Introduction part starts -------------------->
         <div id="introduction" class="container">
-          <h1>Introduction Goes Here</h1>
+          <h1>1. Introduction</h1>
+          <div class="row">
+              <div class="col-md-12">
+              <h2 id="purpose">1.1 Purpose</h2>
+                <p>This is the era of modern smartphones.Now a days smartphones have so many features.This has added an extra dimention in software development too.Online shopping platforms are so popular now a days.The purpose of this project is to add a live camera 3D preview of the products that the customers buy from the online e-commerce sites.Our android version of the project will have this feature. User will just press a button and the camera will show a live preview to the user. Which will make online shopping far more intresting and will hopefully attract more consumers.
+                </p>
+              </div>
+
+              <div class="col-md-12">
+              <h2 id="docCon">1.2 Document Conventions</h2>
+                <p>Typical document conventions are maintained where main topics are bold, have a font size of about 20pt and are numbered from 1 to 6. Sub topics are bold, have a smaller font size of about 18pt and are numbered with the main topic number as a prefix, eg 1.1 to 1.5. Priority ratings in the later section range from 1 to 9, 9 being the most important and 1 being the least. Special names and technical terminology are italicized, which have been explained later in the document in the glossary section (Appendix A).</p>
+              </div>
+
+               <div class="col-md-12">
+              <h2 id="inAu">1.3 Intended Audience and Reading Suggestions</h2>
+                <p>This project is a prototype for the online augmented reality shopping system.The intended reader of this document would be consumers,project managers and business analysts.The entire SRS is divided into six(6) sections. The first section is the Introduction. Overall project description is provided in section two. Section three provides the External Interface Requirements including user, software, hardware and communication interface. Readers will know about the System Features in section four. Other Nonfunctional Requirements are described in section five and section six is used for further more requirements. Readers are suggested to go through the SRS from section one to section six sequentially.</p>
+              </div>
+
+              <div class="col-md-12">
+              <h2 id="prCs">1.4 Product Scope</h2>
+                <p class="push-2">The purpose of this product is to give the customers an idea about the products they are buying. By using AR they can not only see pictures but also check if that product meet their needs. Nowadays people do not trust online shopping system because they don't get what they want. Our goal is to provide a facility that will enable them to see what customers are buying and gain back their trust. With the biggest companies in the world investing billions on Augmented Reality and AR integrations in e-commerce platforms to enhance shopping, it won't be long before the Augmented Reality retail shopping industry has over 130 Billion streaming annually. Analysts predict by 2020 AR shopping will be almost a 150 Billion dollar industry.</p>
+              </div>
+
+              <div class="col-md-12">
+              <h2 id="reff">1.5 References</h2>
+               <p><a href="https://material.io/design/">Google Material Design StyleGuide</a></p>
+               <p><a href="https://developers.google.com/ar">Google ArCore</a></p>
+               <p><a href="https://docs.djangoproject.com/en/2.2/">Python Django Framework</a></p>
+               <p><a href="https://firebase.google.com/">Firebase Backend Service</a></p>
+               <p><a href="https://developer.android.com/about/versions/10?gclid=Cj0KCQjw6KrtBRDLARIsAKzvQIFOP_gqEB6Pdj6PLX-bhDJU8CXaOI1RkNMEdozU6Qn1Hpo2lzRZQZEaAnQ8EALw_wcB">Android Developers</a></p>
+              </div>
+            </div>
+
           
         </div>
         <!--------Introduction part ends -------------------->
@@ -145,11 +177,11 @@
             <p>ViewModel: It acts as a link between the Model and the View. It’s responsible for transforming the data from the Model. It provides data streams to the View. It also uses hooks or callbacks to update the View. It’ll ask for the data from the Model.</p><br>
             <h3>Advantages of MVVM for Android</h3>
             <p>Lossley coupled architecture : MVVM makes your application architecture as loosley
-coupled. You can change one layer without affecting the other layers.</p>
+              coupled. You can change one layer without affecting the other layers.</p>
                 <p>Extensible code : You can extends View, ViewModel and the Model layer separately
-without affecting the other layers</p>
+                without affecting the other layers</p>
                <p>Testable code : You can write unit test cases for both ViewModel and Model layer
-without referencing the View. This makes the unit test cases easy to write.</p>
+                without referencing the View. This makes the unit test cases easy to write.</p>
 
 
             
@@ -177,7 +209,7 @@ without referencing the View. This makes the unit test cases easy to write.</p>
 
         <!--------Component Design part starts -------------------->
         <div id="componentDesign" class="container">
-          <h1>3 Component Design</h1>
+          <h1>3. Component Design</h1>
           <h2>3.1 Database Design</h2><br>
 
           <p>We are using ER model or Entity-Relationship model to desing our database.</p><br>
@@ -221,7 +253,7 @@ without referencing the View. This makes the unit test cases easy to write.</p>
 
         <!--------class Design part starts -------------------->
         <div id="classDesign" class="container">
-          <h1>4 Class Design</h1>
+          <h1>4. Class Design</h1>
           <table class="table table-bordered">
             <!-----user class table -------->
               <tbody>
@@ -366,7 +398,7 @@ without referencing the View. This makes the unit test cases easy to write.</p>
 
         <!--------Database Persistance part starts -------------------->
         <div id="databasePersistance" class="container">
-          <h1>5 Database Persistence</h1>
+          <h1>5. Database Persistence</h1>
           <h2>5.1 Introduction</h2>
           <p>In the context of storing data in a computer system, persistence means that the data survives after the process with which it was created has ended. In other words, for a data store to be considered persistent, it must write to non-volatile storage. Given the importance of the data store in most modern applications, making a poorly informed choice could mean substantial downtime or loss of data.</p>
           <p>There are four main design approaches that a data store can take to make a database persistence:
@@ -520,7 +552,7 @@ without referencing the View. This makes the unit test cases easy to write.</p>
 
         <!--------Development Design part starts -------------------->
         <div id="developmentDesign" class="container">
-          <h1>6 Development Design</h1>
+          <h1>6. Development Design</h1>
           <h2>6.1 Strategy Pattern</h2>
           <p>Shopline application will mostly be using the strategy pattern. It will try to help develop the application in such a way to optimize scalability. It will help the application stay open for extension and closed for modification. The strategy pattern is a behavioral software design pattern that enables selecting an algorithm at runtime. Instead of implementing a single algorithm directly, code receives run-time instructions as to which in a family of algorithms to use.</p>
           <h2>6.2  Development Lifecycle Model</h2>
@@ -537,7 +569,7 @@ without referencing the View. This makes the unit test cases easy to write.</p>
         <!--------API and Endpoint part starts -------------------->
         <div id="APIandEndpoint" class="container">
           <div class="">
-            <h1>7 API and Endpoints</h1><br>
+            <h1>7. API and Endpoints</h1><br>
             <h2>7.1 Google Account Serivces</h2><br>
             <p>Shopline will provide users with multiple options to login and register. A user will have the option to register manually or using Google account services which will provide the application the user’s Google account information. Google account services can later be extended in allowing the user to login using their Google accounts, in this case the user must be logged in or login to their Gmail accounts to allow the app to authenticate the user.</p>
             <h2>7.2 Google ARCore</h2><br>
