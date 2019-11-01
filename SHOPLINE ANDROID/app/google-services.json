@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "153282526039",
+    "firebase_url": "https://shopline-29362.firebaseio.com",
+    "project_id": "shopline-29362",
+    "storage_bucket": "shopline-29362.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:153282526039:android:1e4f107d80879fcf93dc12",
+        "android_client_info": {
+          "package_name": "com.example.shopline"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "153282526039-92v5fm50g29ij4dvipo5taqb97jmen0k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.shopline",
+            "certificate_hash": "a4cd667b88f2f1398928cba95c0e5ec09080a6fd"
+          }
+        },
+        {
+          "client_id": "153282526039-vmh1nlcn7s29m00qkqsmgoadv50q8tpu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApg8c2Hz6ox6cTtldAIgoIrxL-M9O9fYo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "153282526039-vmh1nlcn7s29m00qkqsmgoadv50q8tpu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
