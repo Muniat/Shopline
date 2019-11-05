@@ -2,7 +2,9 @@ package com.example.shopline.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.widget.TextView;
 
 import com.example.shopline.Controller.JsonPlaceholderAPI;
@@ -23,5 +25,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        textView = (TextView) findViewById(R.id.textView);
+
+        new CountDownTimer(1500, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                textView.setText("Taking you to the SignUp Page");
+            }
+
+            @Override
+            public void onFinish() {
+                Intent intent = new Intent(MainActivity.this,SignUpActivity.class);
+                startActivity(intent);
+            }
+        }.start();
     }
 }

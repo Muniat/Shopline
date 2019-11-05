@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginLeft="30dp"
+    android:layout_marginRight="30dp"
     android:background="#FCFCF8"
     tools:context="View.LoginActivity">
 
@@ -40,9 +42,10 @@
         android:id="@+id/loginButton"
         android:layout_width="172dp"
         android:layout_height="51dp"
-        android:background="#BDECB6"
-        android:onClick="onLoginButtonPressed"
+        android:background="@drawable/round_button"
         android:text="Login"
+        android:textColor="#1A237E"
+
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -57,6 +60,7 @@
         android:layout_height="wrap_content"
         android:padding="5sp"
         android:text="Not registered yet?"
+        android:textColor="#1A237E"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -69,7 +73,6 @@
         android:id="@+id/signUpTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="signUpButtonPressed"
         android:padding="5sp"
         android:text="Sign Up"
         android:textColor="#509C33"
@@ -84,39 +87,26 @@
 
     <Button
         android:id="@+id/buttonGoogle"
-        android:layout_width="70dp"
+        android:layout_width="0dp"
         android:layout_height="71dp"
+        android:layout_marginLeft="30sp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/ic_round_bg"
-        android:backgroundTint="#BDECB6"
+        android:layout_marginRight="30sp"
+        android:background="@drawable/round_button"
         android:drawableStart="@drawable/ic_google_logo"
         android:drawablePadding="15dp"
+        android:foregroundGravity="center"
         android:gravity="center"
-        android:onClick="onGoogleButtonPressed"
-        android:textSize="18sp"
+        android:text="GOOGLE"
+        android:textAlignment="center"
+        android:textColor="#1A237E"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.087"
+        app:layout_constraintHorizontal_bias="0.083"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:layout_constraintVertical_bias="0.251" />
-
-    <Button
-        android:id="@+id/buttonFacebookLogin"
-        android:layout_width="70dp"
-        android:layout_height="71dp"
-        android:layout_marginEnd="120dp"
-        android:backgroundTint="#BDECB6"
-        android:drawableStart="@drawable/ic_facebook_logo"
-        android:drawablePadding="15dp"
-        android:gravity="center"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.578"
-        app:layout_constraintStart_toEndOf="@+id/buttonGoogle"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:layout_constraintVertical_bias="0.311" />
+        app:layout_constraintVertical_bias="0.281" />
 
     <TextView
         android:id="@+id/textView2"
@@ -131,7 +121,7 @@
         app:layout_constraintHorizontal_bias="0.104"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:layout_constraintVertical_bias="0.384" />
+        app:layout_constraintVertical_bias="0.565" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -143,4 +133,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/ic_launcher_foreground" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
