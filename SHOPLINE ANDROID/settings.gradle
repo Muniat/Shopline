@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name='SHOPLINE'
+rootProject.name='UserRegistration'

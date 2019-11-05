@@ -1,42 +1,42 @@
 {
   "project_info": {
-    "project_number": "153282526039",
-    "firebase_url": "https://shopline-29362.firebaseio.com",
-    "project_id": "shopline-29362",
-    "storage_bucket": "shopline-29362.appspot.com"
+    "project_number": "123962731629",
+    "firebase_url": "https://registration-c3373.firebaseio.com",
+    "project_id": "registration-c3373",
+    "storage_bucket": "registration-c3373.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:153282526039:android:1e4f107d80879fcf93dc12",
+        "mobilesdk_app_id": "1:123962731629:android:c4ac5e39d0bffb59aa2364",
         "android_client_info": {
-          "package_name": "com.example.shopline"
+          "package_name": "com.example.userregistration"
         }
       },
       "oauth_client": [
         {
-          "client_id": "153282526039-92v5fm50g29ij4dvipo5taqb97jmen0k.apps.googleusercontent.com",
+          "client_id": "123962731629-1bfqlu3u021prpdg2jcn08p2duai5iqp.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.shopline",
+            "package_name": "com.example.userregistration",
             "certificate_hash": "a4cd667b88f2f1398928cba95c0e5ec09080a6fd"
           }
         },
         {
-          "client_id": "153282526039-vmh1nlcn7s29m00qkqsmgoadv50q8tpu.apps.googleusercontent.com",
+          "client_id": "123962731629-52stpil7it8qemed40cgbn0q3phma7tq.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyApg8c2Hz6ox6cTtldAIgoIrxL-M9O9fYo"
+          "current_key": "AIzaSyD_AgqBmHgtLs7ahSlsK6RaVBjJqesNcak"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "153282526039-vmh1nlcn7s29m00qkqsmgoadv50q8tpu.apps.googleusercontent.com",
+              "client_id": "123962731629-caf1qskricud9493rnrh7jljqt8ds4ov.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

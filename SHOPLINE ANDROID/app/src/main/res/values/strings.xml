@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">SHOPLINE</string>
+    <string name="app_name">UserRegistration</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="home">Home</string>
+    <string name="acc">Account</string>
+    <string name="cart">Cart</string>
 </resources>
