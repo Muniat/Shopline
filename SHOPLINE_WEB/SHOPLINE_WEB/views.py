@@ -43,6 +43,10 @@ def logout(request):
     auth.logout(request)
     return render(request,"Login.html")
 
-#def signUp(request):
-    #return render(request, "SignUp.html")
+def SignUp(request):
+    return render(request, "SignUp.html")
+
+def WithoutRegistration(request):
+    return render(request, "Welcome.html")
+
 
