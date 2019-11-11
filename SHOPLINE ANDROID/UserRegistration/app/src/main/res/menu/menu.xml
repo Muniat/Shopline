@@ -3,12 +3,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/homeNav"
         android:icon="@drawable/home"
         android:title="@string/home" />
     <item
+        android:id="@+id/cartNav"
         android:icon="@drawable/cart"
         android:title="@string/cart" />
     <item
+        android:id="@+id/accountNav"
         android:icon="@drawable/acc"
         android:title="@string/acc" />
 </menu>
