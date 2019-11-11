@@ -21,7 +21,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.Login),
     path('postsign/', views.postsign),
-    path('logout/',views.logout,name="log")
-    #path('SignUp/',views.signUp,name="signup")
+    path('logout/',views.logout,name="log"),
+    path('postSignUp/',views.SignUp,name="SignUp"),
+    path('welcome/',views.WithoutRegistration,name="welcome")
     
 ]
