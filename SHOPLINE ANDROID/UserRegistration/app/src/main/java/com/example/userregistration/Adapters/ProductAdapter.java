@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.userregistration.Model.Item;
 import com.example.userregistration.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -33,6 +34,13 @@ public class ProductAdapter extends RecyclerView.Adapter <ProductAdapter.product
 
     @Override
     public void onBindViewHolder(@NonNull productViewHolder holder, int position) {
+        Item currentItem = mProductList.get(position);
+        String imageURL = currentItem.getmImageURL();
+        String name = currentItem.getmName();
+        String price = currentItem.getmPrice();
+        holder.mName.setText(name);
+        holder.mPrice.setText("Price : " + price);
+        Picasso.with(mcontext).load(imageURL).fit().centerInside().into(holder.mImageView);
 
     }
 
