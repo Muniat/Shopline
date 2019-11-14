@@ -64,7 +64,7 @@ public class HomeFragment extends Fragment {
 
 
     private void parseJson() {
-        String url = "https://pixabay.com/api/?key=14258478-b71725ba1f28069f4504c5333&q=yellow+flowers&image_type=photo\n";
+        String url = "https://pixabay.com/api/?key=14258478-b71725ba1f28069f4504c53333&q=yellow+flowers&image_type=photo&pretty=true";
 
         final JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
