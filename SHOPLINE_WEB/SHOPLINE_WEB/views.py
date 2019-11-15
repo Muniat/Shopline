@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 from django.views import View
 from django.views.decorators.cache import cache_page
 from django.views.decorators.csrf import csrf_protect
@@ -6,18 +7,21 @@ import pyrebase
 from django.contrib import auth
 
 config = {
-    'apiKey': "AIzaSyCCII1unlXf1oWgOZSWsl-LRR6Ul5yGs78",
-    'authDomain': "webapp-f4ea1.firebaseapp.com",
-    'databaseURL': "https://webapp-f4ea1.firebaseio.com",
-    'projectId': "webapp-f4ea1",
-    'storageBucket': "webapp-f4ea1.appspot.com",
-    'messagingSenderId': "667365154761",
-    'appId': "1:667365154761:web:7f979a5d6efa54934ed218",
-    'measurementId': "G-5RDEDDX157"
-
+    'apiKey' : "AIzaSyBd31FZCtpdRuxmkY0uiitJap1Mcet1iDA",
+    'authDomain' : "registration-c3373.firebaseapp.com",
+    'databaseURL' : "https://registration-c3373.firebaseio.com",
+    'projectId' : "registration-c3373",
+    'storageBucket' : "registration-c3373.appspot.com",
+    'messagingSenderId' : "123962731629",
+    'appId' : "1:123962731629:web:c4cc2ed965b1031daa2364"
 	}
+
+
+
+
 firebase = pyrebase.initialize_app(config)
 authe = firebase.auth()
+database = firebase.database()
 
 def Login(request):
 
@@ -39,14 +43,49 @@ def postsign(request):
     #passing the name in the templates
     return render(request, "Welcome.html", {"e":email})
  
-def logout(request):
-    auth.logout(request)
-    return render(request,"Login.html")
+#def logout(request):
+    #auth.logout(request)
+    #return render(request,"Login.html")
 
 def SignUp(request):
     return render(request, "SignUp.html")
 
 def WithoutRegistration(request):
     return render(request, "Welcome.html")
+
+def postSignUp(request):
+    email = request.POST.get('email')
+    password = request.POST.get("password")
+    
+    try:
+        user = authe.create_user_with_email_and_password(email,password)
+    except:
+        message = "Unable to create account, please try again later"
+        return render(request,"SignUp.html",{"msg":messsage})
+        uid = user['localId']
+
+    data = {"e":email,"status":"1"}
+
+    database.child("users").child(uid).child("details").set(data)
+    return render(request, "Login.html")
+
+def search(request):
+    return HttpResponse("we're at search")
+    
+
+def productView(request):
+    return HttpResponse("we're at product view")
+
+
+
+def checkout(request):
+    return HttpResponse("we're at checkout")
+
+
+
+
+
+
+
 
 

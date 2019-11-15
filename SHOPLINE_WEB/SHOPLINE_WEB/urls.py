@@ -19,10 +19,14 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.Login),
+    path('', views.Login,name='login'),
     path('postsign/', views.postsign),
-    path('logout/',views.logout,name="log"),
-    path('postSignUp/',views.SignUp,name="SignUp"),
-    path('welcome/',views.WithoutRegistration,name="welcome")
+    #path('logout/',views.logout,name="log"),
+    path('SignUp/',views.SignUp,name="SignUp"),
+    path('welcome/',views.WithoutRegistration,name="welcome"),
+    path('postSignUp/',views.postSignUp,name="postSignUp"),
+    path('search/',views.search,name="Search"),
+    path('productView/',views.productView,name="productView"),
+    path('checkout/',views.checkout,name="Checkout")
     
 ]
