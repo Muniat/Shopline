@@ -33,7 +33,32 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Price : "
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:layout_marginBottom="5dp"/>
+
+        <TableRow
+            android:layout_width="336dp"
+            android:layout_height="wrap_content">>
+
+            <Button
+                android:id="@+id/Button9"
+                android:layout_width="139dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginRight="30dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/ic_round_button"
+                android:text="Add To Cart" />
+
+            <Button
+                android:id="@+id/Button11"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:background="@drawable/ic_round_button"
+                android:text="View Augmented" />
+        </TableRow>
+
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

@@ -64,20 +64,20 @@ public class HomeFragment extends Fragment {
 
 
     private void parseJson() {
-        String url = "https://pixabay.com/api/?key=14258478-b71725ba1f28069f4504c53333&q=yellow+flowers&image_type=photo&pretty=true";
+        String url = "https://api.myjson.com/bins/vm3jy";
 
         final JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
-                            JSONArray jsonArray = response.getJSONArray("hits");
+                            JSONArray jsonArray = response.getJSONArray("products");
                             for(int i=0; i<jsonArray.length(); i++){
                                 JSONObject hit = jsonArray.getJSONObject(i);
-                                String creatorName = hit.getString("user");
-                                String imageURl = hit.getString("webformatURL");
-                                String likes = hit.getString("likes");
-                                mProductlist.add(new Item(imageURl,creatorName,likes));
+                                String creatorName = hit.getString("name");
+                                String imageURl = hit.getString("image");
+                                String price = hit.getString("price");
+                                mProductlist.add(new Item(imageURl,creatorName,price));
                             }
                             mProductAdapter = new ProductAdapter(HomeFragment.this.getContext(),mProductlist);
                             mRecyclerview.setAdapter(mProductAdapter);
