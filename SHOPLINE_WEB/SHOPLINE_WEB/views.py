@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 from django.views import View
 from django.views.decorators.cache import cache_page
 from django.views.decorators.csrf import csrf_protect
@@ -68,6 +69,17 @@ def postSignUp(request):
     database.child("users").child(uid).child("details").set(data)
     return render(request, "Login.html")
 
+def search(request):
+    return HttpResponse("we're at search")
+    
+
+def productView(request):
+    return HttpResponse("we're at product view")
+
+
+
+def checkout(request):
+    return HttpResponse("we're at checkout")
 
 
 
