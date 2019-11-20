@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Download"></activity>
+        <activity android:name=".Model.ProductDetails"></activity>
+        <activity android:name=".Download" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity">
