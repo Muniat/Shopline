@@ -6,8 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.userregistration.Model.Item;
@@ -19,6 +21,7 @@ import java.util.ArrayList;
 public class ProductAdapter extends RecyclerView.Adapter <ProductAdapter.productViewHolder>{
     private Context mcontext;
     private ArrayList<Item> mProductList;
+
 
     public ProductAdapter(Context mcontext, ArrayList<Item> mProductList) {
         this.mcontext = mcontext;
@@ -42,6 +45,15 @@ public class ProductAdapter extends RecyclerView.Adapter <ProductAdapter.product
         holder.mPrice.setText("Price : " + price);
         Picasso.with(mcontext).load(imageURL).fit().centerInside().into(holder.mImageView);
 
+
+        //on cardVIew click listener
+         holder.cardView.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 
+             }
+         });
+
     }
 
     @Override
@@ -53,12 +65,14 @@ public class ProductAdapter extends RecyclerView.Adapter <ProductAdapter.product
         public ImageView mImageView;
         public TextView mName;
         public TextView mPrice;
+        CardView cardView;
 
         public productViewHolder(@NonNull View itemView) {
             super(itemView);
             mImageView = itemView.findViewById(R.id.productImageView);
             mName = itemView.findViewById(R.id.productNameTextView);
             mPrice = itemView.findViewById(R.id.productPriceTextView);
+            cardView = (CardView) itemView.findViewById(R.id.productCard);
 
         }
     }

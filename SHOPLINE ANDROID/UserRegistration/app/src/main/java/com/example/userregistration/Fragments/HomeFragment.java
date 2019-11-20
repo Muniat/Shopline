@@ -4,6 +4,7 @@ package com.example.userregistration.Fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -49,7 +50,7 @@ public class HomeFragment extends Fragment {
         View rootview = inflater.inflate(R.layout.fragment_home, container, false);
         mRecyclerview = rootview.findViewById(R.id.recyclerView);
         mRecyclerview.setHasFixedSize(true);
-        mRecyclerview.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        mRecyclerview.setLayoutManager(new GridLayoutManager(this.getContext(),2));
 
         mProductlist = new ArrayList<>();
         mRequestQueue = Volley.newRequestQueue(this.getContext());
@@ -64,7 +65,7 @@ public class HomeFragment extends Fragment {
 
 
     private void parseJson() {
-        String url = "https://api.myjson.com/bins/vm3jy";
+        String url = "https://api.myjson.com/bins/1ajw1q";
 
         final JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {

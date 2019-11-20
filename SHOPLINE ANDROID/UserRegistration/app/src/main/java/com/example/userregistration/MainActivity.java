@@ -57,8 +57,6 @@ public class MainActivity extends AppCompatActivity {
         signUpButton = (Button) findViewById(R.id.loginButton);
         loginMasgTextView = (TextView) findViewById(R.id.loginMasgTextView);
         continueButton = (Button) findViewById(R.id.continueButton);
-        Intent intent = new Intent(MainActivity.this,Download.class);
-        startActivity(intent);
 
         firebaseAuth = FirebaseAuth.getInstance();
 

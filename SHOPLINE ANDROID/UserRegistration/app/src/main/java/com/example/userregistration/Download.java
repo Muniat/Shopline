@@ -22,7 +22,7 @@ public class Download extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_download);
         mStorageRef = FirebaseStorage.getInstance().getReference();
-        ref = mStorageRef.child("productImage/Bed.PNG");
+        ref = mStorageRef.child("productImage/gamepad.PNG");
 
         ref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
