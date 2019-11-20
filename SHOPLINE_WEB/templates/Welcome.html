@@ -6,6 +6,7 @@
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<title>Welcome</title>
+   
 	 <style>
 
 	    #logo{
@@ -99,39 +100,40 @@
   	<li data-target="demo" data-slide-to="2"></li>
   </ul>
 
+  {% block content %}
   <!-- Slideshow starts here -->
   <div class="container carousel-inner no-padding">
   	   <div class="carousel-item active">
   	   	  <div class="col-xs-3 col-sm-3 col-md-3">
   	         <div class="card" style="width: 18rem;">
   	         	
-                 <img class="card-img-top" src="{% static "images/backpack.jpg" %}" alt="Card image cap">
+                 <img class="card-img-top" src="{{ image }}" alt="Card image cap">
                  <div class="card-body">
-                     <h5 class="card-title">Card title</h5>
-                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                     <a href="#" class="btn btn-primary">Go somewhere</a>
+                     <h5 class="card-title">{{ name }}</h5>
+                     <p class="card-text">{{ description }}</p>
+                     <a href="#" class="btn btn-primary">Add to cart</a>
                  </div>
              </div>
          </div>
 
          <div class="col-xs-3 col-sm-3 col-md-3">
              <div class="card" style="width: 18rem;">
-                 <img class="card-img-top" src="{% static "images/backpack.jpg" %}" alt="Card image cap">
+                 <img class="card-img-top" src="{{ image }}" alt="Card image cap">
                  <div class="card-body">
-                     <h5 class="card-title">Card title</h5>
-                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                     <a href="#" class="btn btn-primary">Go somewhere</a>
+                     <h5 class="card-title">{{ name }}</h5>
+                     <p class="card-text">{{ description }}</p>
+                     <a href="#" class="btn btn-primary">Add to cart</a>
                  </div>
              </div>
          </div>
 
          <div class="col-xs-3 col-sm-3 col-md-3">
               <div class="card" style="width: 18rem;">
-                  <img class="card-img-top" src="{% static "images/backpack.jpg" %}" alt="Card image cap">
+                  <img class="card-img-top" src="{{ image }}" alt="Card image cap">
                   <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                      <h5 class="card-title">{{ name }}</h5>
+                      <p class="card-text">{{ description }}</p>
+                      <a href="#" class="btn btn-primary">Add to cart</a>
                  </div>
              </div>
           </div>
@@ -139,33 +141,33 @@
   	   <div class="carousel-item">
   	   	  <div class="col-xs-3 col-sm-3 col-md-3">
   	         <div class="card" style="width: 18rem;">
-                 <img class="card-img-top" src="{% static "images/backpack.jpg" %}" alt="Card image cap">
+                 <img class="card-img-top" src="{{ image }}" alt="Card image cap">
                  <div class="card-body">
-                     <h5 class="card-title">Card title</h5>
-                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                     <a href="#" class="btn btn-primary">Go somewhere</a>
+                     <h5 class="card-title">{{ name }}</h5>
+                     <p class="card-text">{{ description }}</p>
+                     <a href="#" class="btn btn-primary">Add to cart</a>
                  </div>
              </div>
          </div>
 
          <div class="col-xs-3 col-sm-3 col-md-3">
              <div class="card" style="width: 18rem;">
-                 <img class="card-img-top" src="{% static "images/backpack.jpg" %}" alt="Card image cap">
+                 <img class="card-img-top" src="{{ image }}" alt="Card image cap">
                  <div class="card-body">
-                     <h5 class="card-title">Card title</h5>
-                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                     <a href="#" class="btn btn-primary">Go somewhere</a>
+                     <h5 class="card-title">{{ name }}</h5>
+                     <p class="card-text">{{ description }}</p>
+                     <a href="#" class="btn btn-primary">Add to cart</a>
                  </div>
              </div>
          </div>
 
          <div class="col-xs-3 col-sm-3 col-md-3">
               <div class="card" style="width: 18rem;">
-                  <img class="card-img-top" src="{% static "images/backpack.jpg" %}" alt="Card image cap">
+                  <img class="card-img-top" src="{{ image }}" alt="Card image cap">
                   <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                      <h5 class="card-title">{{ name }}</h5>
+                      <p class="card-text">{{ description }}</p>
+                      <a href="#" class="btn btn-primary">Add to cart</a>
                  </div>
              </div>
           </div>
@@ -173,33 +175,33 @@
   	   <div class="carousel-item">
   	   	  <div class="col-xs-3 col-sm-3 col-md-3">
   	         <div class="card" style="width: 18rem;">
-                 <img class="card-img-top" src="{% static "images/backpack.jpg" %}" alt="Card image cap">
+                 <img class="card-img-top" src="{{ image }}" alt="Card image cap">
                  <div class="card-body">
-                     <h5 class="card-title">Card title</h5>
-                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                     <a href="#" class="btn btn-primary">Go somewhere</a>
+                     <h5 class="card-title">{{ name }}</h5>
+                     <p class="card-text">{{ description }}</p>
+                     <a href="#" class="btn btn-primary">Add to cart</a>
                  </div>
              </div>
          </div>
 
          <div class="col-xs-3 col-sm-3 col-md-3">
              <div class="card" style="width: 18rem;">
-                 <img class="card-img-top" src="{% static "images/backpack.jpg" %}" alt="Card image cap">
+                 <img class="card-img-top" src="{{ image }}" alt="Card image cap">
                  <div class="card-body">
-                     <h5 class="card-title">Card title</h5>
-                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                     <a href="#" class="btn btn-primary">Go somewhere</a>
+                     <h5 class="card-title">{{ name }}</h5>
+                     <p class="card-text">{{ description }}</p>
+                     <a href="#" class="btn btn-primary">Add to cart</a>
                  </div>
              </div>
          </div>
 
          <div class="col-xs-3 col-sm-3 col-md-3">
               <div class="card" style="width: 18rem;">
-                  <img class="card-img-top" src="{% static "images/backpack.jpg" %}" alt="Card image cap">
+                  <img class="card-img-top" src="" alt="Card image cap">
                   <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                      <h5 class="card-title">{{ name }}</h5>
+                      <p class="card-text">{{ description }}</p>
+                      <a href="#" class="btn btn-primary">Add to cart</a>
                  </div>
              </div>
           </div>
@@ -207,6 +209,7 @@
   	</div>
  </div>
 </div>
+{% endblock %}
 
   <!--Left and Right controls for slide -->
   <a class="carousel-control-prev" href="#demo" data-slide="prev">
@@ -217,7 +220,6 @@
   </a>
 
 
-
   <!-- Optional Javascript -->
   <!-- jQuesry first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -225,6 +227,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
   <!--Welcome {{e}}-->
+
   
 </body>
 </html>

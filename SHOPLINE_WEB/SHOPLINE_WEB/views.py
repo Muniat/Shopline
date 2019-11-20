@@ -5,6 +5,9 @@ from django.views.decorators.cache import cache_page
 from django.views.decorators.csrf import csrf_protect
 import pyrebase
 from django.contrib import auth
+import json
+import requests
+from . import services
 
 config = {
     'apiKey' : "AIzaSyBd31FZCtpdRuxmkY0uiitJap1Mcet1iDA",
@@ -26,22 +29,37 @@ database = firebase.database()
 def Login(request):
 
 	return render(request, "Login.html")
-
+#class ProductsPage(generic.TemplateView):
 def postsign(request):
-    email = request.POST.get('email')
-    password = request.POST.get("password")
-    try:
-       #allowing only authorised users to log in to the site
-       user = authe.sign_in_with_email_and_password(email,password)
-    except:
-       message = "Invalid Credentials"
-       return render(request, "Login.html", {"msg":message})
-    print(user['idToken'])
-    session_id = user['idToken']
-    request.session['uid'] = str(session_id)
+     email = request.POST.get('email')
+     password = request.POST.get("password")
+     try:
+         #allowing only authorised users to log in to the site
+         user = authe.sign_in_with_email_and_password(email,password)
+     except:
+         message = "Invalid Credentials"
+         return render(request, "Login.html", {"msg":message})
+     print(user['idToken'])
+     session_id = user['idToken']
+     request.session['uid'] = str(session_id)
 
-    #passing the name in the templates
-    return render(request, "Welcome.html", {"e":email})
+     #passing the name in the templates
+     #response = requests.get('https://api.myjson.com/bins/1ajw1q')
+     #data = response.json()
+     #return render(request, "Welcome.html", {
+     #'products': data['products'[{'name': data['name'],
+     #'image': data['image'],
+     #'price': data['price'],
+     #'description': data['description']
+     #}]]
+         
+         
+     #})
+     #class BooksPage(generic.TemplateView):
+    
+     products_list = services.get_products('name', 'image', 'price', 'description')
+     return render(request,"Welcome.html",products_list)
+     #return render(request, "Welcome.html", {"e":email})
  
 #def logout(request):
     #auth.logout(request)
@@ -64,9 +82,9 @@ def postSignUp(request):
         return render(request,"SignUp.html",{"msg":messsage})
         uid = user['localId']
 
-    data = {"e":email,"status":"1"}
+    #data = {"e":email,"status":"1"}
 
-    database.child("users").child(uid).child("details").set(data)
+    #database.child("users").child(uid).child("details").set(data)
     return render(request, "Login.html")
 
 def search(request):
