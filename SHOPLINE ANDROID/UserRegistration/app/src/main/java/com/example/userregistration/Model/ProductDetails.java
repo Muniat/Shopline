@@ -34,7 +34,7 @@ public class ProductDetails extends AppCompatActivity {
         String price = intent.getExtras().getString("detailsPrice");
         String Url = intent.getExtras().getString("detailsImageView");
 
-        detailsPrice.setText(price);
+        detailsPrice.setText("Price : " + price);
         detailsProductaName.setText(name);
         porductDetailsTextView.setText(description);
         Picasso.with(mcontext).load(Url).fit().centerInside().into(detailsImageView);

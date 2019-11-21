@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -48,6 +49,16 @@ public class ProductAdapter extends RecyclerView.Adapter <ProductAdapter.product
         Picasso.with(mcontext).load(imageURL).fit().centerInside().into(holder.mImageView);
 
 
+        //setOnclick on the augmenteed Button
+        holder.augmentedButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Item currentItem = mProductList.get(position);
+                String name = currentItem.getmName();
+                Toast.makeText(mcontext, "Pressed " + name, Toast.LENGTH_SHORT).show();
+            }
+        });
+
         //on cardVIew click listener
          holder.cardView.setOnClickListener(new View.OnClickListener() {
              @Override
@@ -61,6 +72,11 @@ public class ProductAdapter extends RecyclerView.Adapter <ProductAdapter.product
              }
          });
 
+
+
+
+
+
     }
 
     @Override
@@ -73,6 +89,7 @@ public class ProductAdapter extends RecyclerView.Adapter <ProductAdapter.product
         public TextView mName;
         public TextView mPrice;
         CardView cardView;
+        Button augmentedButton;
 
         public productViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -80,6 +97,7 @@ public class ProductAdapter extends RecyclerView.Adapter <ProductAdapter.product
             mName = itemView.findViewById(R.id.productNameTextView);
             mPrice = itemView.findViewById(R.id.productPriceTextView);
             cardView = (CardView) itemView.findViewById(R.id.productCard);
+            augmentedButton = (Button) itemView.findViewById(R.id.augmentedButton);
 
         }
     }
