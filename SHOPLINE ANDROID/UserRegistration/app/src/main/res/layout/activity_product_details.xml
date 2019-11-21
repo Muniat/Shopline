@@ -7,7 +7,7 @@
     tools:context=".Model.ProductDetails">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/porductDetailsTextView"
         android:layout_width="179dp"
         android:layout_height="90dp"
         android:layout_marginTop="100dp"
@@ -19,14 +19,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/detailsImageView"
         android:layout_width="177dp"
         android:layout_height="181dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="56dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView"
+        app:layout_constraintEnd_toStartOf="@+id/porductDetailsTextView"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -34,7 +34,7 @@
         tools:srcCompat="@tools:sample/avatars[0]" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/addToCartButton"
         android:layout_width="192dp"
         android:layout_height="47dp"
         android:layout_marginTop="104dp"
@@ -47,11 +47,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/detailsImageView"
         app:layout_constraintVertical_bias="0.14" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/viewAugmentedButton"
         android:layout_width="192dp"
         android:layout_height="49dp"
         android:background="@drawable/ic_round_button"
@@ -62,32 +62,32 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/addToCartButton"
         app:layout_constraintVertical_bias="0.111" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/detailsProductaName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
         android:text="Product Name"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintBottom_toTopOf="@+id/detailsImageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.147" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/detailsPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Price : "
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/addToCartButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.045"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/detailsImageView"
         app:layout_constraintVertical_bias="0.126" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -38,7 +38,7 @@ public class ProductAdapter extends RecyclerView.Adapter <ProductAdapter.product
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final productViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final productViewHolder holder, final int position) {
         Item currentItem = mProductList.get(position);
         String imageURL = currentItem.getmImageURL();
         String name = currentItem.getmName();
@@ -53,9 +53,11 @@ public class ProductAdapter extends RecyclerView.Adapter <ProductAdapter.product
              @Override
              public void onClick(View v) {
                  Intent myIntent = new Intent(mcontext, ProductDetails.class);
+                 myIntent.putExtra("detailsProductaName", mProductList.get(position).getmName());
+                 myIntent.putExtra("porductDetails", mProductList.get(position).getmDescription());
+                 myIntent.putExtra("detailsPrice", mProductList.get(position).getmPrice());
+                 myIntent.putExtra("detailsImageView", mProductList.get(position).getmImageURL());
                  mcontext.startActivity(myIntent);
-
-
              }
          });
 
