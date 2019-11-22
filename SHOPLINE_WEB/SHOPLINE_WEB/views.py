@@ -8,6 +8,8 @@ from django.contrib import auth
 import json
 import requests
 from . import services
+from django.views.generic import TemplateView
+from .models import Product
 
 config = {
     'apiKey' : "AIzaSyBd31FZCtpdRuxmkY0uiitJap1Mcet1iDA",
@@ -24,46 +26,59 @@ config = {
 
 firebase = pyrebase.initialize_app(config)
 authe = firebase.auth()
-database = firebase.database()
+
 
 def Login(request):
 
 	return render(request, "Login.html")
-#class ProductsPage(generic.TemplateView):
+
+#class ProductsPage(TemplateView):
+     #template_name = "Welcome.html"    
 def postsign(request):
+
      email = request.POST.get('email')
      password = request.POST.get("password")
      try:
          #allowing only authorised users to log in to the site
          user = authe.sign_in_with_email_and_password(email,password)
      except:
-         message = "Invalid Credentials"
-         return render(request, "Login.html", {"msg":message})
+         msg = "Invalid Credentials"
+         return render(request, "Login.html", {"msg":msg})
      print(user['idToken'])
      session_id = user['idToken']
      request.session['uid'] = str(session_id)
 
-     #passing the name in the templates
-     #response = requests.get('https://api.myjson.com/bins/1ajw1q')
+     #products_list = services.get_products('name', 'image', 'price', 'description')
+     #return render(request, "Welcome.html", products_list)
+     
+
      #data = response.json()
-     #return render(request, "Welcome.html", {
-     #'products': data['products'[{'name': data['name'],
-     #'image': data['image'],
-     #'price': data['price'],
-     #'description': data['description']
-     #}]]
-         
-         
+     
+     #return render(request,"Welcome.html",{
+           #'product': data['products']
+
+           
      #})
-     #class BooksPage(generic.TemplateView):
-    
-     products_list = services.get_products('name', 'image', 'price', 'description')
-     return render(request,"Welcome.html",products_list)
-     #return render(request, "Welcome.html", {"e":email})
- 
-#def logout(request):
-    #auth.logout(request)
-    #return render(request,"Login.html")
+
+     product_list = Product.objects.all()
+
+     product_data = []
+
+     for product in product_list:
+        r = requests.get('https://api.myjson.com/bins/1ajw1q').json()
+        products = {
+          'name': r['products'][0]['name'] ,
+          'image': r['products'][0]['image'],
+          'price': r['products'][0]['price'],
+          'description': r['products'][0]['description']
+        }
+        product_data.append(products)
+     print(product_data)
+
+     context = {'products': products}
+     return render(request,"Welcome.html",context)
+     
+
 
 def SignUp(request):
     return render(request, "SignUp.html")
@@ -82,9 +97,7 @@ def postSignUp(request):
         return render(request,"SignUp.html",{"msg":messsage})
         uid = user['localId']
 
-    #data = {"e":email,"status":"1"}
 
-    #database.child("users").child(uid).child("details").set(data)
     return render(request, "Login.html")
 
 def search(request):
