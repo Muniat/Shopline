@@ -43,6 +43,7 @@
         android:background="@drawable/ic_round_button"
         android:drawableStart="@drawable/cart"
         android:drawableLeft="@drawable/cart"
+        android:onClick="onAddTOCart"
         android:text="Add To Cart"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
