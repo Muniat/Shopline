@@ -24,5 +24,15 @@ public class CartItem {
         return mPrice;
     }
 
-    
+    public void setmImageURL(String mImageURL) {
+        this.mImageURL = mImageURL;
+    }
+
+    public void setmName(String mName) {
+        this.mName = mName;
+    }
+
+    public void setmPrice(String mPrice) {
+        this.mPrice = mPrice;
+    }
 }

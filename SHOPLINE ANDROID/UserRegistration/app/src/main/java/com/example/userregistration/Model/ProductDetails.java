@@ -1,6 +1,7 @@
 package com.example.userregistration.Model;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 
 import android.content.Context;
 import android.content.Intent;
@@ -25,10 +26,6 @@ public class ProductDetails extends AppCompatActivity {
     CartFragment cartFragment;
 
 
-    public void onAddTOCart(View view){
-        Toast.makeText(this, "ok", Toast.LENGTH_SHORT).show();
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +49,17 @@ public class ProductDetails extends AppCompatActivity {
         Picasso.with(mcontext).load(Url).fit().centerInside().into(detailsImageView);
 
 
+
+        addToCartButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(mcontext, CartFragment.class);
+                myIntent.putExtra("Name", name);
+                myIntent.putExtra("Price", price);
+                myIntent.putExtra("imageUrl", Url);
+                mcontext.startActivity(myIntent);
+            }
+        });
 
 
 
