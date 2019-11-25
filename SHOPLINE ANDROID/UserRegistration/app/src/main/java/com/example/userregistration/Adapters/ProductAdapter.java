@@ -2,6 +2,7 @@ package com.example.userregistration.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.userregistration.Fragments.DescriptionFragment;
 import com.example.userregistration.Model.Item;
 import com.example.userregistration.Model.ProductDetails;
 import com.example.userregistration.R;
@@ -69,14 +71,10 @@ public class ProductAdapter extends RecyclerView.Adapter <ProductAdapter.product
                  myIntent.putExtra("detailsPrice", mProductList.get(position).getmPrice());
                  myIntent.putExtra("detailsImageView", mProductList.get(position).getmImageURL());
                  mcontext.startActivity(myIntent);
+
+
              }
          });
-
-
-
-
-
-
     }
 
     @Override
