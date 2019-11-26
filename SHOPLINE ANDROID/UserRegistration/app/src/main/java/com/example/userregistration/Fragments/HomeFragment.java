@@ -68,7 +68,7 @@ public class HomeFragment extends Fragment {
 
 
     private void parseJson() {
-        String url = "https://api.myjson.com/bins/1ajw1q";
+        String url = "https://api.myjson.com/bins/vvjiu";
 
         final JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {

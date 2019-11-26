@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".Fragments.CartFragment" >
 
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="76dp"
@@ -16,16 +17,15 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.721"
+        app:layout_constraintHorizontal_bias="0.683"
         app:layout_constraintStart_toStartOf="parent" />
-
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/CartRecyclerView"
         android:layout_width="348dp"
-        android:layout_height="490dp"
-        android:layout_marginTop="5dp"
+        android:layout_height="400dp"
         android:layout_marginLeft="16dp"
+        android:layout_marginTop="5dp"
         android:layout_marginRight="16dp"
         android:background="@android:color/darker_gray"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
@@ -41,7 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginBottom="36dp"
+        android:layout_marginBottom="72dp"
         android:background="@drawable/ic_round_button"
         android:text="Continue TO Checkout"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -66,8 +66,8 @@
         android:id="@+id/QuantityTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="176dp"
-        android:layout_marginLeft="176dp"
+        android:layout_marginStart="228dp"
+        android:layout_marginLeft="228dp"
         android:layout_marginTop="16dp"
         android:text="Quantity"
         app:layout_constraintStart_toStartOf="parent"

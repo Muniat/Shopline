@@ -29,7 +29,7 @@ public class DescriptionFragment extends Fragment {
         // Inflate the layout for this fragment
         View root =  inflater.inflate(R.layout.fragment_description, container, false);
         descriptionText = root.findViewById(R.id.descriptionText);
-        descriptionText.setText("what the fuck is wrong");
+        descriptionText.setText("Something is wrong here");
         return root;
     }
 
