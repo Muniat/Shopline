@@ -1,4 +1,4 @@
-package com.example.userregistration.Model;
+package com.example.userregistration.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,21 +10,16 @@ import androidx.viewpager.widget.ViewPager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewParent;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.userregistration.Adapters.ProductDetailsAdapter;
 import com.example.userregistration.Fragments.AccountFragment;
 import com.example.userregistration.Fragments.CartFragment;
-import com.example.userregistration.Fragments.DescriptionFragment;
 import com.example.userregistration.Fragments.HomeFragment;
-import com.example.userregistration.HomeActivity;
 import com.example.userregistration.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
@@ -32,7 +27,7 @@ import com.squareup.picasso.Picasso;
 
 import java.net.URL;
 
-public class ProductDetails extends AppCompatActivity {
+public class ProductDetailsActivity extends AppCompatActivity {
     ImageView detailsImageView;
     TextView detailsPrice, detailsProductaName,descriptionTextView;
     Context mcontext;
@@ -43,10 +38,7 @@ public class ProductDetails extends AppCompatActivity {
     ViewPager viewPager;
     TabLayout tabLayout;
     BottomNavigationView mbottomNavigationView;
-
-
-
-
+    String name,description,price,Url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,10 +56,10 @@ public class ProductDetails extends AppCompatActivity {
 
 
         Intent intent = getIntent();
-        final String name = intent.getExtras().getString("detailsProductaName");
-        final String description = intent.getExtras().getString("porductDetails");
-        final String price = intent.getExtras().getString("detailsPrice");
-        final String Url = intent.getExtras().getString("detailsImageView");
+        name = intent.getExtras().getString("detailsProductaName");
+        description = intent.getExtras().getString("porductDetails");
+        price = intent.getExtras().getString("detailsPrice");
+        Url = intent.getExtras().getString("detailsImageView");
 
         detailsPrice.setText("Price : " + price);
         detailsProductaName.setText(name);
@@ -102,16 +94,16 @@ public class ProductDetails extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()){
                     case R.id.homeNav :
-                        Toast.makeText(ProductDetails.this, "Home Pressed", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ProductDetailsActivity.this, "Home Pressed", Toast.LENGTH_SHORT).show();
 
                         addFragment(homeFragment);
                         return true;
                     case R.id.accountNav:
-                        Toast.makeText(ProductDetails.this, "Account", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ProductDetailsActivity.this, "Account", Toast.LENGTH_SHORT).show();
                         addFragment(accountFragment);
                         return true;
                     case R.id.cartNav:
-                        Toast.makeText(ProductDetails.this, "cart", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ProductDetailsActivity.this, "cart", Toast.LENGTH_SHORT).show();
                         addFragment(cartFragment);
                         return  true;
                     default:
@@ -124,6 +116,11 @@ public class ProductDetails extends AppCompatActivity {
     public void AddProductToCart(View view){
         FragmentManager fm = getSupportFragmentManager();
         CartFragment cartFragment = new CartFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString("name", name);
+        bundle.putString("price", price);
+        bundle.putString("url", Url);
+        cartFragment.setArguments(bundle);
         fm.beginTransaction().replace(R.id.productDetailsActivity,cartFragment).addToBackStack("").commit();
 
         detailsPrice.setVisibility(View.GONE);
@@ -132,7 +129,13 @@ public class ProductDetails extends AppCompatActivity {
         detailsImageView.setVisibility(View.GONE);
         addToCartButton.setVisibility(View.GONE);
     }
+
     private void addFragment(Fragment fragment) {
+        if(fragment == cartFragment){
+            Bundle b = new Bundle();
+            b.clear();
+            fragment.setArguments(b);
+        }
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.productDetailsActivity,fragment);
         fragmentTransaction.commit();

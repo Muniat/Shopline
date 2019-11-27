@@ -27,8 +27,8 @@ public class CartFragment extends Fragment {
     CartProductAdapter cartProductAdapter;
     List<CartItem> cartItems;
 
-    public CartFragment() {
-        // Required empty public constructor
+    public CartFragment(){
+
     }
 
 
@@ -38,12 +38,15 @@ public class CartFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootview =  inflater.inflate(R.layout.fragment_cart, container, false);
         CartRecyclerView =(RecyclerView) rootview.findViewById(R.id.CartRecyclerView);
-
+        Bundle bundle = getArguments();
+        String name = bundle.getString("name");
+        String url = bundle.getString("url");
+        String price = bundle.getString("price");
 
         cartItems = new ArrayList<>();
         CartRecyclerView.setHasFixedSize(true);
         CartRecyclerView.setLayoutManager(new LinearLayoutManager(CartFragment.this.getContext()));
-        cartItems.add(new CartItem("https://firebasestorage.googleapis.com/v0/b/registration-c3373.appspot.com/o/productImage%2FAcousticGuitar.PNG?alt=media&token=4e3537d5-4956-43cd-a9fe-a9ee65045b61","Guitar","5000"));
+        cartItems.add(new CartItem(url,name,price));
         cartProductAdapter = new CartProductAdapter(CartFragment.this.getContext(), (ArrayList<CartItem>) cartItems);
         CartRecyclerView.setAdapter(cartProductAdapter);
         return rootview;

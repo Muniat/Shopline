@@ -1,4 +1,4 @@
-package com.example.userregistration;
+package com.example.userregistration.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.example.userregistration.Fragments.AccountFragment;
 import com.example.userregistration.Fragments.CartFragment;
 import com.example.userregistration.Fragments.HomeFragment;
+import com.example.userregistration.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -78,6 +79,11 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void addFragment(Fragment fragment) {
+        if(fragment == cartFragment){
+            Bundle b = new Bundle();
+            b.clear();
+            fragment.setArguments(b);
+        }
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.mainFrame,fragment);
         fragmentTransaction.commit();

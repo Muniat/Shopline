@@ -2,7 +2,6 @@ package com.example.userregistration.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,9 +14,8 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.userregistration.Fragments.DescriptionFragment;
 import com.example.userregistration.Model.Item;
-import com.example.userregistration.Model.ProductDetails;
+import com.example.userregistration.View.ProductDetailsActivity;
 import com.example.userregistration.R;
 import com.squareup.picasso.Picasso;
 
@@ -65,7 +63,7 @@ public class ProductAdapter extends RecyclerView.Adapter <ProductAdapter.product
          holder.cardView.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
-                 Intent myIntent = new Intent(mcontext, ProductDetails.class);
+                 Intent myIntent = new Intent(mcontext, ProductDetailsActivity.class);
                  myIntent.putExtra("detailsProductaName", mProductList.get(position).getmName());
                  myIntent.putExtra("porductDetails", mProductList.get(position).getmDescription());
                  myIntent.putExtra("detailsPrice", mProductList.get(position).getmPrice());

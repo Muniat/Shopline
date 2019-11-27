@@ -1,8 +1,10 @@
-package com.example.userregistration;
+package com.example.userregistration.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProviders;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -12,40 +14,41 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.example.userregistration.R;
+import com.example.userregistration.ViewModels.MainActivityViewModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
-
     EditText emailEditText,passwordEditText;
     Button signUpButton,continueButton;
     TextView infoTextView,loginMasgTextView;
     FirebaseAuth firebaseAuth; // creating a firebase authentication
-
     public void onSignUpButtonClick(View view){
         String mail = emailEditText.getText().toString();
         String pass = passwordEditText.getText().toString();
         if(TextUtils.isEmpty(mail) && TextUtils.isEmpty(pass)){
             Toast.makeText(this, "Email Or password Empty", Toast.LENGTH_SHORT).show();
         }else if(!TextUtils.isEmpty(mail) && !TextUtils.isEmpty(pass)){
-            firebaseAuth.createUserWithEmailAndPassword(mail,pass).addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
+            MainActivityViewModel mainActivityViewModel = new MainActivityViewModel(mail,pass);
+            firebaseAuth.createUserWithEmailAndPassword(mail,pass).addOnCompleteListener((Activity) this, new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(!task.isSuccessful()){
                         Toast.makeText(MainActivity.this, "Invalid User Or Password", Toast.LENGTH_SHORT).show();
                     }else{
-                        startActivity(new Intent(MainActivity.this,HomeActivity.class));
+                        Toast.makeText(MainActivity.this, "Your Account Has Been Created!", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(MainActivity.this,HomeActivity.class);
+                        startActivity(intent);
                     }
                 }
             });
         }else{
-            Toast.makeText(this, "Something Went Wrong", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, "Something Went Wrong", Toast.LENGTH_SHORT).show();
         }
+
     }
 
     @Override
@@ -61,10 +64,11 @@ public class MainActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
 
 
+
         loginMasgTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,LoginActivity.class);
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
         });
@@ -73,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,HomeActivity.class);
+                Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                 startActivity(intent);
             }
         });
