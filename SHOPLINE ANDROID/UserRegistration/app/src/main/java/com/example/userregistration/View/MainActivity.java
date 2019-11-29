@@ -14,55 +14,76 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.userregistration.Model.User;
 import com.example.userregistration.R;
 import com.example.userregistration.ViewModels.MainActivityViewModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
-    EditText emailEditText,passwordEditText;
+    EditText emailEditText,passwordEditText,nameEditText,addressEditText,phoneEditText;
     Button signUpButton,continueButton;
     TextView infoTextView,loginMasgTextView;
-    FirebaseAuth firebaseAuth; // creating a firebase authentication
+    FirebaseAuth firebaseAuth;
+    DatabaseReference firebaseDatabase;
+
+
     public void onSignUpButtonClick(View view){
-        String mail = emailEditText.getText().toString();
-        String pass = passwordEditText.getText().toString();
-        if(TextUtils.isEmpty(mail) && TextUtils.isEmpty(pass)){
-            Toast.makeText(this, "Email Or password Empty", Toast.LENGTH_SHORT).show();
-        }else if(!TextUtils.isEmpty(mail) && !TextUtils.isEmpty(pass)){
-            MainActivityViewModel mainActivityViewModel = new MainActivityViewModel(mail,pass);
-            firebaseAuth.createUserWithEmailAndPassword(mail,pass).addOnCompleteListener((Activity) this, new OnCompleteListener<AuthResult>() {
+        addUserRecord();
+    }
+
+
+    private void addUserRecord(){
+        String name = nameEditText.getText().toString().trim();
+        String email = emailEditText.getText().toString().trim();
+        String password = passwordEditText.getText().toString().trim();
+        String phone = phoneEditText.getText().toString().trim();
+        String address = addressEditText.getText().toString().trim();
+        if (!TextUtils.isEmpty(name)&& !TextUtils.isEmpty(email) && !TextUtils.isEmpty(password) && !TextUtils.isEmpty(phone) && !TextUtils.isEmpty(address)){
+            firebaseAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener((Activity) this, new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(!task.isSuccessful()){
                         Toast.makeText(MainActivity.this, "Invalid User Or Password", Toast.LENGTH_SHORT).show();
                     }else{
                         Toast.makeText(MainActivity.this, "Your Account Has Been Created!", Toast.LENGTH_SHORT).show();
+                        String id = firebaseDatabase.push().getKey();
+                        User user = new User(id,name,email,password,address,phone);
+                        firebaseDatabase.child(id).setValue(user);
                         Intent intent = new Intent(MainActivity.this,HomeActivity.class);
                         startActivity(intent);
                     }
                 }
             });
+
+
         }else{
-            Toast.makeText(MainActivity.this, "Something Went Wrong", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please Fill Up The Form Properly", Toast.LENGTH_SHORT).show();
         }
 
     }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         emailEditText = (EditText) findViewById(R.id.emailEditText);
         passwordEditText = (EditText) findViewById(R.id.passwordEditText);
+        nameEditText = (EditText) findViewById(R.id.nameEditText);
+        addressEditText = (EditText) findViewById(R.id.addressEditText);
+        phoneEditText = (EditText) findViewById(R.id.phoneEditText);
         signUpButton = (Button) findViewById(R.id.loginButton);
         loginMasgTextView = (TextView) findViewById(R.id.loginMasgTextView);
         continueButton = (Button) findViewById(R.id.continueButton);
 
         firebaseAuth = FirebaseAuth.getInstance();
-
+        firebaseDatabase = FirebaseDatabase.getInstance().getReference("users");
 
 
         loginMasgTextView.setOnClickListener(new View.OnClickListener() {
