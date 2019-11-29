@@ -4,9 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -25,6 +27,10 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.FirebaseDatabase;
+
+import eightbitlab.com.blurview.BlurView;
+import eightbitlab.com.blurview.RenderScriptBlur;
 
 public class LoginActivity extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
@@ -33,7 +39,25 @@ public class LoginActivity extends AppCompatActivity {
     EditText emailEditText,passwordEditText;
     TextView infoTextView,signUpTextView;
     Button loginButton,googleButton;
+    BlurView blurView;
 
+    public void blur(){
+        float radius = 20f;
+
+        View decorView = getWindow().getDecorView();
+        //ViewGroup you want to start blur from. Choose root as close to BlurView in hierarchy as possible.
+        ViewGroup rootView = (ViewGroup) decorView.findViewById(android.R.id.content);
+        //Set drawable to draw in the beginning of each blurred frame (Optional).
+        //Can be used in case your layout has a lot of transparent space and your content
+        //gets kinda lost after after blur is applied.
+        Drawable windowBackground = decorView.getBackground();
+
+        blurView.setupWith(rootView)
+                .setFrameClearDrawable(windowBackground)
+                .setBlurAlgorithm(new RenderScriptBlur(this))
+                .setBlurRadius(radius)
+                .setHasFixedTransformationMatrix(true);
+    }
 
 
     public void onLoginButtonPressed(View view){
@@ -67,6 +91,8 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
 
+        blurView = (BlurView) findViewById(R.id.blurView);
+        blurView.setVisibility(View.GONE);
         googleButton = (Button) findViewById(R.id.loginGoogle);
         emailEditText = (EditText) findViewById(R.id.emailEditText);
         passwordEditText = (EditText) findViewById(R.id.passwordEditText);
@@ -74,6 +100,11 @@ public class LoginActivity extends AppCompatActivity {
         signUpTextView = (TextView) findViewById(R.id.signUpTextView);
 
         firebaseAuth = FirebaseAuth.getInstance();
+        /*FirebaseUser user = firebaseAuth.getCurrentUser();
+        if(user != null){
+            finish();
+            startActivity(new Intent(LoginActivity.this,HomeActivity.class));
+        }*/
 
         firebaseAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -159,9 +190,6 @@ public class LoginActivity extends AppCompatActivity {
 
 
     }
-
-
-
 
 
 

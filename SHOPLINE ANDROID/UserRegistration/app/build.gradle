@@ -46,7 +46,7 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.google.firebase:firebase-database:16.0.4'
     implementation 'com.google.firebase:firebase-storage:16.0.4'
-
+    implementation 'com.eightbitlab:blurview:1.6.3'
     androidTestImplementation "androidx.annotation:annotation:${support_version}"
     androidTestImplementation "androidx.test:rules:$test_version"
     androidTestImplementation "androidx.test:runner:$test_version"
