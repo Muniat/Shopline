@@ -11,8 +11,6 @@
 
 	    #logo{
 	    	height: 75px;
-
-
 	    }
 	    .col-md-3{
 	    	display: inline-block;
@@ -20,10 +18,8 @@
 	    }
 	    .carousel-indicators .active{
 	    	background-color: #90EE90;
-
 	    }
-
-	    .col-md-3 img{
+     .col-md-3 img{
 	    	width: 100%;
 	    	height: auto;
 	    }
@@ -101,166 +97,36 @@
   	<li data-target="demo" data-slide-to="2"></li>
   </ul>
 
-  
+
   <!-- Slideshow starts here -->
   <div class="container carousel-inner no-padding">
-  	   <div class="carousel-item active">
-  	   	  <div class="col-xs-3 col-sm-3 col-md-3">
-  	         <div class="card" style="width: 18rem;">
-  	         	
-                 <img class="card-img-top" src="{{ products.image }}" alt="Card image cap">
-                 <div class="card-body">
-                     <h5 class="card-title">{{ products.name }}</h5>
-                     <p class="price">{{ products.price }}</p>
-                     <p class="card-text">{{ products.description }}</p>
-                     <a href="#" class="btn btn-primary">Add to cart</a>
-                 </div>
-             </div>
-         </div>
+      
+          <div class="col-md-4">
+             {% for product in data %}
+               <div class="card" style="width: 18rem;">
 
-         <div class="col-xs-3 col-sm-3 col-md-3">
-             <div class="card" style="width: 18rem;">
-                 <img class="card-img-top" src="{{ products.image }}" alt="Card image cap">
-                 <div class="card-body">
-                     <h5 class="card-title">{{ products.name }}</h5>
-                     <p class="price">{{ products.price }}</p>
-                     <p class="card-text">{{ products.description }}</p>
-                     <a href="#" class="btn btn-primary">Add to cart</a>
-                 </div>
-             </div>
-         </div>
-
-         <div class="col-xs-3 col-sm-3 col-md-3">
-              <div class="card" style="width: 18rem;">
-                  <img class="card-img-top" src="{{ products.image }}" alt="Card image cap">
-                  <div class="card-body">
-                      <h5 class="card-title">{{ products.name }}</h5>
-                      <p class="price">{{ products.price }}</p>
-                      <p class="card-text">{{ products.description }}</p>
-                      <a href="#" class="btn btn-primary">Add to cart</a>
-                 </div>
-             </div>
-          </div>
-  	   </div>
-  	   <div class="carousel-item">
-  	   	  <div class="col-xs-3 col-sm-3 col-md-3">
-  	         <div class="card" style="width: 18rem;">
-                 <img class="card-img-top" src="{{ products.image }}" alt="Card image cap">
-                 <div class="card-body">
-                     <h5 class="card-title">{{ products.name }}</h5>
-                     <p class="price">{{ products.price }}</p>
-                     <p class="card-text">{{ products.description }}</p>
-                     <a href="#" class="btn btn-primary">Add to cart</a>
-                 </div>
-             </div>
-         </div>
-
-         <div class="col-xs-3 col-sm-3 col-md-3">
-             <div class="card" style="width: 18rem;">
-                 <img class="card-img-top" src="{{ products.image }}" alt="Card image cap">
-                 <div class="card-body">
-                     <h5 class="card-title">{{ products.name }}</h5>
-                     <p class="price">{{ products.price }}</p>
-                     <p class="card-text">{{ products.description }}</p>
-                     <a href="#" class="btn btn-primary">Add to cart</a>
-                 </div>
-             </div>
-         </div>
-
-         <div class="col-xs-3 col-sm-3 col-md-3">
-              <div class="card" style="width: 18rem;">
-                  <img class="card-img-top" src="{{ products.image }}" alt="Card image cap">
-                  <div class="card-body">
-                      <h5 class="card-title">{{ products.name }}</h5>
-                      <p class="card-text">{{ products.description }}</p>
-                      <a href="#" class="btn btn-primary">Add to cart</a>
-                 </div>
-             </div>
-          </div>
-  	   </div>
-  	   <div class="carousel-item">
-  	   	  <div class="col-xs-3 col-sm-3 col-md-3">
-  	         <div class="card" style="width: 18rem;">
-                 <img class="card-img-top" src="{{ products.image }}" alt="Card image cap">
-                 <div class="card-body">
-                     <h5 class="card-title">{{ products.name }}</h5>
-                     <p class="price">{{ products.price }}</p>
-                     <p class="card-text">{{ products.description }}</p>
-                     <a href="#" class="btn btn-primary">Add to cart</a>
-                 </div>
-             </div>
-         </div>
-
-         <div class="col-xs-3 col-sm-3 col-md-3">
-             <div class="card" style="width: 18rem;">
-                 <img class="card-img-top" src="{{ products.image }}" alt="Card image cap">
-                 <div class="card-body">
-                     <h5 class="card-title">{{ products.name }}</h5>
-                     <p class="price">{{ products.price }}</p>
-                     <p class="card-text">{{ products.description }}</p>
-                     <a href="#" class="btn btn-primary">Add to cart</a>
-                 </div>
-             </div>
-         </div>
-
-         <div class="col-xs-3 col-sm-3 col-md-3">
-              <div class="card" style="width: 18rem;">
-                  <img class="card-img-top" src="{{ products.image }}" alt="Card image cap">
-                  <div class="card-body">
-                      <h5 class="card-title">{{ products.name }}</h5>
-                      <p class="price">{{ products.price }}</p>
-                      <p class="card-text">{{ products.description }}</p>
-                      <a href="#" class="btn btn-primary">Add to cart</a>
-                 </div>
-             </div>
-          </div>
-          <div class="col-xs-3 col-sm-3 col-md-3">
-              <div class="card" style="width: 18rem;">
-                  <img class="card-img-top" src="{{ products.image }}" alt="Card image cap">
-                  <div class="card-body">
-                      <h5 class="card-title">{{ products.name }}</h5>
-                      <p class="price">{{ products.price }}</p>
-                      <p class="card-text">{{ products.description }}</p>
-                      <a href="#" class="btn btn-primary">Add to cart</a>
-                 </div>
-             </div>
-          </div>
-          <div class="col-xs-3 col-sm-3 col-md-3">
-              <div class="card" style="width: 18rem;">
-                  <img class="card-img-top" src="{{ products.image }}" alt="Card image cap">
-                  <div class="card-body">
-                      <h5 class="card-title">{{ products.name }}</h5>
-                      <p class="price">{{ products.price }}</p>
-                      <p class="card-text">{{ products.description }}</p>
-                      <a href="#" class="btn btn-primary">Add to cart</a>
-                 </div>
-             </div>
-          </div>
-          <div class="col-xs-3 col-sm-3 col-md-3">
-              <div class="card" style="width: 18rem;">
-                  <img class="card-img-top" src="{{ products.image }}" alt="Card image cap">
-                  <div class="card-body">
-                      <h5 class="card-title">{{ products.name }}</h5>
-                      <p class="price">{{ products.price }}</p>
-                      <p class="card-text">{{ products.description }}</p>
-                      <a href="#" class="btn btn-primary">Add to cart</a>
-                 </div>
-             </div>
-          </div>
-  	   </div>
-  	</div>
- </div>
+                   <img class="card-img-top" src="{{ product.image }}" alt="Card image cap">
+                   <div class="card-body">
+                       <h5 class="card-title">{{ product.name }}</h5>
+                       <p class="price">{{ product.price }}</p>
+                       <p class="card-text">{{ product.description }}</p>
+                       <a href="#" class="btn btn-primary">Add to cart</a>
+                   </div>
+               </div>
+             {% endfor %}
+          </div>  
+     
+  </div>
 </div>
 {% endblock %}
 
-  <!--Left and Right controls for slide -->
-  <a class="carousel-control-prev" href="#demo" data-slide="prev">
-  	<span class="carousel-control-prev-icon"></span>
-  </a>
-  <a class="carousel-control-next" href="#demo" data-slide="next">
-  	<span class="carousel-control-next-icon"></span>
-  </a>
-
+  <!-- left and right controls for the slide -->
+    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#demo" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </a>
 
   <!-- Optional Javascript -->
   <!-- jQuesry first, then Popper.js, then Bootstrap JS -->

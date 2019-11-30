@@ -10,30 +10,18 @@ import requests
 from . import services
 from django.views.generic import TemplateView
 from .models import Product
-
-config = {
-    'apiKey' : "AIzaSyBd31FZCtpdRuxmkY0uiitJap1Mcet1iDA",
-    'authDomain' : "registration-c3373.firebaseapp.com",
-    'databaseURL' : "https://registration-c3373.firebaseio.com",
-    'projectId' : "registration-c3373",
-    'storageBucket' : "registration-c3373.appspot.com",
-    'messagingSenderId' : "123962731629",
-    'appId' : "1:123962731629:web:c4cc2ed965b1031daa2364"
-	}
+import pprint
 
 
 
-
-firebase = pyrebase.initialize_app(config)
-authe = firebase.auth()
+authe = services.firebase_key().auth()
 
 
 def Login(request):
 
 	return render(request, "Login.html")
 
-#class ProductsPage(TemplateView):
-     #template_name = "Welcome.html"    
+   
 def postsign(request):
 
      email = request.POST.get('email')
@@ -48,34 +36,26 @@ def postsign(request):
      session_id = user['idToken']
      request.session['uid'] = str(session_id)
 
-     #products_list = services.get_products('name', 'image', 'price', 'description')
-     #return render(request, "Welcome.html", products_list)
+    
+
+     data = []
      
+     jsonData = services.get_products()
 
-     #data = response.json()
-     
-     #return render(request,"Welcome.html",{
-           #'product': data['products']
+     for products in jsonData:
 
-           
-     #})
+        productData = {}
 
-     product_list = Product.objects.all()
+       
+        productData['name'] = products['name']
+        productData['image'] = products['image']
+        productData['price'] = products['price']
+        productData['description'] = products['description']
+        
+        data.append(productData)
+     print(data)
 
-     product_data = []
-
-     for product in product_list:
-        r = requests.get('https://api.myjson.com/bins/1ajw1q').json()
-        products = {
-          'name': r['products'][0]['name'] ,
-          'image': r['products'][0]['image'],
-          'price': r['products'][0]['price'],
-          'description': r['products'][0]['description']
-        }
-        product_data.append(products)
-     print(product_data)
-
-     context = {'products': products}
+     context = {'data': data}
      return render(request,"Welcome.html",context)
      
 
@@ -84,7 +64,26 @@ def SignUp(request):
     return render(request, "SignUp.html")
 
 def WithoutRegistration(request):
-    return render(request, "Welcome.html")
+     data = []
+     
+     jsonData = services.get_products()
+
+     for products in jsonData:
+
+        productData = {}
+
+       
+        productData['name'] = products['name']
+        productData['image'] = products['image']
+        productData['price'] = products['price']
+        productData['description'] = products['description']
+        
+        data.append(productData)
+     print(data)
+
+     context = {'data': data}
+     return render(request,"Welcome.html",context)
+     
 
 def postSignUp(request):
     email = request.POST.get('email')
