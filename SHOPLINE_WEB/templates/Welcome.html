@@ -12,7 +12,7 @@
 	    #logo{
 	    	height: 75px;
 	    }
-	    .col-md-3{
+	    .col-md-4{
 	    	display: inline-block;
 	    	margin-left:-4px;
 	    }
@@ -42,7 +42,44 @@
 	    	padding-left: 0;
 	    	padding-right: 0;
 	    }
-	 	
+      .btn{
+        background-color:#90EE90;
+        color: black; 
+      }
+
+    
+      .cards {
+ 
+       display: grid;
+ 
+       grid-template-columns: repeat(3, 1fr);
+ 
+       grid-auto-rows: auto;
+ 
+       grid-gap: 1rem;
+ 
+      }
+      .card {
+ 
+       border: 2px solid #e7e7e7;
+ 
+       border-radius: 4px;
+ 
+       padding: .5rem;
+ 
+      }
+      .card-img-top {
+       width: 100%;
+       height: 40vh;
+       object-fit: cover;
+      }
+      .card-text{
+       width: 100%;
+       height: 50vh;
+       object-fit: 50%;
+      }
+
+     
 	 </style>
 	
 </head>
@@ -78,9 +115,7 @@
           <a class="dropdown-item" href="#">Something else here</a>
         </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
+      
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -89,44 +124,41 @@
   </div>
 </nav>
    
-<div class="container">
-  <div id="demo" class="carousel slide my-3" data-ride="carousel">
-  <ul class="carousel-indicators">
-  	<li data-target="demo" data-slide-to="0" class="active"></li>
-  	<li data-target="demo" data-slide-to="1"></li>
-  	<li data-target="demo" data-slide-to="2"></li>
-  </ul>
 
 
-  <!-- Slideshow starts here -->
-  <div class="container carousel-inner no-padding">
+  
+  <div class="container">
       
           <div class="col-md-4">
-             {% for product in data %}
-               <div class="card" style="width: 18rem;">
+             
+              <div class="cards">
+                {% for product in data %}
+                
+                 
+                 <div class="card" style="width: 18rem;">
+                   
 
-                   <img class="card-img-top" src="{{ product.image }}" alt="Card image cap">
-                   <div class="card-body">
-                       <h5 class="card-title">{{ product.name }}</h5>
-                       <p class="price">{{ product.price }}</p>
-                       <p class="card-text">{{ product.description }}</p>
-                       <a href="#" class="btn btn-primary">Add to cart</a>
-                   </div>
-               </div>
-             {% endfor %}
+                     <img class="card-img-top" src="{{ product.image }}" alt="Card image cap">
+                     <div class="card-body">
+                         <h5 class="card-title">{{ product.name }}</h5>
+                         <p class="price">{{ product.price }}</p>
+                         <p class="card-text">{{ product.description }}</p>
+                         <a href="#" class="btn btn-primary">Add to cart</a>
+                     </div>
+                    
+                 </div>
+                 
+                
+                {% endfor %}
+              </div>
+              </div>
+             
           </div>  
      
-  </div>
-</div>
+
 {% endblock %}
 
-  <!-- left and right controls for the slide -->
-    <a class="carousel-control-prev" href="#demo" data-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-    </a>
-    <a class="carousel-control-next" href="#demo" data-slide="next">
-        <span class="carousel-control-next-icon"></span>
-    </a>
+ 
 
   <!-- Optional Javascript -->
   <!-- jQuesry first, then Popper.js, then Bootstrap JS -->
