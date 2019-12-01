@@ -1,32 +1,50 @@
 package com.example.userregistration.Model;
 
 public class Item {
-    private String mImageURL;
-    private String mName;
-    private String mPrice;
-    private String mDescription;
+    private String image;
+    private String name;
+    private String price;
+    private String description;
 
-    public Item(String mImageURL, String mName, String mPrice, String mDescription) {
-        this.mImageURL = mImageURL;
-        this.mName = mName;
-        this.mPrice = mPrice;
-        this.mDescription = mDescription;
+    public Item() {
     }
 
-    public String getmImageURL() {
-        return mImageURL;
+    public Item(String image, String name, String price, String description) {
+        this.image = image;
+        this.name = name;
+        this.price = price;
+        this.description = description;
     }
 
-    public String getmName() {
-        return mName;
+    public String getImage() {
+        return image;
     }
 
-    public String getmPrice() {
-        return mPrice;
+    public void setImage(String image) {
+        this.image = image;
     }
 
-    public String getmDescription(){
-        return mDescription;
+    public String getName() {
+        return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }

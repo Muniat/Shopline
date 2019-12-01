@@ -23,17 +23,22 @@
 
     <Button
         android:id="@+id/addToCartButton"
-        android:layout_width="205dp"
+        android:layout_width="0dp"
         android:layout_height="54dp"
-        android:layout_marginBottom="76dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="80dp"
         android:background="@drawable/ic_round_button"
         android:drawableStart="@drawable/cart"
         android:drawableLeft="@drawable/cart"
+        android:drawableEnd="@drawable/cart"
+        android:drawableRight="@drawable/cart"
         android:onClick="AddProductToCart"
         android:text="Add To Cart"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.718"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -54,25 +59,45 @@
         android:id="@+id/detailsPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
         android:text="Price : "
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.317"
+        app:layout_constraintHorizontal_bias="0.043"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/detailsImageView" />
 
     <TextView
         android:id="@+id/descriptionTextView"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="180dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginRight="16dp"
         app:layout_constraintBottom_toTopOf="@+id/addToCartButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detailsPrice" />
+        app:layout_constraintTop_toBottomOf="@+id/detailsPrice"
+        app:layout_constraintVertical_bias="0.235" />
+
+    <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
+        android:id="@+id/elegentNumberButton"
+        android:layout_width="205dp"
+        android:layout_height="54dp"
+        android:layout_marginEnd="76dp"
+        android:background="@drawable/ic_round_button"
+        android:elevation="6dp"
+        android:gravity="center"
+        app:backGroundColor="#BDECB6"
+        app:finalNumber="10"
+        app:initialNumber="1"
+        app:layout_constraintBottom_toTopOf="@+id/addToCartButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionTextView"
+        app:layout_constraintVertical_bias="0.451"
+        app:textColor="#000"
+        app:textSize="8dp">
+
+    </com.cepheuen.elegantnumberbutton.view.ElegantNumberButton>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"
@@ -88,5 +113,18 @@
         app:layout_constraintVertical_bias="1.0"
         app:menu="@menu/menu"
         tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/quantitiTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quantity "
+        android:textSize="22sp"
+        app:layout_constraintBottom_toTopOf="@+id/addToCartButton"
+        app:layout_constraintEnd_toStartOf="@+id/elegentNumberButton"
+        app:layout_constraintHorizontal_bias="0.38"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionTextView"
+        app:layout_constraintVertical_bias="0.472" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

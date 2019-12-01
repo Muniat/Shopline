@@ -52,6 +52,7 @@ dependencies {
     androidTestImplementation "androidx.test:runner:$test_version"
     implementation "androidx.lifecycle:lifecycle-runtime:$lifecycle_version"
     annotationProcessor "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
+    implementation 'com.cepheuen.elegant-number-button:lib:1.0.2'
 
     implementation "com.google.ar.sceneform.ux:sceneform-ux:$sceneform_version"
     implementation "com.google.ar.sceneform:assets:$sceneform_version"

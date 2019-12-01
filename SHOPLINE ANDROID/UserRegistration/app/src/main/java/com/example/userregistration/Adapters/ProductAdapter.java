@@ -41,9 +41,10 @@ public class ProductAdapter extends RecyclerView.Adapter <ProductAdapter.product
     @Override
     public void onBindViewHolder(@NonNull final productViewHolder holder, final int position) {
         Item currentItem = mProductList.get(position);
-        String imageURL = currentItem.getmImageURL();
-        String name = currentItem.getmName();
-        String price = currentItem.getmPrice();
+        String imageURL = currentItem.getImage();
+        String name = currentItem.getName();
+        String price = currentItem.getPrice();
+        String description = currentItem.getDescription();
         holder.mName.setText(name);
         holder.mPrice.setText("Price : " + price);
         Picasso.with(mcontext).load(imageURL).fit().centerInside().into(holder.mImageView);
@@ -54,25 +55,24 @@ public class ProductAdapter extends RecyclerView.Adapter <ProductAdapter.product
             @Override
             public void onClick(View v) {
                 Item currentItem = mProductList.get(position);
-                String name = currentItem.getmName();
+                String name = currentItem.getName();
                 Toast.makeText(mcontext, "Pressed " + name, Toast.LENGTH_SHORT).show();
             }
         });
 
         //on cardVIew click listener
-         holder.cardView.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View v) {
-                 Intent myIntent = new Intent(mcontext, ProductDetailsActivity.class);
-                 myIntent.putExtra("detailsProductaName", mProductList.get(position).getmName());
-                 myIntent.putExtra("porductDetails", mProductList.get(position).getmDescription());
-                 myIntent.putExtra("detailsPrice", mProductList.get(position).getmPrice());
-                 myIntent.putExtra("detailsImageView", mProductList.get(position).getmImageURL());
-                 mcontext.startActivity(myIntent);
-
-
-             }
-         });
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(mcontext, ProductDetailsActivity.class);
+                String pos = Integer.toString(position);
+                myIntent.putExtra("position", pos);
+                //myIntent.putExtra("porductDetails", mProductList.get(position).getDescription());
+                //myIntent.putExtra("detailsPrice", mProductList.get(position).getPrice());
+                //myIntent.putExtra("detailsImageView", mProductList.get(position).getImage());
+                mcontext.startActivity(myIntent);
+            }
+        });
     }
 
     @Override
@@ -80,7 +80,7 @@ public class ProductAdapter extends RecyclerView.Adapter <ProductAdapter.product
         return mProductList.size();
     }
 
-    public class productViewHolder extends RecyclerView.ViewHolder{
+    public static class productViewHolder extends RecyclerView.ViewHolder{
         public ImageView mImageView;
         public TextView mName;
         public TextView mPrice;

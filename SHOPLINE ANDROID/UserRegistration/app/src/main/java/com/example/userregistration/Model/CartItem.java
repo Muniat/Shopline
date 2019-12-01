@@ -5,6 +5,9 @@ public class CartItem {
     private String mName;
     private String mPrice;
 
+    public CartItem() {
+    }
+
     public CartItem(String mImageURL, String mName, String mPrice) {
         this.mImageURL = mImageURL;
         this.mName = mName;

@@ -1,6 +1,7 @@
 package com.example.userregistration.View;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -10,6 +11,8 @@ import androidx.viewpager.widget.ViewPager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -17,19 +20,34 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 import com.example.userregistration.Fragments.AccountFragment;
 import com.example.userregistration.Fragments.CartFragment;
 import com.example.userregistration.Fragments.HomeFragment;
+import com.example.userregistration.Model.Item;
 import com.example.userregistration.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.HashMap;
 
 public class ProductDetailsActivity extends AppCompatActivity {
     ImageView detailsImageView;
-    TextView detailsPrice, detailsProductaName,descriptionTextView;
+    TextView detailsPrice, detailsProductaName,descriptionTextView,quantitiTextView;
     Context mcontext;
     Button addToCartButton;
     CartFragment cartFragment;
@@ -38,13 +56,16 @@ public class ProductDetailsActivity extends AppCompatActivity {
     ViewPager viewPager;
     TabLayout tabLayout;
     BottomNavigationView mbottomNavigationView;
-    String name,description,price,Url;
+    String name,description,price,Url,position;
+    private ElegantNumberButton elegantNumberButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_details);
 
+        quantitiTextView = (TextView) findViewById(R.id.quantitiTextView);
+        elegantNumberButton = (ElegantNumberButton) findViewById(R.id.elegentNumberButton);
         detailsImageView = (ImageView) findViewById(R.id.detailsImageView);
         detailsPrice = (TextView) findViewById(R.id.detailsPrice);
         detailsProductaName = (TextView) findViewById(R.id.detailsProductaName);
@@ -56,17 +77,18 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
 
         Intent intent = getIntent();
-        name = intent.getExtras().getString("detailsProductaName");
-        description = intent.getExtras().getString("porductDetails");
-        price = intent.getExtras().getString("detailsPrice");
-        Url = intent.getExtras().getString("detailsImageView");
+        position = intent.getExtras().getString("position");
+        getProductDetails(position);
 
-        detailsPrice.setText("Price : " + price);
-        detailsProductaName.setText(name);
-        Picasso.with(mcontext).load(Url).fit().centerInside().into(detailsImageView);
-        descriptionTextView.setText(description);
 
-        /*viewPager.setAdapter(new ProductDetailsAdapter(getSupportFragmentManager(),tabLayout.getTabCount()));
+
+
+        //description = intent.getExtras().getString("porductDetails");
+       // price = intent.getExtras().getString("detailsPrice");
+        //Url = intent.getExtras().getString("detailsImageView");
+
+        /* adapter called but not working
+        viewPager.setAdapter(new ProductDetailsAdapter(getSupportFragmentManager(),tabLayout.getTabCount()));
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
             tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
                 @Override
@@ -85,6 +107,8 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
                 }
             });    *******/
+
+
 
         homeFragment = new HomeFragment();
         cartFragment = new CartFragment();
@@ -114,6 +138,49 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
     }
     public void AddProductToCart(View view){
+        String saveCurrentTime,saveCurrentDate;
+
+        Calendar calForDate = Calendar.getInstance();
+
+        SimpleDateFormat currentDate = new SimpleDateFormat("MMM dd, yyyy");
+        saveCurrentDate = currentDate.format(calForDate.getTime());
+
+        SimpleDateFormat currentTime = new SimpleDateFormat("HH:mm:ss a");
+        saveCurrentTime = currentTime.format(calForDate.getTime());
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+        final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("Cart List");
+        final HashMap<String ,Object> cartMap = new HashMap<>();
+        cartMap.put("pid",position);
+        cartMap.put("productName",name);
+        cartMap.put("productPrice",price);
+        cartMap.put("productImage",Url);
+        cartMap.put("Date",saveCurrentDate);
+        cartMap.put("Time",saveCurrentTime);
+        cartMap.put("quantity",elegantNumberButton.getNumber());
+        databaseReference.child("User View")
+                .child(user.getPhoneNumber()).child("Products")
+                .updateChildren(cartMap)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()){
+                            databaseReference.child("Admin View")
+                                    .child(user.getPhoneNumber()).child("Products")
+                                    .updateChildren(cartMap)
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            Toast.makeText(ProductDetailsActivity.this, "Added To Cart", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                        }
+                    }
+                });
+
+
+
+
         FragmentManager fm = getSupportFragmentManager();
         CartFragment cartFragment = new CartFragment();
         Bundle bundle = new Bundle();
@@ -128,6 +195,8 @@ public class ProductDetailsActivity extends AppCompatActivity {
         descriptionTextView.setVisibility(View.GONE);
         detailsImageView.setVisibility(View.GONE);
         addToCartButton.setVisibility(View.GONE);
+        elegantNumberButton.setVisibility(View.GONE);
+        quantitiTextView.setVisibility(View.GONE);
     }
 
     private void addFragment(Fragment fragment) {
@@ -141,7 +210,29 @@ public class ProductDetailsActivity extends AppCompatActivity {
         fragmentTransaction.commit();
     }
 
+    public void getProductDetails(String position){
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("products").child(position);
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
+                    Item item = dataSnapshot.getValue(Item.class);
+                    detailsPrice.setText("Price : " + item.getPrice());
+                    detailsProductaName.setText(item.getName());
+                    Picasso.with(mcontext).load(item.getImage()).fit().centerInside().into(detailsImageView);
+                    descriptionTextView.setText(item.getDescription());
 
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+    }
 
 }
 

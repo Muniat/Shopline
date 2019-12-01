@@ -1,8 +1,10 @@
 package com.example.userregistration.Fragments;
 
 
+import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -24,6 +26,11 @@ import com.android.volley.toolbox.Volley;
 import com.example.userregistration.Adapters.ProductAdapter;
 import com.example.userregistration.Model.Item;
 import com.example.userregistration.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -38,9 +45,11 @@ import java.util.Iterator;
 public class HomeFragment extends Fragment {
     private RecyclerView mRecyclerview;
     private ProductAdapter mProductAdapter;
-    private ArrayList<Item> mProductlist;
     private RequestQueue mRequestQueue;
     CardView cardView;
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
+    ArrayList<Item> items;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -55,9 +64,32 @@ public class HomeFragment extends Fragment {
         mRecyclerview = rootview.findViewById(R.id.recyclerView);
         mRecyclerview.setHasFixedSize(true);
         mRecyclerview.setLayoutManager(new GridLayoutManager(this.getContext(),2));
-        mProductlist = new ArrayList<>();
-        mRequestQueue = Volley.newRequestQueue(this.getContext());
-        parseJson();
+        items = new ArrayList<Item>();
+
+        //mRequestQueue = Volley.newRequestQueue(this.getContext());
+        //parseJson();
+
+
+
+
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("products");
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()){
+                    Item item = dataSnapshot1.getValue(Item.class);
+                    items.add(item);
+                }
+                mProductAdapter = new ProductAdapter(HomeFragment.this.getContext(),items);
+                mRecyclerview.setAdapter(mProductAdapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
 
 
         return rootview;
@@ -77,16 +109,16 @@ public class HomeFragment extends Fragment {
                         try {
                             JSONArray jsonArray = response.getJSONArray("products");
                             ArrayList<String> descriptions = new ArrayList<>();
-                            for(int i=0; i<jsonArray.length(); i++){
+                            for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject hit = jsonArray.getJSONObject(i);
                                 String creatorName = hit.getString("name");
                                 String imageURl = hit.getString("image");
                                 String price = hit.getString("price");
                                 String description = hit.getString("description");
                                 descriptions.add(description);
-                                mProductlist.add(new Item(imageURl,creatorName,price,description));
+                                items.add(new Item(imageURl, creatorName, price, description));
                             }
-                            mProductAdapter = new ProductAdapter(HomeFragment.this.getContext(),mProductlist);
+                            mProductAdapter = new ProductAdapter(HomeFragment.this.getContext(), items);
                             mRecyclerview.setAdapter(mProductAdapter);
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -98,12 +130,7 @@ public class HomeFragment extends Fragment {
                 error.printStackTrace();
             }
         });
-            mRequestQueue.add(request);
+        mRequestQueue.add(request);
 
     }
-
-
-
-
-
 }
