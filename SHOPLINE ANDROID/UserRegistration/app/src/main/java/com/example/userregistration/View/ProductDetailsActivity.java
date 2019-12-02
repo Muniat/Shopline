@@ -51,6 +51,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
     Context mcontext;
     Button addToCartButton;
     CartFragment cartFragment;
+    FirebaseUser firebaseUser;
     HomeFragment homeFragment;
     AccountFragment accountFragment;
     ViewPager viewPager;
@@ -78,6 +79,10 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         position = intent.getExtras().getString("position");
+        description = intent.getExtras().getString("details");
+        price = intent.getExtras().getString("price");
+        Url = intent.getExtras().getString("image");
+        name = intent.getExtras().getString("name");
         getProductDetails(position);
 
 
@@ -147,8 +152,10 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
         SimpleDateFormat currentTime = new SimpleDateFormat("HH:mm:ss a");
         saveCurrentTime = currentTime.format(calForDate.getTime());
+
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-        FirebaseUser user = firebaseAuth.getCurrentUser();
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+
         final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("Cart List");
         final HashMap<String ,Object> cartMap = new HashMap<>();
         cartMap.put("pid",position);
@@ -158,22 +165,15 @@ public class ProductDetailsActivity extends AppCompatActivity {
         cartMap.put("Date",saveCurrentDate);
         cartMap.put("Time",saveCurrentTime);
         cartMap.put("quantity",elegantNumberButton.getNumber());
-        databaseReference.child("User View")
-                .child(user.getPhoneNumber()).child("Products")
-                .updateChildren(cartMap)
+
+        databaseReference.child(position)
+                .push()
+                .setValue(cartMap)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){
-                            databaseReference.child("Admin View")
-                                    .child(user.getPhoneNumber()).child("Products")
-                                    .updateChildren(cartMap)
-                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<Void> task) {
-                                            Toast.makeText(ProductDetailsActivity.this, "Added To Cart", Toast.LENGTH_SHORT).show();
-                                        }
-                                    });
+                            Toast.makeText(mcontext, "", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -182,12 +182,6 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
 
         FragmentManager fm = getSupportFragmentManager();
-        CartFragment cartFragment = new CartFragment();
-        Bundle bundle = new Bundle();
-        bundle.putString("name", name);
-        bundle.putString("price", price);
-        bundle.putString("url", Url);
-        cartFragment.setArguments(bundle);
         fm.beginTransaction().replace(R.id.productDetailsActivity,cartFragment).addToBackStack("").commit();
 
         detailsPrice.setVisibility(View.GONE);

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
-    android:layout_height="70dp"
+    android:layout_height="60dp"
     android:layout_margin="8dp"
     android:foreground="?android:selectableItemBackground"
     app:cardCornerRadius="8dp">
@@ -22,7 +22,7 @@
             <ImageView
                 android:id="@+id/mCartImageView"
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="60dp"
                 android:layout_weight="1"
                 android:src="@drawable/ic_launcher_foreground"
                 tools:srcCompat="@mipmap/ic_launcher_foreground" />
@@ -30,23 +30,25 @@
             <TextView
                 android:id="@+id/mCartName"
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="60dp"
                 android:layout_marginLeft="2dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="Name" />
-
-            <Spinner
-                android:id="@+id/spinnerQuantity"
+            <TextView
+                android:id="@+id/mCartQuantity"
+                android:layout_height="60dp"
+                android:layout_weight="1"
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_gravity="center"
-                android:layout_weight="1" />
+                android:layout_marginLeft="2dp"
+                android:gravity="center"
+                android:text="1"
+                />
 
             <TextView
                 android:id="@+id/mCartPrice"
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="60dp"
                 android:layout_marginLeft="2dp"
                 android:layout_weight="1"
                 android:gravity="center"

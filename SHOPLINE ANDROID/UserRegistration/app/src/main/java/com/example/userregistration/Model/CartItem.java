@@ -1,40 +1,56 @@
 package com.example.userregistration.Model;
 
 public class CartItem {
-    private String mImageURL;
-    private String mName;
-    private String mPrice;
+    private String pid, productName, productPrice, productImage, quantity;
 
     public CartItem() {
     }
 
-    public CartItem(String mImageURL, String mName, String mPrice) {
-        this.mImageURL = mImageURL;
-        this.mName = mName;
-        this.mPrice = mPrice;
+    public CartItem(String pid, String productName, String productPrice, String productImage, String quantity) {
+        this.pid = pid;
+        this.productName = productName;
+        this.productPrice = productPrice;
+        this.productImage = productImage;
+        this.quantity = quantity;
     }
 
-    public String getmImageURL() {
-        return mImageURL;
+    public String getPid() {
+        return pid;
     }
 
-    public void setmImageURL(String mImageURL) {
-        this.mImageURL = mImageURL;
+    public void setPid(String pid) {
+        this.pid = pid;
     }
 
-    public String getmName() {
-        return mName;
+    public String getProductName() {
+        return productName;
     }
 
-    public void setmName(String mName) {
-        this.mName = mName;
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
-    public String getmPrice() {
-        return mPrice;
+    public String getProductPrice() {
+        return productPrice;
     }
 
-    public void setmPrice(String mPrice) {
-        this.mPrice = mPrice;
+    public void setProductPrice(String productPrice) {
+        this.productPrice = productPrice;
+    }
+
+    public String getProductImage() {
+        return productImage;
+    }
+
+    public void setProductImage(String productImage) {
+        this.productImage = productImage;
+    }
+
+    public String getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
     }
 }
