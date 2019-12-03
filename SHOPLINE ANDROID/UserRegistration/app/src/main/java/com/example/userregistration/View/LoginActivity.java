@@ -3,17 +3,18 @@ package com.example.userregistration.View;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.userregistration.Model.User;
 import com.example.userregistration.R;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -27,61 +28,84 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-import eightbitlab.com.blurview.BlurView;
-import eightbitlab.com.blurview.RenderScriptBlur;
+import io.paperdb.Paper;
 
 public class LoginActivity extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener firebaseAuthListener;
     GoogleSignInClient mGoogleSignInClient;
-    EditText emailEditText,passwordEditText;
+    EditText phoneEditText,passwordEditText;
     TextView infoTextView,signUpTextView;
     Button loginButton,googleButton;
-    BlurView blurView;
-
-    public void blur(){
-        float radius = 20f;
-
-        View decorView = getWindow().getDecorView();
-        //ViewGroup you want to start blur from. Choose root as close to BlurView in hierarchy as possible.
-        ViewGroup rootView = (ViewGroup) decorView.findViewById(android.R.id.content);
-        //Set drawable to draw in the beginning of each blurred frame (Optional).
-        //Can be used in case your layout has a lot of transparent space and your content
-        //gets kinda lost after after blur is applied.
-        Drawable windowBackground = decorView.getBackground();
-
-        blurView.setupWith(rootView)
-                .setFrameClearDrawable(windowBackground)
-                .setBlurAlgorithm(new RenderScriptBlur(this))
-                .setBlurRadius(radius)
-                .setHasFixedTransformationMatrix(true);
-    }
+    public ProgressDialog loadingBar;
+    private String rootDb = "users";
+    CheckBox rememberMeCheckbox;
 
 
-    public void onLoginButtonPressed(View view){
-        String mail = emailEditText.getText().toString();
-        String pass = passwordEditText.getText().toString();
-        if(TextUtils.isEmpty(mail) && TextUtils.isEmpty(pass)){
-            Toast.makeText(this, "Email Or password Empty", Toast.LENGTH_SHORT).show();
-        }else if(!TextUtils.isEmpty(mail) && !TextUtils.isEmpty(pass)){
-           firebaseAuth.signInWithEmailAndPassword(mail,pass).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
-               @Override
-               public void onComplete(@NonNull Task<AuthResult> task) {
-                   if(!task.isSuccessful()){
-                       Toast.makeText(LoginActivity.this, "Login Failed!", Toast.LENGTH_SHORT).show();
-                   }else if(task.isSuccessful()){
-                       Toast.makeText(LoginActivity.this, "Logged In", Toast.LENGTH_SHORT).show();
-                       Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-                       startActivity(intent);
-                   }
-               }
-           });
+
+
+    public void userLogin(){
+        String password = passwordEditText.getText().toString();
+        String phone = phoneEditText.getText().toString();
+        if(TextUtils.isEmpty(password)){
+            Toast.makeText(this, "Enter A Password", Toast.LENGTH_SHORT).show();
+        }else if(TextUtils.isEmpty(phone)){
+            Toast.makeText(this, "Enter A Phone No", Toast.LENGTH_SHORT).show();
         }else{
-            Toast.makeText(this, "Something Went Wrong", Toast.LENGTH_SHORT).show();
+            loadingBar.setTitle("Login Account");
+            loadingBar.setMessage("Please Wait");
+            loadingBar.setCanceledOnTouchOutside(false);
+            loadingBar.show();
+            accountAccess(phone,password);
         }
     }
+
+    private void accountAccess(String phone, String password) {
+
+        if(rememberMeCheckbox.isChecked()){
+            
+        }
+        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
+
+        rootRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.child(rootDb).child(phone).exists()){
+                    User userData = dataSnapshot.child(rootDb).child(phone).getValue(User.class);
+                    if(userData.getPhone().equals(phone)) {
+                        if(userData.getPassword().equals(password)){
+                            Toast.makeText(LoginActivity.this, "Logged Into Account " + phone, Toast.LENGTH_SHORT).show();
+                            loadingBar.dismiss();
+                            Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
+                            startActivity(intent);
+
+                        }else{
+                            Toast.makeText(LoginActivity.this, "Incorrect Password", Toast.LENGTH_SHORT).show();
+                        }
+                    }else{
+                        Toast.makeText(LoginActivity.this, "No record for this phone No.", Toast.LENGTH_SHORT).show();
+                    }
+
+                }else {
+                    Toast.makeText(LoginActivity.this, "Account Doesn't Exist", Toast.LENGTH_SHORT).show();
+                    loadingBar.dismiss();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+
 
 
 
@@ -91,13 +115,15 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
 
-        blurView = (BlurView) findViewById(R.id.blurView);
-        blurView.setVisibility(View.GONE);
+        loadingBar = new ProgressDialog(this);
         googleButton = (Button) findViewById(R.id.loginGoogle);
-        emailEditText = (EditText) findViewById(R.id.emailEditText);
+        phoneEditText = (EditText) findViewById(R.id.phoneEditText);
         passwordEditText = (EditText) findViewById(R.id.passwordEditText);
         loginButton = (Button) findViewById(R.id.loginButton);
         signUpTextView = (TextView) findViewById(R.id.signUpTextView);
+        rememberMeCheckbox = (CheckBox) findViewById(R.id.rememberMeCheckbox);
+        Paper.init(this);
+
 
         firebaseAuth = FirebaseAuth.getInstance();
         /*FirebaseUser user = firebaseAuth.getCurrentUser();
@@ -105,6 +131,14 @@ public class LoginActivity extends AppCompatActivity {
             finish();
             startActivity(new Intent(LoginActivity.this,HomeActivity.class));
         }*/
+
+
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                userLogin();
+            }
+        });
 
         firebaseAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override

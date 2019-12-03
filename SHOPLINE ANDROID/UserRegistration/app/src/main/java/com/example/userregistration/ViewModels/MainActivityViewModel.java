@@ -34,9 +34,6 @@ public class MainActivityViewModel extends ViewModel{
     public void onSignUpButtonClick(){
         user.setEmail(email.getValue());
         user.setPassword(password.getValue());
-        user.setName(name.getValue());
-        user.setAddress(address.getValue());
-        user.setMobileNo(mobileNo.getValue());
         Toast.makeText(context, "done", Toast.LENGTH_SHORT).show();
     }
 

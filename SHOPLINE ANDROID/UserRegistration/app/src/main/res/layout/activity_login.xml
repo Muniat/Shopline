@@ -6,60 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".View.LoginActivity">
 
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="88dp"
+        android:contentDescription="TODO"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/ic_launcher_foreground"
-        android:contentDescription="TODO"
         tools:ignore="VectorDrawableCompat" />
 
-    <eightbitlab.com.blurview.BlurView
-        android:foregroundGravity="center"
-        android:id="@+id/blurView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:blurOverlayColor="#A8A5A5"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ProgressBar
-                android:id="@+id/progressBar"
-                style="?android:attr/progressBarStyle"
-                android:layout_width="match_parent"
-                android:layout_height="90dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-    </eightbitlab.com.blurview.BlurView>
-
     <EditText
-        android:id="@+id/emailEditText"
+        android:id="@+id/phoneEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="40dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginRight="16dp"
         android:ems="10"
-        android:hint="Email"
+        android:hint="Enter Phone Number"
         android:inputType="textPersonName"
         android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -71,9 +40,9 @@
         android:id="@+id/passwordEditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="32dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginRight="16dp"
         android:ems="10"
         android:hint="Enter Password"
         android:inputType="textPersonName"
@@ -81,36 +50,33 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/phoneEditText" />
 
     <TextView
         android:id="@+id/infoTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="156dp"
         android:padding="10sp"
         android:text="Not Registered yet??"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.132"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginButton"
-        app:layout_constraintVertical_bias="0.125" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/signUpTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="36dp"
         android:padding="10sp"
         android:text="Sign Up"
         android:textColor="#3A6D27"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/loginGoogle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/infoTextView"
-        app:layout_constraintTop_toBottomOf="@+id/loginButton"
-        app:layout_constraintVertical_bias="0.125" />
+        app:layout_constraintStart_toEndOf="@+id/infoTextView" />
 
     <Button
         android:id="@+id/loginGoogle"
@@ -127,21 +93,39 @@
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.733"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/infoTextView"
         app:layout_constraintVertical_bias="0.0" />
+
     <Button
         android:id="@+id/loginButton"
-        android:layout_width="171dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
         android:layout_marginTop="36dp"
+        android:layout_marginRight="30dp"
         android:background="@drawable/ic_round_button"
-        android:onClick="onLoginButtonPressed"
+        android:onClick="@string/common_google_play_services_unsupported_text"
         android:padding="5dp"
         android:text="Login"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordEditText" />
+
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/rememberMeCheckbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:gravity="center_vertical"
+        android:text="Remember Me"
+        android:textColor="#386131"
+        android:textSize="22dp"
+        app:layout_constraintBottom_toTopOf="@+id/infoTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.128"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginButton"
+        app:layout_constraintVertical_bias="0.166" />
 </androidx.constraintlayout.widget.ConstraintLayout>

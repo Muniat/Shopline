@@ -1,39 +1,17 @@
 package com.example.userregistration.Model;
 
 public class User {
-    String userId;
-    String name;
     String email;
     String password;
-    String address;
-    String mobileNo;
-    public User(){
+    String phone;
 
+    public User() {
     }
 
-    public User(String userId,String name, String email, String password, String address, String mobileNo) {
-        this.name = name;
+    public User(String email, String password, String phone) {
         this.email = email;
         this.password = password;
-        this.address = address;
-        this.mobileNo = mobileNo;
-        this.userId = userId;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+        this.phone = phone;
     }
 
     public String getEmail() {
@@ -52,20 +30,11 @@ public class User {
         this.password = password;
     }
 
-    public String getAddress() {
-        return address;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
-
-    public String getMobileNo() {
-        return mobileNo;
-    }
-
-    public void setMobileNo(String mobileNo) {
-        this.mobileNo = mobileNo;
-    }
-
 }
