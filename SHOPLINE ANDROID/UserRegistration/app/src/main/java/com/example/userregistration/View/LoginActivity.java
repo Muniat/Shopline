@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.userregistration.Model.User;
 import com.example.userregistration.R;
+import com.example.userregistration.prevalent.Prevalent;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -35,6 +36,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import io.paperdb.Paper;
+
+import static com.google.firebase.database.FirebaseDatabase.getInstance;
 
 public class LoginActivity extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
@@ -69,10 +72,11 @@ public class LoginActivity extends AppCompatActivity {
     private void accountAccess(String phone, String password) {
 
         if(rememberMeCheckbox.isChecked()){
-            
+            Paper.book().write(Prevalent.UserPhoneKey,phone);
+            Paper.book().write(Prevalent.UserPasswordKey,password);
         }
-        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
 
+        DatabaseReference rootRef = getInstance().getReference();
         rootRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -123,6 +127,14 @@ public class LoginActivity extends AppCompatActivity {
         signUpTextView = (TextView) findViewById(R.id.signUpTextView);
         rememberMeCheckbox = (CheckBox) findViewById(R.id.rememberMeCheckbox);
         Paper.init(this);
+
+      String UserPhoneKey = Paper.book().read(Prevalent.UserPhoneKey);
+      String UserPasswordKey = Paper.book().read(Prevalent.UserPasswordKey);
+        if(UserPhoneKey != "" && UserPasswordKey != ""){
+            if(!TextUtils.isEmpty(UserPhoneKey) && !TextUtils.isEmpty(UserPasswordKey)){
+                AllowDirectAccess(UserPhoneKey,UserPasswordKey);
+            }
+        }
 
 
         firebaseAuth = FirebaseAuth.getInstance();
@@ -178,8 +190,40 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+    private void AllowDirectAccess(final String userPhoneKey, final String userPasswordKey) {
+        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
 
+        rootRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.child(rootDb).child(userPhoneKey).exists()){
+                    User userData = dataSnapshot.child(rootDb).child(userPhoneKey).getValue(User.class);
+                    if(userData.getPhone().equals(userPhoneKey)) {
+                        if(userData.getPassword().equals(userPasswordKey)){
+                            Toast.makeText(LoginActivity.this, "Logged Into Account " + userPhoneKey, Toast.LENGTH_SHORT).show();
+                            loadingBar.dismiss();
+                            Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
+                            startActivity(intent);
 
+                        }else{
+                            Toast.makeText(LoginActivity.this, "Incorrect Password", Toast.LENGTH_SHORT).show();
+                        }
+                    }else{
+                        Toast.makeText(LoginActivity.this, "No record for this phone No.", Toast.LENGTH_SHORT).show();
+                    }
+
+                }else {
+                    Toast.makeText(LoginActivity.this, "Account Doesn't Exist", Toast.LENGTH_SHORT).show();
+                    loadingBar.dismiss();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
 
 
     @Override
