@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.example.userregistration.Fragments.AccountFragment;
 import com.example.userregistration.Fragments.CartFragment;
 import com.example.userregistration.Fragments.HomeFragment;
+import com.example.userregistration.Fragments.SettingFragment;
 import com.example.userregistration.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -26,6 +27,7 @@ public class HomeActivity extends AppCompatActivity {
     HomeFragment homeFragment;
     AccountFragment accountFragment;
     CartFragment cartFragment;
+    SettingFragment settingFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +36,7 @@ public class HomeActivity extends AppCompatActivity {
         homeFragment = new HomeFragment();
         cartFragment = new CartFragment();
         accountFragment = new AccountFragment();
+        settingFragment = new SettingFragment();
         addFragment(homeFragment);
 
         mframeLayout = (FrameLayout) findViewById(R.id.mainFrame);
@@ -54,6 +57,9 @@ public class HomeActivity extends AppCompatActivity {
                     case R.id.cartNav:
                         Toast.makeText(HomeActivity.this, "cart", Toast.LENGTH_SHORT).show();
                         addFragment(cartFragment);
+                    case R.id.settingsNav:
+                        Toast.makeText(HomeActivity.this, "cart", Toast.LENGTH_SHORT).show();
+                        addFragment(settingFragment);
                         return  true;
                         default:
                             return false;

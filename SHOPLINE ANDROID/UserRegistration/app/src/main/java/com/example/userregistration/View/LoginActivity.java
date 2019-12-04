@@ -44,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener firebaseAuthListener;
     GoogleSignInClient mGoogleSignInClient;
     EditText phoneEditText,passwordEditText;
-    TextView infoTextView,signUpTextView;
+    TextView infoTextView,signUpTextView,loginAsUser,loginAsAdmin;
     Button loginButton,googleButton;
     public ProgressDialog loadingBar;
     private String rootDb = "users";
@@ -84,11 +84,17 @@ public class LoginActivity extends AppCompatActivity {
                     User userData = dataSnapshot.child(rootDb).child(phone).getValue(User.class);
                     if(userData.getPhone().equals(phone)) {
                         if(userData.getPassword().equals(password)){
-                            Toast.makeText(LoginActivity.this, "Logged Into Account " + phone, Toast.LENGTH_SHORT).show();
-                            loadingBar.dismiss();
-                            Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
-                            startActivity(intent);
-
+                            if(rootDb == "admins"){
+                                Toast.makeText(LoginActivity.this, "Logged Into Account " + phone, Toast.LENGTH_SHORT).show();
+                                loadingBar.dismiss();
+                                Intent intent = new Intent(LoginActivity.this,AdminActivity.class);
+                                startActivity(intent);
+                            }else if(rootDb=="users"){
+                                Toast.makeText(LoginActivity.this, "Logged Into Account " + phone, Toast.LENGTH_SHORT).show();
+                                loadingBar.dismiss();
+                                Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
+                                startActivity(intent);
+                            }
                         }else{
                             Toast.makeText(LoginActivity.this, "Incorrect Password", Toast.LENGTH_SHORT).show();
                         }
@@ -119,6 +125,8 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
 
+        loginAsUser = (TextView) findViewById(R.id.loginAsUser);
+        loginAsAdmin = (TextView) findViewById(R.id.loginAsAdmin);
         loadingBar = new ProgressDialog(this);
         googleButton = (Button) findViewById(R.id.loginGoogle);
         phoneEditText = (EditText) findViewById(R.id.phoneEditText);
@@ -128,13 +136,7 @@ public class LoginActivity extends AppCompatActivity {
         rememberMeCheckbox = (CheckBox) findViewById(R.id.rememberMeCheckbox);
         Paper.init(this);
 
-      String UserPhoneKey = Paper.book().read(Prevalent.UserPhoneKey);
-      String UserPasswordKey = Paper.book().read(Prevalent.UserPasswordKey);
-        if(UserPhoneKey != "" && UserPasswordKey != ""){
-            if(!TextUtils.isEmpty(UserPhoneKey) && !TextUtils.isEmpty(UserPasswordKey)){
-                AllowDirectAccess(UserPhoneKey,UserPasswordKey);
-            }
-        }
+
 
 
         firebaseAuth = FirebaseAuth.getInstance();
@@ -188,41 +190,29 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-    }
 
-    private void AllowDirectAccess(final String userPhoneKey, final String userPasswordKey) {
-        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
-
-        rootRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        loginAsUser.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.child(rootDb).child(userPhoneKey).exists()){
-                    User userData = dataSnapshot.child(rootDb).child(userPhoneKey).getValue(User.class);
-                    if(userData.getPhone().equals(userPhoneKey)) {
-                        if(userData.getPassword().equals(userPasswordKey)){
-                            Toast.makeText(LoginActivity.this, "Logged Into Account " + userPhoneKey, Toast.LENGTH_SHORT).show();
-                            loadingBar.dismiss();
-                            Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
-                            startActivity(intent);
-
-                        }else{
-                            Toast.makeText(LoginActivity.this, "Incorrect Password", Toast.LENGTH_SHORT).show();
-                        }
-                    }else{
-                        Toast.makeText(LoginActivity.this, "No record for this phone No.", Toast.LENGTH_SHORT).show();
-                    }
-
-                }else {
-                    Toast.makeText(LoginActivity.this, "Account Doesn't Exist", Toast.LENGTH_SHORT).show();
-                    loadingBar.dismiss();
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+            public void onClick(View v) {
+                loginButton.setText("User Login");
+                loginAsUser.setVisibility(View.INVISIBLE);
+                loginAsAdmin.setVisibility(View.VISIBLE);
+                rootDb = "users";
 
             }
         });
+
+        loginAsAdmin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loginButton.setText("Login Admin");
+                loginAsAdmin.setVisibility(View.INVISIBLE);
+                loginAsUser.setVisibility(View.VISIBLE);
+                rootDb = "admins";
+                Toast.makeText(LoginActivity.this, rootDb, Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
 

@@ -3,7 +3,7 @@
     package="com.example.userregistration">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <application
         android:allowBackup="true"
@@ -12,11 +12,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".View.ProductDetailsActivity"></activity>
+        <activity android:name=".View.AdminActivity"></activity>
+        <activity android:name=".View.ProductDetailsActivity" />
         <activity android:name=".Download" />
         <activity android:name=".View.HomeActivity" />
         <activity android:name=".View.MainActivity" />
-        <activity android:name=".View.LoginActivity">
+        <activity android:name=".View.LoginActivity" />
+        <activity android:name=".View.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -14,4 +14,8 @@
         android:id="@+id/accountNav"
         android:icon="@drawable/acc"
         android:title="@string/acc" />
+    <item
+        android:id="@+id/settingsNav"
+        android:icon="@drawable/dehaze"
+        android:title="Settings" />
 </menu>
