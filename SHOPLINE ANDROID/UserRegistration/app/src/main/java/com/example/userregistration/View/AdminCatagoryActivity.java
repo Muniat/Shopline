@@ -34,7 +34,7 @@ public class AdminCatagoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AdminCatagoryActivity.this,AdminAddProductActivity.class);
-                intent.putExtra("Catagory", "Sports");
+                intent.putExtra("category", "Sports");
                 startActivity(intent);
             }
         });
@@ -45,7 +45,7 @@ public class AdminCatagoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AdminCatagoryActivity.this,AdminAddProductActivity.class);
-                intent.putExtra("Catagory", "Furnishers");
+                intent.putExtra("category", "Furnishers");
                 startActivity(intent);
             }
         });
@@ -57,7 +57,7 @@ public class AdminCatagoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AdminCatagoryActivity.this,AdminAddProductActivity.class);
-                intent.putExtra("Catagory", "Science");
+                intent.putExtra("category", "Science");
                 startActivity(intent);
             }
         });
@@ -68,7 +68,7 @@ public class AdminCatagoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AdminCatagoryActivity.this,AdminAddProductActivity.class);
-                intent.putExtra("Catagory", "Vehicle");
+                intent.putExtra("category", "Vehicle");
                 startActivity(intent);
             }
         });
@@ -77,7 +77,7 @@ public class AdminCatagoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AdminCatagoryActivity.this,AdminAddProductActivity.class);
-                intent.putExtra("Catagory", "Art");
+                intent.putExtra("category", "Art");
                 startActivity(intent);
             }
         });
@@ -89,7 +89,7 @@ public class AdminCatagoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AdminCatagoryActivity.this,AdminAddProductActivity.class);
-                intent.putExtra("Catagory", "Devices");
+                intent.putExtra("category", "Devices");
                 startActivity(intent);
             }
         });
@@ -100,7 +100,7 @@ public class AdminCatagoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AdminCatagoryActivity.this,AdminAddProductActivity.class);
-                intent.putExtra("Catagory", "Tools");
+                intent.putExtra("category", "Tools");
                 startActivity(intent);
             }
         });
@@ -111,7 +111,7 @@ public class AdminCatagoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AdminCatagoryActivity.this,AdminAddProductActivity.class);
-                intent.putExtra("Catagory", "Musical");
+                intent.putExtra("category", "Musical");
                 startActivity(intent);
             }
         });
