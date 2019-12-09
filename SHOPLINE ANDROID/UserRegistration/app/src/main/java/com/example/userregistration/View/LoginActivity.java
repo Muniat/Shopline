@@ -32,7 +32,6 @@ import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import io.paperdb.Paper;
@@ -87,7 +86,7 @@ public class LoginActivity extends AppCompatActivity {
                             if(rootDb == "admins"){
                                 Toast.makeText(LoginActivity.this, "Logged Into Account " + phone, Toast.LENGTH_SHORT).show();
                                 loadingBar.dismiss();
-                                Intent intent = new Intent(LoginActivity.this,AdminActivity.class);
+                                Intent intent = new Intent(LoginActivity.this, AdminCatagoryActivity.class);
                                 startActivity(intent);
                             }else if(rootDb=="users"){
                                 Toast.makeText(LoginActivity.this, "Logged Into Account " + phone, Toast.LENGTH_SHORT).show();

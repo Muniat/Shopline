@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".View.AdminCatagoryActivity">
+
+    <TextView
+        android:id="@+id/catagorySlogan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:text="Add New Product"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="27dp"
+        android:textAlignment="center"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        />
+
+
+    <LinearLayout
+    android:id="@+id/linear1_catagory_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_centerHorizontal="true"
+    android:gravity="center"
+    android:layout_marginTop="30dp"
+    android:layout_below="@+id/catagorySlogan">
+
+    <ImageView
+        android:id="@+id/Sports"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/foot"
+        android:layout_marginRight="30dp"
+        />
+    <ImageView
+        android:id="@+id/Furnishers"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/furnisher"
+        android:layout_marginLeft="30dp"
+        />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear1_catagory_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_below="@+id/linear1_catagory_layout">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sports"
+            android:textSize="24sp"
+            android:layout_marginRight="0dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Furnishers"
+            android:textSize="24sp"
+            android:layout_marginLeft="40dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear2_catagory_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/linear1_catagory_name">
+
+        <ImageView
+            android:id="@+id/Science"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginRight="30dp"
+            android:src="@drawable/science" />
+        <ImageView
+            android:id="@+id/Vehicle"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/vehicle"
+            android:layout_marginLeft="30dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear2_catagory_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_below="@+id/linear2_catagory_layout">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Scientific"
+            android:textSize="24sp"
+            android:layout_marginRight="20dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vehicles"
+            android:textSize="24sp"
+            android:layout_marginLeft="20dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear3_catagory_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/linear2_catagory_name">
+
+        <ImageView
+            android:id="@+id/Art"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/art"
+            android:layout_marginRight="30dp"
+            />
+        <ImageView
+            android:id="@+id/Devices"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/mobiles"
+            android:layout_marginLeft="30dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear3_catagory_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_below="@+id/linear3_catagory_layout">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Art"
+            android:textSize="24sp"
+            android:layout_marginRight="-10dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Devices"
+            android:textSize="24sp"
+            android:layout_marginLeft="90dp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear4_catagory_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/linear3_catagory_name">
+
+        <ImageView
+            android:id="@+id/Tools"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/tools"
+            android:layout_marginRight="30dp"
+            />
+        <ImageView
+            android:id="@+id/Musical"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/musical"
+            android:layout_marginLeft="30dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear4_catagory_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_below="@+id/linear4_catagory_layout">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tools"
+            android:textSize="24sp"
+            android:layout_marginRight="25dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Musical"
+            android:textSize="24sp"
+            android:layout_marginLeft="30dp"/>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>
