@@ -1,51 +1,43 @@
 package com.example.userregistration.Fragments;
 
 
-import android.content.ClipData;
-import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
-import com.example.userregistration.Adapters.ProductAdapter;
 import com.example.userregistration.Model.Item;
 import com.example.userregistration.R;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
+import com.example.userregistration.ViewHolders.ProductViewHolder;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class HomeFragment extends Fragment {
     private RecyclerView mRecyclerview;
-    private ProductAdapter mProductAdapter;
     private RequestQueue mRequestQueue;
     CardView cardView;
     FirebaseDatabase firebaseDatabase;
@@ -73,8 +65,8 @@ public class HomeFragment extends Fragment {
 
 
 
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("products");
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Products");
+        /*databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()){
@@ -89,7 +81,7 @@ public class HomeFragment extends Fragment {
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
-        });
+        });*/
 
 
 
@@ -117,10 +109,10 @@ public class HomeFragment extends Fragment {
                                 String price = hit.getString("price");
                                 String description = hit.getString("description");
                                 descriptions.add(description);
-                                items.add(new Item(imageURl, creatorName, price, description));
+                                //items.add(new Item(imageURl, creatorName, price, description));
                             }
-                            mProductAdapter = new ProductAdapter(HomeFragment.this.getContext(), items);
-                            mRecyclerview.setAdapter(mProductAdapter);
+                            //mProductAdapter = new ProductAdapter(HomeFragment.this.getContext(), items);
+                            //mRecyclerview.setAdapter(mProductAdapter);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -134,4 +126,38 @@ public class HomeFragment extends Fragment {
         mRequestQueue.add(request);
 
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        FirebaseRecyclerOptions<Item> options =
+                new FirebaseRecyclerOptions.Builder<Item>()
+                        .setQuery(databaseReference, Item.class)
+                .build();
+
+        FirebaseRecyclerAdapter<Item, ProductViewHolder> adapter = new FirebaseRecyclerAdapter<Item, ProductViewHolder>(options) {
+            @Override
+            protected void onBindViewHolder(@NonNull ProductViewHolder holder, int i, @NonNull Item item) {
+                holder.productNameTextView.setText(item.getPname());
+                holder.productPriceTextView.setText("Price : "+item.getPrice());
+                Picasso.with(HomeFragment.this.getContext()).load(item.getImage()).fit().centerInside().into(holder.productImageView);
+            }
+
+            @NonNull
+            @Override
+            public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.product_list,parent,false);
+                 ProductViewHolder holder = new ProductViewHolder(view);
+                 return holder;
+            }
+        };
+        mRecyclerview.setAdapter(adapter);
+        adapter.startListening();
+
+    }
+
+
+
+
+
 }

@@ -15,7 +15,6 @@
         <activity android:name=".View.AdminAddProductActivity"></activity>
         <activity android:name=".View.AdminCatagoryActivity" />
         <activity android:name=".View.ProductDetailsActivity" />
-        <activity android:name=".Download" />
         <activity android:name=".View.HomeActivity" />
         <activity android:name=".View.MainActivity" />
         <activity android:name=".View.LoginActivity" />

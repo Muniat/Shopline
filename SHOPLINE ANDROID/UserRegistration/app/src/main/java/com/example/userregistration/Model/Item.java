@@ -1,18 +1,43 @@
 package com.example.userregistration.Model;
 
 public class Item {
-    private String image;
-    private String name;
-    private String price;
-    private String description;
+    private String category,date,description,image,pid,pname,price,time;
 
     public Item() {
     }
 
-    public Item(String image, String name, String price, String description) {
+    public Item(String category, String date, String description, String image, String pid, String pname, String price, String time) {
+        this.category = category;
+        this.date = date;
+        this.description = description;
         this.image = image;
-        this.name = name;
+        this.pid = pid;
+        this.pname = pname;
         this.price = price;
+        this.time = time;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
         this.description = description;
     }
 
@@ -24,12 +49,20 @@ public class Item {
         this.image = image;
     }
 
-    public String getName() {
-        return name;
+    public String getPid() {
+        return pid;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPid(String pid) {
+        this.pid = pid;
+    }
+
+    public String getPname() {
+        return pname;
+    }
+
+    public void setPname(String pname) {
+        this.pname = pname;
     }
 
     public String getPrice() {
@@ -40,11 +73,11 @@ public class Item {
         this.price = price;
     }
 
-    public String getDescription() {
-        return description;
+    public String getTime() {
+        return time;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setTime(String time) {
+        this.time = time;
     }
 }

@@ -212,7 +212,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
                 if(dataSnapshot.exists()){
                     Item item = dataSnapshot.getValue(Item.class);
                     detailsPrice.setText("Price : " + item.getPrice());
-                    detailsProductaName.setText(item.getName());
+                    //detailsProductaName.setText(item.getName());
                     Picasso.with(mcontext).load(item.getImage()).fit().centerInside().into(detailsImageView);
                     descriptionTextView.setText(item.getDescription());
 
