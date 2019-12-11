@@ -1,6 +1,7 @@
 package com.example.userregistration.Fragments;
 
 
+import android.app.Notification;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,11 +13,17 @@ import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.userregistration.Adapters.CartProductAdapter;
 import com.example.userregistration.Model.CartItem;
 import com.example.userregistration.Model.Item;
 import com.example.userregistration.R;
+import com.example.userregistration.ViewHolders.CartViewHolder;
+import com.example.userregistration.prevalent.Prevalent;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -31,9 +38,8 @@ import java.util.List;
  */
 public class CartFragment extends Fragment {
     RecyclerView CartRecyclerView;
-    CartProductAdapter cartProductAdapter;
-    ArrayList<CartItem> cartItems;
-    DatabaseReference cartListReferrence;
+    Button continueTocheckoutButton;
+    TextView totalTextView;
 
     public CartFragment(){
 
@@ -46,30 +52,47 @@ public class CartFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootview =  inflater.inflate(R.layout.fragment_cart, container, false);
         CartRecyclerView =(RecyclerView) rootview.findViewById(R.id.CartRecyclerView);
-        cartItems = new ArrayList<>();
+        continueTocheckoutButton = (Button) rootview.findViewById(R.id.continueTocheckoutButton);
+        totalTextView = (TextView) rootview.findViewById(R.id.totalTextView);
+
+
         CartRecyclerView.setHasFixedSize(true);
         CartRecyclerView.setLayoutManager(new LinearLayoutManager(CartFragment.this.getContext()));
 
 
-        cartListReferrence = FirebaseDatabase.getInstance().getReference().child("Cart List").child("10");
-        cartListReferrence.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot dataSnapshot1: dataSnapshot.getChildren()){
-                    CartItem item = dataSnapshot.getValue(CartItem.class);
-                    cartItems.add(item);
-                }
-                cartProductAdapter = new CartProductAdapter(CartFragment.this.getContext(),cartItems);
-                CartRecyclerView.setAdapter(cartProductAdapter);
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
 
         return rootview;
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        final DatabaseReference cartListReferrence = FirebaseDatabase.getInstance().getReference().child("Cart List");
+        FirebaseRecyclerOptions<CartItem> options = new FirebaseRecyclerOptions.Builder<CartItem>()
+                .setQuery(cartListReferrence.child("User View")
+                        .child(Prevalent.currentOnlineUser.getPhone())
+                        .child("Products"),CartItem.class).build();
+
+        FirebaseRecyclerAdapter<CartItem, CartViewHolder> adapter =
+                new FirebaseRecyclerAdapter<CartItem, CartViewHolder>(options) {
+                    @Override
+                    protected void onBindViewHolder(@NonNull CartViewHolder cartViewHolder, int i, @NonNull CartItem cartItem) {
+                        cartViewHolder.mCartName.setText(cartItem.getProductName());
+                        cartViewHolder.mCartPrice.setText(cartItem.getProductPrice());
+                        cartViewHolder.mCartQuantity.setText(cartItem.getQuantity());
+
+                    }
+
+                    @NonNull
+                    @Override
+                    public CartViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cart_product_list,parent,false);
+                        CartViewHolder holder = new CartViewHolder(view);
+                        return holder;
+                    }
+                };
+        CartRecyclerView.setAdapter(adapter);
+        adapter.startListening();
+    }
 }

@@ -16,6 +16,6 @@
         android:title="@string/acc" />
     <item
         android:id="@+id/settingsNav"
-        android:icon="@drawable/dehaze"
+        android:icon="@drawable/menu"
         android:title="Settings" />
 </menu>

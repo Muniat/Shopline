@@ -11,20 +11,23 @@
 
     <ImageView
         android:id="@+id/detailsImageView"
-        android:layout_width="177dp"
-        android:layout_height="181dp"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="85dp"
+        android:layout_marginRight="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.08"
         tools:srcCompat="@tools:sample/avatars[0]" />
 
     <Button
         android:id="@+id/addToCartButton"
         android:layout_width="0dp"
-        android:layout_height="54dp"
+        android:layout_height="50dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="80dp"
@@ -33,7 +36,6 @@
         android:drawableLeft="@drawable/cart"
         android:drawableEnd="@drawable/cart"
         android:drawableRight="@drawable/cart"
-        android:onClick="AddProductToCart"
         android:text="Add To Cart"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -47,13 +49,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
         android:text="Product Name"
-        android:textSize="24sp"
+        android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/detailsImageView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.326" />
 
     <TextView
         android:id="@+id/detailsPrice"
@@ -70,7 +72,7 @@
     <TextView
         android:id="@+id/descriptionTextView"
         android:layout_width="0dp"
-        android:layout_height="180dp"
+        android:layout_height="140dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         app:layout_constraintBottom_toTopOf="@+id/addToCartButton"
@@ -82,7 +84,7 @@
     <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
         android:id="@+id/elegentNumberButton"
         android:layout_width="205dp"
-        android:layout_height="54dp"
+        android:layout_height="50dp"
         android:layout_marginEnd="76dp"
         android:background="@drawable/ic_round_button"
         android:elevation="6dp"

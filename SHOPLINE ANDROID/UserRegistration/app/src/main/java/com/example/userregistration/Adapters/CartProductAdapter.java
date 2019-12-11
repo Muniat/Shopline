@@ -36,14 +36,14 @@ public class CartProductAdapter extends RecyclerView.Adapter<CartProductAdapter.
     @Override
     public void onBindViewHolder(@NonNull CartProductViewHolder holder, int position) {
         CartItem currentItem = mProductList.get(position);
-        String imageURL = currentItem.getProductImage();
+       // String imageURL = currentItem.getProductImage();
         String name = currentItem.getProductName();
         String price = currentItem.getProductPrice();
         String quantity = currentItem.getQuantity();
         holder.mCartName.setText(name);
         holder.mCartPrice.setText(price);
         holder.mCartQuantity.setText(quantity);
-        Picasso.with(mcontext).load(imageURL).fit().centerInside().into(holder.mCartImageView);
+       // Picasso.with(mcontext).load(imageURL).fit().centerInside().into(holder.mCartImageView);
     }
 
     @Override
@@ -57,7 +57,7 @@ public class CartProductAdapter extends RecyclerView.Adapter<CartProductAdapter.
         public CartProductViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            mCartImageView = itemView.findViewById(R.id.mCartImageView);
+           // mCartImageView = itemView.findViewById(R.id.mCartImageView);
             mCartPrice = itemView.findViewById(R.id.mCartPrice);
             mCartName = itemView.findViewById(R.id.mCartName);
             mCartQuantity = itemView.findViewById(R.id.mCartQuantity);

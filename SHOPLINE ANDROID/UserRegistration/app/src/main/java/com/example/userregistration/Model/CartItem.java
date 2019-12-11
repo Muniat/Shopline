@@ -1,16 +1,15 @@
 package com.example.userregistration.Model;
 
 public class CartItem {
-    private String pid, productName, productPrice, productImage, quantity;
+    private String pid, productName, productPrice,quantity;
 
     public CartItem() {
     }
 
-    public CartItem(String pid, String productName, String productPrice, String productImage, String quantity) {
+    public CartItem(String pid, String productName, String productPrice, String quantity) {
         this.pid = pid;
         this.productName = productName;
         this.productPrice = productPrice;
-        this.productImage = productImage;
         this.quantity = quantity;
     }
 
@@ -36,14 +35,6 @@ public class CartItem {
 
     public void setProductPrice(String productPrice) {
         this.productPrice = productPrice;
-    }
-
-    public String getProductImage() {
-        return productImage;
-    }
-
-    public void setProductImage(String productImage) {
-        this.productImage = productImage;
     }
 
     public String getQuantity() {

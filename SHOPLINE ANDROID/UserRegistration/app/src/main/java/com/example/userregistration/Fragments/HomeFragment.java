@@ -1,6 +1,7 @@
 package com.example.userregistration.Fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -20,7 +22,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.userregistration.Model.Item;
 import com.example.userregistration.R;
+import com.example.userregistration.View.ProductDetailsActivity;
 import com.example.userregistration.ViewHolders.ProductViewHolder;
+import com.example.userregistration.prevalent.Prevalent;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
@@ -59,6 +63,8 @@ public class HomeFragment extends Fragment {
         mRecyclerview.setLayoutManager(new GridLayoutManager(this.getContext(),2));
         items = new ArrayList<Item>();
 
+
+
         //mRequestQueue = Volley.newRequestQueue(this.getContext());
         //parseJson();
 
@@ -92,7 +98,7 @@ public class HomeFragment extends Fragment {
 
 
 
-    private void parseJson() {
+    /*private void parseJson() {
         String url = "https://api.myjson.com/bins/vvjiu";
 
         final JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
@@ -125,7 +131,7 @@ public class HomeFragment extends Fragment {
         });
         mRequestQueue.add(request);
 
-    }
+    }*/
 
     @Override
     public void onStart() {
@@ -141,6 +147,17 @@ public class HomeFragment extends Fragment {
                 holder.productNameTextView.setText(item.getPname());
                 holder.productPriceTextView.setText("Price : "+item.getPrice());
                 Picasso.with(HomeFragment.this.getContext()).load(item.getImage()).fit().centerInside().into(holder.productImageView);
+
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getActivity(), ProductDetailsActivity.class);
+                        intent.putExtra("pid",item.getPid());
+                        intent.putExtra("price",item.getPrice());
+                        intent.putExtra("description",item.getDescription());
+                        startActivity(intent);
+                    }
+                });
             }
 
             @NonNull

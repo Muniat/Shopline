@@ -26,6 +26,7 @@ import com.example.userregistration.Fragments.CartFragment;
 import com.example.userregistration.Fragments.HomeFragment;
 import com.example.userregistration.Model.Item;
 import com.example.userregistration.R;
+import com.example.userregistration.prevalent.Prevalent;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -57,7 +58,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
     ViewPager viewPager;
     TabLayout tabLayout;
     BottomNavigationView mbottomNavigationView;
-    String name,description,price,Url,position;
+    String pid;
     private ElegantNumberButton elegantNumberButton;
 
     @Override
@@ -78,15 +79,16 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
 
         Intent intent = getIntent();
-        position = intent.getExtras().getString("position");
-        description = intent.getExtras().getString("details");
-        price = intent.getExtras().getString("price");
-        Url = intent.getExtras().getString("image");
-        name = intent.getExtras().getString("name");
-        getProductDetails(position);
+        pid = intent.getExtras().getString("pid");
+        getProductDetails(pid);
 
 
-
+        addToCartButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddProductToCart();
+            }
+        });
 
         //description = intent.getExtras().getString("porductDetails");
        // price = intent.getExtras().getString("detailsPrice");
@@ -142,7 +144,9 @@ public class ProductDetailsActivity extends AppCompatActivity {
         });
 
     }
-    public void AddProductToCart(View view){
+
+
+    public void AddProductToCart(){
         String saveCurrentTime,saveCurrentDate;
 
         Calendar calForDate = Calendar.getInstance();
@@ -153,27 +157,32 @@ public class ProductDetailsActivity extends AppCompatActivity {
         SimpleDateFormat currentTime = new SimpleDateFormat("HH:mm:ss a");
         saveCurrentTime = currentTime.format(calForDate.getTime());
 
-        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-
         final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("Cart List");
         final HashMap<String ,Object> cartMap = new HashMap<>();
-        cartMap.put("pid",position);
-        cartMap.put("productName",name);
-        cartMap.put("productPrice",price);
-        cartMap.put("productImage",Url);
+        cartMap.put("pid",pid);
+        cartMap.put("productName",detailsProductaName.getText().toString());
+        cartMap.put("productPrice",detailsPrice.getText().toString());
         cartMap.put("Date",saveCurrentDate);
         cartMap.put("Time",saveCurrentTime);
         cartMap.put("quantity",elegantNumberButton.getNumber());
 
-        databaseReference.child(position)
-                .push()
-                .setValue(cartMap)
+        databaseReference.child("User View").child(Prevalent.currentOnlineUser.getPhone())
+                .child("Products").child(pid)
+                .updateChildren(cartMap)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){
-                            Toast.makeText(mcontext, "", Toast.LENGTH_SHORT).show();
+                            databaseReference.child("Admin View").child(Prevalent.currentOnlineUser.getPhone())
+                                    .child("Products").child(pid)
+                                    .updateChildren(cartMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if(task.isSuccessful()){
+                                        Toast.makeText(ProductDetailsActivity.this, "Product Added To Cart", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
                         }
                     }
                 });
@@ -204,18 +213,18 @@ public class ProductDetailsActivity extends AppCompatActivity {
         fragmentTransaction.commit();
     }
 
+
     public void getProductDetails(String position){
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("products").child(position);
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("Products").child(pid);
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists()){
                     Item item = dataSnapshot.getValue(Item.class);
                     detailsPrice.setText("Price : " + item.getPrice());
-                    //detailsProductaName.setText(item.getName());
+                    detailsProductaName.setText(item.getPname());
                     Picasso.with(mcontext).load(item.getImage()).fit().centerInside().into(detailsImageView);
                     descriptionTextView.setText(item.getDescription());
-
                 }
             }
 
