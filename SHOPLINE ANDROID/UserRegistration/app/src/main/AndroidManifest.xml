@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".View.AdminAddProductActivity"></activity>
+        <activity android:name=".View.FinalShipmentActivity"></activity>
+        <activity android:name=".View.AdminAddProductActivity" />
         <activity android:name=".View.AdminCatagoryActivity" />
         <activity android:name=".View.ProductDetailsActivity" />
         <activity android:name=".View.HomeActivity" />

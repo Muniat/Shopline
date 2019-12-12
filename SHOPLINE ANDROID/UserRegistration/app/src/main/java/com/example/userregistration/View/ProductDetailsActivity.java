@@ -24,6 +24,7 @@ import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 import com.example.userregistration.Fragments.AccountFragment;
 import com.example.userregistration.Fragments.CartFragment;
 import com.example.userregistration.Fragments.HomeFragment;
+import com.example.userregistration.Fragments.SettingFragment;
 import com.example.userregistration.Model.Item;
 import com.example.userregistration.R;
 import com.example.userregistration.prevalent.Prevalent;
@@ -50,16 +51,17 @@ public class ProductDetailsActivity extends AppCompatActivity {
     ImageView detailsImageView;
     TextView detailsPrice, detailsProductaName,descriptionTextView,quantitiTextView;
     Context mcontext;
-    Button addToCartButton;
+    public Button addToCartButton;
     CartFragment cartFragment;
     FirebaseUser firebaseUser;
     HomeFragment homeFragment;
     AccountFragment accountFragment;
+    SettingFragment settingFragment;
     ViewPager viewPager;
     TabLayout tabLayout;
     BottomNavigationView mbottomNavigationView;
     String pid;
-    private ElegantNumberButton elegantNumberButton;
+    public ElegantNumberButton elegantNumberButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -120,22 +122,22 @@ public class ProductDetailsActivity extends AppCompatActivity {
         homeFragment = new HomeFragment();
         cartFragment = new CartFragment();
         accountFragment = new AccountFragment();
+        settingFragment = new SettingFragment();
         mbottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()){
                     case R.id.homeNav :
-                        Toast.makeText(ProductDetailsActivity.this, "Home Pressed", Toast.LENGTH_SHORT).show();
-
                         addFragment(homeFragment);
                         return true;
                     case R.id.accountNav:
-                        Toast.makeText(ProductDetailsActivity.this, "Account", Toast.LENGTH_SHORT).show();
                         addFragment(accountFragment);
                         return true;
                     case R.id.cartNav:
-                        Toast.makeText(ProductDetailsActivity.this, "cart", Toast.LENGTH_SHORT).show();
                         addFragment(cartFragment);
+                        return  true;
+                    case R.id.settingsNav:
+                        addFragment(settingFragment);
                         return  true;
                     default:
                         return false;
@@ -210,6 +212,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
         }
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.productDetailsActivity,fragment);
+        fragmentTransaction.addToBackStack(String.valueOf(R.id.productDetailsActivity));
         fragmentTransaction.commit();
     }
 

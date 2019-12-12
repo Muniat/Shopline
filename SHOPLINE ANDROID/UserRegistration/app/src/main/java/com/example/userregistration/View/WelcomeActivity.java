@@ -85,6 +85,7 @@ public class WelcomeActivity extends AppCompatActivity {
                         if(userData.getPassword().equals(userPasswordKey)){
                             Toast.makeText(WelcomeActivity.this, "Logged Into Account " + userPhoneKey, Toast.LENGTH_SHORT).show();
                             loadingBar.dismiss();
+                            Prevalent.currentOnlineUser = userData;
                             Intent intent = new Intent(WelcomeActivity.this,HomeActivity.class);
                             startActivity(intent);
 

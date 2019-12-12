@@ -7,10 +7,13 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 import com.example.userregistration.Fragments.AccountFragment;
 import com.example.userregistration.Fragments.CartFragment;
 import com.example.userregistration.Fragments.HomeFragment;
@@ -28,6 +31,8 @@ public class HomeActivity extends AppCompatActivity {
     AccountFragment accountFragment;
     CartFragment cartFragment;
     SettingFragment settingFragment;
+    Button addtocart;
+    ElegantNumberButton elegantNumberButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +43,9 @@ public class HomeActivity extends AppCompatActivity {
         accountFragment = new AccountFragment();
         settingFragment = new SettingFragment();
         addFragment(homeFragment);
+        addtocart = (Button) findViewById(R.id.addToCartButton);
+        elegantNumberButton = (ElegantNumberButton) findViewById(R.id.elegentNumberButton);
+
 
         mframeLayout = (FrameLayout) findViewById(R.id.mainFrame);
         mbottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNav);
@@ -47,18 +55,15 @@ public class HomeActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()){
                     case R.id.homeNav :
-                        Toast.makeText(HomeActivity.this, "Home Pressed", Toast.LENGTH_SHORT).show();
                         addFragment(homeFragment);
                         return true;
                     case R.id.accountNav:
-                        Toast.makeText(HomeActivity.this, "Account", Toast.LENGTH_SHORT).show();
                         addFragment(accountFragment);
                         return true;
                     case R.id.cartNav:
-                        Toast.makeText(HomeActivity.this, "cart", Toast.LENGTH_SHORT).show();
                         addFragment(cartFragment);
+                        return true;
                     case R.id.settingsNav:
-                        Toast.makeText(HomeActivity.this, "cart", Toast.LENGTH_SHORT).show();
                         addFragment(settingFragment);
                         return  true;
                         default:
