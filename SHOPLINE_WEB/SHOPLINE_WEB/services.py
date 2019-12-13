@@ -5,17 +5,27 @@ from .models import Product
 import pyrebase
 
 def get_products():
-
+    
+    database = firebase_key().database()
     product_list = Product.objects.all()
+   
 
-    r = requests.get('https://api.myjson.com/bins/vvjiu')
-    jsonList = r.json()
-    jsonData = jsonList['products']
+    data = []
 
-    return jsonData
+    #fetching data from the database
+    all_products = database.child("Products").get()
+    for product in all_products.each():
+        #adding each product to the list 'data'
+        data.append(product.val())
+    
+    
+
+    return data
+
 
 def firebase_key():
-
+    
+    #configuring firebase
 	config = {
     'apiKey' : "AIzaSyBd31FZCtpdRuxmkY0uiitJap1Mcet1iDA",
     'authDomain' : "registration-c3373.firebaseapp.com",

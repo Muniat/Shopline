@@ -1,12 +1,13 @@
 from django.db import models
 
+#Define your models here
+
 class Product(models.Model):
     name = models.CharField(max_length=25, default="")
-    price = models.IntegerField(default=0)
-    description = models.CharField(max_length=300, default="")
+   
+    product_id = models.AutoField
 
      
-
     def __str__(self):
         return self.name
         

@@ -12,6 +12,11 @@
   <div class="login-box">
     {% load static %}
     <a href="images/logo.png"><img src="{% static "images/logo.png" %}"></a>
+
+     <div class="textbox">
+       <input type="text" placeholder="Mobile Number" name="number" value="">
+    </div>
+
     <div class="textbox">
        <input type="text" placeholder="Email" name="email" value="">
     </div>
@@ -19,6 +24,8 @@
     <div class="textbox">
       <input type="password" placeholder="Password" name="password" value="">
     </div>
+
+   
 
    <input class="btn" type="submit" name="" value="Sign Up">
    <p>Already have an account?   <a href='{% url 'login' %}'" >Login</a></p><br><br>

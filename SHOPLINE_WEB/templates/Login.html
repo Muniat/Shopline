@@ -18,15 +18,17 @@
     {% load static %}
     <a href="images/logo.png"><img src="{% static "images/logo.png" %}"></a>
     <div class="textbox">
-       <input type="text" placeholder="Email" name="email" value="">
+       <input type="text" placeholder="Enter Phone Number" name="number" value="">
     </div>
 
     <div class="textbox">
-      <input type="password" placeholder="Password" name="password" value="">
+      <input type="password" placeholder="Enter Password" name="password" value="">
     </div>
 
    <input class="btn" type="submit" name="" value="LOGIN">
    <p>Not registered yet?   <a href='{% url 'SignUp' %}'" >SIGN UP</a></p>
+
+   <input class="btn" type="submit" name="" value="LOGIN WITH GOOGLE">
 
 
 

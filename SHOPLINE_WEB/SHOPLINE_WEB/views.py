@@ -15,7 +15,7 @@ import pprint
 
 
 authe = services.firebase_key().auth()
-
+database = services.firebase_key().database()
 
 def Login(request):
 
@@ -23,78 +23,62 @@ def Login(request):
 
    
 def postsign(request):
-
-     email = request.POST.get('email')
-     password = request.POST.get("password")
-     try:
-         #allowing only authorised users to log in to the site
-         user = authe.sign_in_with_email_and_password(email,password)
-     except:
-         msg = "Invalid Credentials"
-         return render(request, "Login.html", {"msg":msg})
-     print(user['idToken'])
-     session_id = user['idToken']
-     request.session['uid'] = str(session_id)
-
-    
-
-     data = []
      
-     jsonData = services.get_products()
-
-     for products in jsonData:
-
-        productData = {}
-
-       
-        productData['name'] = products['name']
-        productData['image'] = products['image']
-        productData['price'] = products['price']
-        productData['description'] = products['description']
-        
-        data.append(productData)
+     data = services.get_products()
      print(data)
 
      context = {'data': data}
-     return render(request,"Welcome.html",context)
+     number = request.POST.get('number')
+     password = request.POST.get("password")
+     
+     #retrieving the index numbers from the database
+     user = database.child("users").shallow().get().val()
      
 
+     list_user = []
+     for i in user:
+        #adding each user number to the list
+         list_user.append(i)
+
+    
+     #checking if the number posted exists in the database
+     if number in list_user:
+          return render(request, "Welcome.html",context)
+
+     else:   
+        message="Invalid Credentials"
+
+        return render(request,"Login.html",{"msg":message})
+
+     
 
 def SignUp(request):
     return render(request, "SignUp.html")
 
+
 def WithoutRegistration(request):
-     data = []
-     
-     jsonData = services.get_products()
-
-     for products in jsonData:
-
-        productData = {}
-
-       
-        productData['name'] = products['name']
-        productData['image'] = products['image']
-        productData['price'] = products['price']
-        productData['description'] = products['description']
-        
-        data.append(productData)
-     print(data)
-
-     context = {'data': data}
-     return render(request,"Welcome.html",context)
+    
+    data = services.get_products()
+    context = {'data': data}
+    return render(request,"Welcome.html",context)
      
 
 def postSignUp(request):
     email = request.POST.get('email')
     password = request.POST.get("password")
+    number = request.POST.get('number')
     
+    #creating users
     try:
         user = authe.create_user_with_email_and_password(email,password)
     except:
         message = "Unable to create account, please try again later"
         return render(request,"SignUp.html",{"msg":messsage})
         uid = user['localId']
+
+    data = {"email":email, "password":password, "phone":number}
+
+    database.child("users").child(number).set(data)
 
 
     return render(request, "Login.html")
@@ -104,7 +88,11 @@ def search(request):
     
 
 def productView(request):
-    return HttpResponse("we're at product view")
+    #Fetch the product using the id
+
+    data = services.get_products()
+
+    return render(request, "productView.html")
 
 
 
