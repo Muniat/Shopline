@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -22,6 +23,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.userregistration.Model.Item;
 import com.example.userregistration.R;
+import com.example.userregistration.View.ArCoreActivity;
 import com.example.userregistration.View.ProductDetailsActivity;
 import com.example.userregistration.ViewHolders.ProductViewHolder;
 import com.example.userregistration.prevalent.Prevalent;
@@ -47,6 +49,7 @@ public class HomeFragment extends Fragment {
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
     ArrayList<Item> items;
+    Button augmentedButton;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -62,6 +65,7 @@ public class HomeFragment extends Fragment {
         mRecyclerview.setHasFixedSize(true);
         mRecyclerview.setLayoutManager(new GridLayoutManager(this.getContext(),2));
         items = new ArrayList<Item>();
+        augmentedButton = (Button) rootview.findViewById(R.id.augmentedButton);
 
 
 
@@ -155,6 +159,13 @@ public class HomeFragment extends Fragment {
                         intent.putExtra("pid",item.getPid());
                         intent.putExtra("price",item.getPrice());
                         intent.putExtra("description",item.getDescription());
+                        startActivity(intent);
+                    }
+                });
+                holder.augmentedButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getActivity(), ArCoreActivity.class);
                         startActivity(intent);
                     }
                 });
