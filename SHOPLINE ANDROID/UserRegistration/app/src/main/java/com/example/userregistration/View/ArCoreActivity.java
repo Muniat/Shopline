@@ -2,6 +2,7 @@ package com.example.userregistration.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.DocumentsContract;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.userregistration.Model3D.ModelController;
 import com.example.userregistration.R;
 import com.google.ar.core.Anchor;
 import com.google.ar.sceneform.AnchorNode;
@@ -18,7 +20,8 @@ import com.google.ar.sceneform.ux.ArFragment;
 
 public class ArCoreActivity extends AppCompatActivity {
     private ArFragment arFragment;
-    private String ASSET_3D = "http://ed49757d.ngrok.io/model.gltf";
+    private String ASSET_3D_Name = "";
+    public String ASSET_3D = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +29,12 @@ public class ArCoreActivity extends AppCompatActivity {
         setContentView(R.layout.activity_ar_core);
         arFragment = (ArFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentAr);
 
-
+        Intent intent  = getIntent();
+        ASSET_3D_Name = intent.getExtras().getString("pname");
+        Toast.makeText(this, "Rendering " + ASSET_3D_Name, Toast.LENGTH_SHORT).show();
+        ModelController modelController = new ModelController(ASSET_3D_Name);
+        ASSET_3D = modelController.getASSET_3D(ASSET_3D_Name);
+        Toast.makeText(this, ASSET_3D, Toast.LENGTH_SHORT).show();
 
         arFragment.setOnTapArPlaneListener((hitResult, plane, motionEvent) -> {
             placeModel(hitResult.createAnchor());
@@ -59,4 +67,5 @@ public class ArCoreActivity extends AppCompatActivity {
         anchorNode.setRenderable(modelRenderable);
         arFragment.getArSceneView().getScene().addChild(anchorNode);
     }
+
 }

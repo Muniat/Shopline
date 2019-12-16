@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,6 +52,7 @@ public class HomeFragment extends Fragment {
     ArrayList<Item> items;
     Button augmentedButton;
 
+
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -66,7 +68,6 @@ public class HomeFragment extends Fragment {
         mRecyclerview.setLayoutManager(new GridLayoutManager(this.getContext(),2));
         items = new ArrayList<Item>();
         augmentedButton = (Button) rootview.findViewById(R.id.augmentedButton);
-
 
 
         //mRequestQueue = Volley.newRequestQueue(this.getContext());
@@ -151,7 +152,6 @@ public class HomeFragment extends Fragment {
                 holder.productNameTextView.setText(item.getPname());
                 holder.productPriceTextView.setText("Price : "+item.getPrice());
                 Picasso.with(HomeFragment.this.getContext()).load(item.getImage()).fit().centerInside().into(holder.productImageView);
-
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -165,7 +165,9 @@ public class HomeFragment extends Fragment {
                 holder.augmentedButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        String name = item.getPname();
                         Intent intent = new Intent(getActivity(), ArCoreActivity.class);
+                        intent.putExtra("pname", name);
                         startActivity(intent);
                     }
                 });
@@ -181,6 +183,7 @@ public class HomeFragment extends Fragment {
         };
         mRecyclerview.setAdapter(adapter);
         adapter.startListening();
+
 
     }
 
