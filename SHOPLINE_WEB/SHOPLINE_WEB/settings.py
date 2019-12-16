@@ -42,8 +42,24 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'SHOPLINE_WEB'
+    'SHOPLINE_WEB',
+    'django.contrib.sites',
+    'social_django',
+
+    #allauth
+    #'allauth',
+    #'allauth.account',
+    #'allauth.socialaccount',
+
+    #providers
+    #'allauth.socialaccount.providers.google',
 ]
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.google.GoogleOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+
+    )
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -53,6 +69,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'SHOPLINE_WEB.urls'
@@ -68,6 +85,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -85,6 +104,13 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '772969589089-7ddj406655ska4br014i85e2m718b3bn.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'qzeNLx2REE5GMEECYGW7zfqU'
+
+SOCIAL_AUTH__KEY = '772969589089-7ddj406655ska4br014i85e2m718b3bn.apps.googleusercontent.com'
+SOCIAL_AUTH__SECRET = 'qzeNLx2REE5GMEECYGW7zfqU'
+
 
 
 # Password validation
@@ -124,3 +150,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+SITE_ID = 1
+LOGIN_REDIRECT_URL = 'welcome'
