@@ -31,14 +31,18 @@ public class ArCoreActivity extends AppCompatActivity {
 
         Intent intent  = getIntent();
         ASSET_3D_Name = intent.getExtras().getString("pname");
-        Toast.makeText(this, "Rendering " + ASSET_3D_Name, Toast.LENGTH_SHORT).show();
         ModelController modelController = new ModelController(ASSET_3D_Name);
         ASSET_3D = modelController.getASSET_3D(ASSET_3D_Name);
         Toast.makeText(this, ASSET_3D, Toast.LENGTH_SHORT).show();
+        if(ASSET_3D == "no"){
+            Toast.makeText(this, "This product doesn't have an Augmented View", Toast.LENGTH_SHORT).show();
+        }else if(ASSET_3D != "no"){
+            arFragment.setOnTapArPlaneListener((hitResult, plane, motionEvent) -> {
+                placeModel(hitResult.createAnchor());
+            });
+        }
 
-        arFragment.setOnTapArPlaneListener((hitResult, plane, motionEvent) -> {
-            placeModel(hitResult.createAnchor());
-        });
+
 
     }
 
@@ -50,7 +54,6 @@ public class ArCoreActivity extends AppCompatActivity {
                         RenderableSource
                         .builder()
                         .setSource(this, Uri.parse(ASSET_3D), RenderableSource.SourceType.GLTF2)
-                        .setScale(0.25f)
                         .setRecenterMode(RenderableSource.RecenterMode.ROOT)
                         .build()
                 ).setRegistryId(ASSET_3D)
