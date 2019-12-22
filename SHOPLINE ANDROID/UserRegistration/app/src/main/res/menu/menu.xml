@@ -7,6 +7,10 @@
         android:icon="@drawable/home"
         android:title="@string/home" />
     <item
+        android:id="@+id/searchNav"
+        android:icon="@drawable/search"
+        android:title="Search"/>
+    <item
         android:id="@+id/cartNav"
         android:icon="@drawable/cart"
         android:title="@string/cart" />
@@ -18,4 +22,5 @@
         android:id="@+id/settingsNav"
         android:icon="@drawable/menu"
         android:title="Settings" />
+
 </menu>

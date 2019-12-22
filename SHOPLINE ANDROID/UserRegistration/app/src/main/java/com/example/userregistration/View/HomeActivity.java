@@ -17,6 +17,7 @@ import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 import com.example.userregistration.Fragments.AccountFragment;
 import com.example.userregistration.Fragments.CartFragment;
 import com.example.userregistration.Fragments.HomeFragment;
+import com.example.userregistration.Fragments.SearchFragment;
 import com.example.userregistration.Fragments.SettingFragment;
 import com.example.userregistration.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -29,6 +30,7 @@ public class HomeActivity extends AppCompatActivity {
     BottomNavigationView mbottomNavigationView;
     HomeFragment homeFragment;
     AccountFragment accountFragment;
+    SearchFragment searchFragment;
     CartFragment cartFragment;
     SettingFragment settingFragment;
     Button addtocart;
@@ -39,6 +41,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         homeFragment = new HomeFragment();
+        searchFragment = new SearchFragment();
         cartFragment = new CartFragment();
         accountFragment = new AccountFragment();
         settingFragment = new SettingFragment();
@@ -54,6 +57,9 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()){
+                    case R.id.searchNav:
+                        addFragment(searchFragment);
+                        return true;
                     case R.id.homeNav :
                         addFragment(homeFragment);
                         return true;
