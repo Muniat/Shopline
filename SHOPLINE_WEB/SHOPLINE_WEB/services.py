@@ -1,13 +1,13 @@
 import requests
 from . import views
 import json
-from .models import Product
+
 import pyrebase
 
 def get_products():
     
     database = firebase_key().database()
-    product_list = Product.objects.all()
+   #product_list = Product.objects.all()
    
 
     data = []
@@ -21,6 +21,19 @@ def get_products():
     
 
     return data
+
+def get_users():
+    database = firebase_key().database()
+    
+    user = database.child("users").shallow().get().val()
+     
+
+    list_user = []
+    for i in user:
+        #adding each user number to the list
+        list_user.append(i)
+
+    return list_user
 
 
 def firebase_key():

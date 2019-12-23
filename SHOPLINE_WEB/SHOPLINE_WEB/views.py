@@ -9,7 +9,6 @@ import json
 import requests
 from . import services
 from django.views.generic import TemplateView
-from .models import Product
 import pprint
 
 
@@ -23,34 +22,69 @@ def Login(request):
 
    
 def postsign(request):
-     
-     data = services.get_products()
-     print(data)
+     if request.method == 'GET' and 'csrfmiddlewaretoken' in request.GET:
 
-     context = {'data': data}
-     number = request.POST.get('number')
-     password = request.POST.get("password")
-     
-     #retrieving the index numbers from the database
-     user = database.child("users").shallow().get().val()
-     
+       search = request.GET.get('Search')
+       search = search.lower()
+       timestamps = database.child("Products").shallow().get().val()
+       
+       list_time = []
+       for i in timestamps:
+         list_time.append(i)
 
-     list_user = []
-     for i in user:
-        #adding each user number to the list
-         list_user.append(i)
+       pcategory = []
+       for i in timestamps:
+           category = database.child("Products").child(i).child("category").get().val()
+           category = str(category)+"$"+str(i)
+           pcategory.append(category)
+       matching =[str(string) for string in pcategory if search in string.lower()]
+
+
+       s_category = []
+       s_id = [] 
+
+       for i in matching:
+          category,ids=i.split("$")
+          s_category.append(category)
+          s_id.append(ids)
+       
+
+       print(s_category)
+       data = services.get_products()
+    
+       
+
+       return render(request, "result.html",{'category':s_category, 'data':data})
+
+
+
+     else:
+        data = services.get_products()
+        print(data)
+
+        #context = {'data': data}
+        number = request.POST.get('number')
+        password = request.POST.get("password")
+     
+        list_user = services.get_users()
 
     
-     #checking if the number posted exists in the database
-     if number in list_user:
-          return render(request, "Welcome.html",context)
+        #checking if the number posted exists in the database
+        if number in list_user:
+             return render(request, "Welcome.html",{'data':data})
 
-     else:   
-        message="Invalid Credentials"
+        else:   
+           message="Invalid Credentials"
 
-        return render(request,"Login.html",{"msg":message})
+           return render(request,"Login.html",{"msg":message})
+        
+
 
      
+
+     
+
+
 
 def SignUp(request):
     return render(request, "SignUp.html")
@@ -60,7 +94,7 @@ def WithoutRegistration(request):
     
     data = services.get_products()
     context = {'data': data}
-    return render(request,"Welcome.html",context)
+    return render(request,"withoutReg.html",context)
      
 
 def postSignUp(request):
@@ -82,9 +116,6 @@ def postSignUp(request):
 
 
     return render(request, "Login.html")
-
-def search(request):
-    return HttpResponse("we're at search")
     
 
 def productView(request):
@@ -98,6 +129,22 @@ def productView(request):
 
 def checkout(request):
     return HttpResponse("we're at checkout")
+
+def cart(request):
+    #print(request.session)
+    #print(dir(request.session))
+    #key = request.session.session_key
+    #print(key)
+    #request.session.set_expiry(300)
+    cart_id = request.session.get("cart_id",None)
+    if cart_id is None: #and isinstance(cart_id,int):
+        pass
+        print('create new cart')
+        request.session['cart_id'] = 12 #SET
+    else:
+        print('Cart ID exists')
+    #print (request.session.get("first_name", "Unknown"))
+    return render(request,"cart.html",{})
 
 
 
